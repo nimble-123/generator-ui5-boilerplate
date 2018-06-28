@@ -13,7 +13,7 @@ npm install -g generator-ui5-boilerplate
 Then generate your new project:
 
 ```bash
-yo ui-5-simple-app
+yo ui5-boilerplate
 ```
 
 ## Getting To Know Yeoman
