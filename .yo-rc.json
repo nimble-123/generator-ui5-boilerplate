@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Nils Lutz",
+      "authorEmail": "info@nilslutz.de",
+      "authorUrl": ""
+    }
+  }
+}
