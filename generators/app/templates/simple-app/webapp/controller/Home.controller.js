@@ -1,9 +1,25 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
+	'<%= projectNamespaceAMD %>/controller/BaseController',
 ], function(Controller) {
 	"use strict";
 
-	return Controller.extend("io.nlsltz.simpleApp.controller.Home", {
+	return BaseController.extend("<%= projectNamespace %>.controller.Home", {
+
+		onInit: function() {
+
+		},
+
+		onBeforeRendering: function() {
+
+		},
+
+		onAfterRendering: function() {
+
+		},
+
+		onExit: function() {
+
+		}
 
 	});
 });

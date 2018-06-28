@@ -1,9 +1,21 @@
 {
-  "name": "io.nlsltz.simpleApp",
+  "name": "<%= projectName %>",
   "version": "0.0.1",
-  "description": "",
+  "description": "<%= projectDescription %>",
   "private": true,
+  "author": "<%= author %> <<%= authorEmail %>>",
+  "repository" : { "type" : "git" , "url" : "<%= gitRepository %>.git"},
+  "bugs": {
+    "url": "<%= gitRepository %>/issues"
+  },
+  "homepage": "<%= gitRepository %>.git#readme",
+  "scripts": {
+    "build": "grunt",
+    "test": "grunt unit_and_integration_tests",
+    "deploy": "grunt deploy"
+  },
   "devDependencies": {
-    "@sap/grunt-sapui5-bestpractice-build": "1.3.56"
+    "@sap/grunt-sapui5-bestpractice-build": "^1.3.56",
+    "@sap/grunt-sapui5-bestpractice-test": "^0.0.1"
   }
 }

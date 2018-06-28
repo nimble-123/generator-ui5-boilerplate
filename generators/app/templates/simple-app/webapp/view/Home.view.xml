@@ -1,4 +1,4 @@
-<mvc:View controllerName="io.nlsltz.simpleApp.controller.Home" xmlns:html="http://www.w3.org/1999/xhtml"
+<mvc:View controllerName="<%= projectNamespace %>.controller.Home" xmlns:html="http://www.w3.org/1999/xhtml"
 	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
 	<App id="idAppControl">
 		<pages>

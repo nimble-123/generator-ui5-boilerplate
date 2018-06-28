@@ -30,7 +30,7 @@ module.exports = class extends Generator {
           },
           {
             name: 'Master/Detail App',
-            value: 'm/d-app'
+            value: 'master-detail-app'
           }
         ]
       },
@@ -135,14 +135,18 @@ module.exports = class extends Generator {
       projectPath: sProjectPath
     };
 
+    this.currentWorkingDir = oProps.projectPath;
+
     switch (sProjectType) {
       case 'simple-app':
         // Create simple app template
         this._createTemplateSimpleApp(oProps);
+        this._createTemplateDocs(oProps);
         break;
-      case 'm/d-app':
+      case 'master-detail-app':
         // TODO: create master/detail app template
-        // this._createTemplateMasterDetailApp(oProps);
+        this._createTemplateMasterDetailApp(oProps);
+        this._createTemplateDocs(oProps);
         break;
 
       default:
@@ -166,14 +170,34 @@ module.exports = class extends Generator {
    * Copies relevant artifacts for master/detail app
    * @param  {Object} oProps properties used in template
    */
-  _createTemplateMasterDetailApp(oProps) {}
+  _createTemplateMasterDetailApp(oProps) {
+    this.fs.copyTpl(
+      this.templatePath('master-detail-app/**/*'),
+      this.destinationPath(`${oProps.projectPath}/`),
+      oProps
+    );
+  }
+
+  /**
+   * Copies relevant artifacts for documentation
+   * @param  {Object} oProps properties used in template
+   */
+  _createTemplateDocs(oProps) {
+    this.fs.copyTpl(
+      this.templatePath('docs/**/*'),
+      this.destinationPath(`${oProps.projectPath}/docs/`),
+      oProps
+    );
+  }
 
   install() {
-    this.npmInstall(null, {}, { cwd: 'webclient' });
-    this.installDependencies({
-      bower: false,
-      npm: true,
-      yarn: false
-    }).then(() => console.log(yosay('Everything is set up!')));
+    this.npmInstall(null, {}, { cwd: this.currentWorkingDir }).then(() =>
+      console.log(yosay('Everything is set up!'))
+    );
+    // this.installDependencies({
+    //   bower: false,
+    //   npm: true,
+    //   yarn: false
+    // }).then(() => console.log(yosay('Everything is set up!')));
   }
 };
