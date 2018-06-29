@@ -1,19 +1,26 @@
 {
   "name": "generator-ui5-boilerplate",
-  "version": "0.0.0",
-  "description": "Generator Ui5 simple app",
-  "homepage": "",
+  "version": "0.1.0",
+  "description": "Generator for UI5 project boilerplate incl. documentation",
+  "homepage": "https://github.com/nlsltz/generator-ui5-boilerplate",
   "author": {
     "name": "Nils Lutz",
     "email": "info@nilslutz.de",
-    "url": ""
+    "url": "https://nilslutz.de"
   },
   "files": [
     "generators"
   ],
   "main": "generators/index.js",
   "keywords": [
-    "",
+    "ui5",
+    "openui5",
+    "sapui5",
+    "boilerplate",
+    "docsify",
+    "scaffold",
+    "javascript",
+    "sap",
     "yeoman-generator"
   ],
   "devDependencies": {
@@ -78,6 +85,9 @@
       "prettier"
     ]
   },
-  "repository": "nlsltz/generator-ui5-boilerplate",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nlsltz/generator-ui5-boilerplate"
+  },
   "license": "MIT"
 }
