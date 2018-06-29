@@ -4,7 +4,10 @@
   "description": "<%= projectDescription %>",
   "private": true,
   "author": "<%= projectAuthor %> <<%= projectAuthorEmail %>>",
-  "repository" : { "type" : "git" , "url" : "<%= gitRepository %>.git"},
+  "repository": {
+    "type": "git",
+    "url": "<%= gitRepository %>.git"
+  },
   "bugs": {
     "url": "<%= gitRepository %>/issues"
   },
@@ -17,5 +20,11 @@
   "devDependencies": {
     "@sap/grunt-sapui5-bestpractice-build": "^1.3.58",
     "@sap/grunt-sapui5-bestpractice-test": "^0.0.1"
+  },
+  "dependencies": {
+    "@openui5/sap.m": "^<%= minimumVersion %>",
+    "@openui5/sap.ui.core": "^<%= minimumVersion %>",
+    "@openui5/sap.ui.layout": "^<%= minimumVersion %>",
+    "@openui5/themelib_sap_belize": "^<%= minimumVersion %>"
   }
 }
