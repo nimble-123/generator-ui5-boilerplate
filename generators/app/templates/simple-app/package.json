@@ -20,11 +20,5 @@
   "devDependencies": {
     "@sap/grunt-sapui5-bestpractice-build": "^1.3.58",
     "@sap/grunt-sapui5-bestpractice-test": "^0.0.1"
-  },
-  "dependencies": {
-    "@openui5/sap.m": "^<%= minimumUI5Version %>",
-    "@openui5/sap.ui.core": "^<%= minimumUI5Version %>",
-    "@openui5/sap.ui.layout": "^<%= minimumUI5Version %>",
-    "@openui5/themelib_sap_belize": "^<%= minimumUI5Version %>"
   }
 }
