@@ -4,7 +4,7 @@
 
 ## What is it
 
-Kinda master detail application, but different 🖥 :bowtie:
+Kinda <%= projectType %>, but different 🖥 :bowtie:
 
 ## Features
 
@@ -14,4 +14,4 @@ Kinda master detail application, but different 🖥 :bowtie:
 
 ## Examples
 
-Check out the [Showcase](http://bit.ly/2FMsGoY) to admin layout in use.
+Check out the [Showcase](http://bit.ly/2FMsGoY) to <%= projectType %> in use.
