@@ -310,7 +310,6 @@ module.exports = class extends Generator {
     return this.prompt(questions).then(answers => {
       // To access props later use this.answers.someAnswer;
       this.answers = answers;
-      this.log(answers);
     });
   }
 
@@ -323,6 +322,7 @@ module.exports = class extends Generator {
     const sMinimumUI5Version = this.answers.minimumUI5Version;
     const sProjectRepository = this.answers.projectRepository;
     const sProjectOwner = this.answers.projectOwner;
+    const sGitRepository = 'https://github.com/' + sProjectOwner + '/' + sProjectRepository;
     const sProjectAuthor = this.answers.projectAuthor;
     const sProjectAuthorEmail = this.answers.projectAuthorEmail;
     const sProjectPath = sProjectName.split('.').join('-');
@@ -363,11 +363,12 @@ module.exports = class extends Generator {
       minimumUI5Version: sMinimumUI5Version,
       projectRepository: sProjectRepository,
       projectOwner: sProjectOwner,
-      gitRepository: 'https://github.com/' + sProjectOwner + '/' + sProjectRepository,
+      gitRepository: sGitRepository,
       projectAuthor: sProjectAuthor,
       projectAuthorEmail: sProjectAuthorEmail,
       projectPath: sProjectPath,
       libSource: sLibSource,
+      libsUsed: aLibsUsed,
       devPackage: sDevPackage,
       bspContainer: sBspContainer,
       bspContainerText: sBspContainerText,
@@ -413,21 +414,28 @@ module.exports = class extends Generator {
     }
 
     // Add dependencies
+    this._createTemplateDependencies(oProps);
+
+    // Save cwd for npm install task
+    this.currentWorkingDir = oProps.projectPath;
+  }
+
+  /**
+   * Create relevant dependencies for boilerplate project
+   * @param  {Object} oProps properties used in template
+   */
+  _createTemplateDependencies(oProps) {
     const pkgJson = {
       devDependencies: {},
       dependencies: {}
     };
-    aLibsUsed.forEach(lib => {
-      pkgJson.dependencies['@openui5/' + lib] = sMinimumUI5Version;
+    oProps.libsUsed.forEach(lib => {
+      pkgJson.dependencies['@openui5/' + lib] = oProps.minimumUI5Version;
     });
-    this.log(pkgJson);
     this.fs.extendJSON(
       this.destinationPath(`${oProps.projectPath}/package.json`),
       pkgJson
     );
-
-    // Save cwd for npm install task
-    this.currentWorkingDir = oProps.projectPath;
   }
 
   /**
@@ -472,10 +480,18 @@ module.exports = class extends Generator {
     );
   }
 
+  /**
+   * Install relevant dependencies
+   * @param  {Object} oProps properties used in template
+   */
   install() {
     this.npmInstall(null, {}, { cwd: this.currentWorkingDir });
   }
 
+  /**
+   * Success message
+   * @param  {Object} oProps properties used in template
+   */
   end() {
     this.log(
       yosay(
