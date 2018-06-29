@@ -6,9 +6,9 @@ The following sections list app-specific data required to configure the app:
 
 The ICF nodes for the following SAPUI5 application must be activated on the front-end server:
 
-| Component           | Technical Name | Path to ICF Node                   | SAP UI5 Component            |
-|:--------------------|:---------------|:-----------------------------------|:-----------------------------|
-| SAP UI5 Application | NW_APS_APJ     | /sap/bc/ui5_ui5/sap/nw_aps_apj     | nw.core.appjobs              |
+| Component           | Technical Name      | Path to ICF Node                        | SAP UI5 Component            |
+|:--------------------|:--------------------|:----------------------------------------|:-----------------------------|
+| SAP UI5 Application | <%= bspContainer %> | /sap/bc/ui5_ui5/sap/<%= bspContainer %> | <%= projectNamespace %>      |
 
 ## OData Service(s)
 
@@ -16,9 +16,7 @@ The following OData services must be activated on the front-end server. Users re
 
 | OData Service                  | Version | Back-End Authorization Role (PFCG) |
 |:-------------------------------|:--------|:-----------------------------------|
-| APJ_JOB_MANAGEMENT_SRV         | 0001    | SAP_BCR_SCM_MRPRUN                 |
-| APJ_JOB_MANAGEMENT_SRV*        |         | SAP_BCR_CORE_APJ                   |
-*Added automatically due to dependencies
+| <%= oDataService %>            | 0001    | <%= pfcgRole %>                    |
 
 ## SAP Fiori Launchpad
 
@@ -28,32 +26,32 @@ You require the following data to give users access to the app in the SAP Fiori 
 
 | Key                        | Value                        |
 |:---------------------------|:-----------------------------|
-| **Technical Catalog**      | SAP_TC_COMMON                |
-| **SAPUI5 Application**     | NW_APS_APJ                   |
+| **Technical Catalog**      | <%= businessCatalog %>       |
+| **SAPUI5 Application**     | <%= bspContainer %>          |
 
 ### Target Mapping(s)
 
 | Semantic Object            | Semantic Action              | Parameter Key | Parameter Value |
 |:---------------------------|:-----------------------------|:--------------|:----------------|
-| ApplicationJob             | show                         |               |                 |
+| <%= semanticObject %>      | <%= semanticObjectAction %>  |               |                 |
 
 ### Business Catalog(s)
 
 | Catalog Name                        | Catalog Description                  |
 |:------------------------------------|:-------------------------------------|
-| SAP_CMD_BC_SUPPLIER_BLK_PC          | Data Privacy - Supplier Master       |
+| <%= businessCatalog %>              | <%= businessCatalogText %>           |
 
 ### Business Group(s)
 
 | Business Group                      | Group Description                    |
 |:------------------------------------|:-------------------------------------|
-| SAP_CMD_BCG_DP_PC                   | Data Privacy                         |
+| <%= businessGroup %>                | <%= businessGroupText %>             |
 
 ### Business Role(s)
 
 | Role Name                           | Role Description                     |
 |:------------------------------------|:-------------------------------------|
-| SAP_BR_DATA_PRIVACY_SPECIALIST      | Data Privacy Specialist              |
+| <%= businessRole %>                 | <%= businessRoleText %>              |
 
 ### Search Connector
 

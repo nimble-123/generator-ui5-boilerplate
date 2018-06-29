@@ -1,6 +1,6 @@
-## UI5 Demo Admin Layout
+## <%= projectName %>
 
-> A simple UI5 application demo.
+> <%= projectDescription %>
 
 ## What is it
 
@@ -8,7 +8,7 @@ Kinda master detail application, but different 🖥 :bowtie:
 
 ## Features
 
-* Administration Layout
+* <%= projectType %>
 * Simple and understandable
 * Not only usable for administration tasks!
 
