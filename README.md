@@ -1,5 +1,5 @@
 # generator-ui5-boilerplate [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
-> Generator UI5 simple app
+> Generator UI5 Boilerplate
 
 ## Installation
 
