@@ -23,6 +23,14 @@ yo ui5-boilerplate
  * Yeoman can be too opinionated at times but is easily convinced not to be.
  * Feel free to [learn more about Yeoman](http://yeoman.io/).
 
+## TODO
+
+ * Add Master/Detail app template
+ * Add Flexible Column Layout app template
+ * Add sub generators for views/controllers
+ * Add option to read metadata file from provided OData-Service
+ * Add further tests for right file content
+
 ## License
 
 MIT © [Nils Lutz]()
