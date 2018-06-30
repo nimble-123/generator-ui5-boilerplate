@@ -56,7 +56,7 @@ module.exports = class extends Generator {
         type: 'input',
         name: 'projectRepository',
         message: 'What is the git repository name?',
-        default: 'io-nlsltz-ui5-simple-app'
+        default: 'io-nlsltz-ui5-myproject'
       },
       {
         type: 'input',
@@ -322,7 +322,8 @@ module.exports = class extends Generator {
     const sMinimumUI5Version = this.answers.minimumUI5Version;
     const sProjectRepository = this.answers.projectRepository;
     const sProjectOwner = this.answers.projectOwner;
-    const sGitRepository = 'https://github.com/' + sProjectOwner + '/' + sProjectRepository;
+    const sGitRepository =
+      'https://github.com/' + sProjectOwner + '/' + sProjectRepository;
     const sProjectAuthor = this.answers.projectAuthor;
     const sProjectAuthorEmail = this.answers.projectAuthorEmail;
     const sProjectPath = sProjectName.split('.').join('-');
@@ -404,7 +405,7 @@ module.exports = class extends Generator {
         this._createTemplateDocs(oProps);
         break;
       case 'master-detail-app':
-        // TODO: create master/detail app template
+        // Create master/detail app template
         this._createTemplateMasterDetailApp(oProps);
         this._createTemplateDocs(oProps);
         break;
