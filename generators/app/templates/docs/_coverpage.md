@@ -8,6 +8,6 @@
 * Simple and understandable
 
 [Source Code](https://github.com/<%= gitRepository %>)
-[Get Started](#<%= projectNamespaceAMD %>)
+[Get Started](#<%= projectPath %>)
 
 ![color](#FFFFFF)

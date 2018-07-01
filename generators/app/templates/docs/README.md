@@ -1,4 +1,4 @@
-## <%= projectName %>
+## <%= projectPath %>
 
 > <%= projectDescription %>
 
