@@ -78,12 +78,12 @@
 				"clearControlAggregation": false
 			},
 			"routes": [{
-				"name": "RouteHome",
-				"pattern": "RouteHome",
-				"target": ["TargetHome"]
+				"name": "home",
+				"pattern": "",
+				"target": ["home"]
 			}],
 			"targets": {
-				"TargetHome": {
+				"home": {
 					"viewType": "XML",
 					"transition": "slide",
 					"clearControlAggregation": false,
