@@ -107,11 +107,11 @@ module.exports = class extends Generator {
         choices: [
           {
             name: 'OpenUI5',
-            value: 'https://openui5.hana.ondemand.com/'
+            value: 'https://openui5.hana.ondemand.com'
           },
           {
             name: 'SAPUI5',
-            value: 'https://sapui5.hana.ondemand.com/'
+            value: 'https://sapui5.hana.ondemand.com'
           }
         ],
         default: 0
