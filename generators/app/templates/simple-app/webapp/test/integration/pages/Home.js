@@ -9,7 +9,7 @@ sap.ui.require([
 ], function (Opa5, Common, AggregationLengthEquals, PropertyStrictEquals, Properties, EnterText, Press) {
 	"use strict";
 
-	var sViewName = "<%= projectNamespace %>.view.Home";
+	//var sViewName = "<%= projectNamespace %>.view.Home";
 
 	Opa5.createPageObjects({
 		onTheAppPage: {
