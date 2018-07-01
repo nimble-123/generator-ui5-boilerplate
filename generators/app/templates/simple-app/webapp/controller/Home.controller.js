@@ -1,6 +1,6 @@
 sap.ui.define([
-	'<%= projectNamespaceAMD %>/controller/Base',
-], function(Controller) {
+	'<%= projectNamespaceAMD %>/controller/BaseController',
+], function(BaseController) {
 	"use strict";
 
 	return BaseController.extend("<%= projectNamespace %>.controller.Home", {
