@@ -25,6 +25,7 @@ yo ui5-boilerplate
 
 ## TODO
 
+ * Add unit and integration tests for template
  * Add Master/Detail app template
  * Add Flexible Column Layout app template
  * Add sub generators for views/controllers
