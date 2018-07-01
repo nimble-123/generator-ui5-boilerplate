@@ -1,7 +1,15 @@
 language: node_js
+
 node_js:
-- stable
-before_install:
-- npm i -g npm@5.6.0
+  - 'stable'
+
 before_deploy:
-- grunt deploy
+  - npm run build
+
+deploy:
+  provider: script
+  script:
+    - 'echo "TODO: deploy the app. Directory listing:" && ls -R dist'
+  skip_cleanup: true
+  on:
+    branch: master

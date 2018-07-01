@@ -86,10 +86,10 @@ Temporary Items
 
 # Build files
 dist/
+/dist/
 *-archive.zip
 
 # SAP WebIDE files
 .che/
-/dist/
 /webapp/extended_runnable_file.html
 extended_runnable_file.html
