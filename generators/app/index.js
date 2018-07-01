@@ -304,6 +304,177 @@ module.exports = class extends Generator {
         name: 'nwSysPassword',
         message: 'What is the password for the deployment user?',
         default: 'Appl1ance'
+      },
+      {
+        type: 'confirm',
+        name: 'businessInformations',
+        message: 'Do you want to add business/documentation information?',
+        default: false
+      },
+      {
+        when: function(answers) {
+          return answers.businessInformations === true;
+        },
+        type: 'input',
+        name: 'businessRole',
+        message: 'Which business role will be using this application? (Technical name)',
+        default: 'Appl1ance'
+      },
+      {
+        when: function(answers) {
+          return answers.businessInformations === true;
+        },
+        type: 'input',
+        name: 'businessRoleText',
+        message: 'What is the description of this business role?',
+        default: 'Appl1ance'
+      },
+      {
+        when: function(answers) {
+          return answers.businessInformations === true;
+        },
+        type: 'input',
+        name: 'businessGroup',
+        message: 'Which business group will this application belong to? (Technical name)',
+        default: 'Appl1ance'
+      },
+      {
+        when: function(answers) {
+          return answers.businessInformations === true;
+        },
+        type: 'input',
+        name: 'businessGroupText',
+        message: 'What is the description of this business group?',
+        default: 'Appl1ance'
+      },
+      {
+        when: function(answers) {
+          return answers.businessInformations === true;
+        },
+        type: 'input',
+        name: 'businessCatalog',
+        message:
+          'Which business catalog will this application belong to? (Technical name)',
+        default: 'Appl1ance'
+      },
+      {
+        when: function(answers) {
+          return answers.businessInformations === true;
+        },
+        type: 'input',
+        name: 'businessCatalogText',
+        message: 'What is the description of this business catalog?',
+        default: 'Appl1ance'
+      },
+      {
+        when: function(answers) {
+          return answers.businessInformations === true;
+        },
+        type: 'input',
+        name: 'semanticObject',
+        message: 'Which semantic object is used for intent navigation? (Technical name)',
+        default: 'Appl1ance'
+      },
+      {
+        when: function(answers) {
+          return answers.businessInformations === true;
+        },
+        type: 'input',
+        name: 'semanticObjectAction',
+        message: 'Which action of the semantic object is used?',
+        default: 'Appl1ance'
+      },
+      {
+        when: function(answers) {
+          return answers.businessInformations === true;
+        },
+        type: 'input',
+        name: 'oDataService',
+        message: 'Which OData service is used by this application? (Technical name)',
+        default: 'Appl1ance'
+      },
+      {
+        when: function(answers) {
+          return answers.businessInformations === true;
+        },
+        type: 'input',
+        name: 'pfcgRole',
+        message:
+          'Which PFCG role is needed to access the OData service? (Technical name)',
+        default: 'Appl1ance'
+      },
+      {
+        when: function(answers) {
+          return answers.businessInformations === true;
+        },
+        type: 'input',
+        name: 'frontendProductVersion',
+        message: 'Which frontend product version is required?',
+        default: 'Appl1ance'
+      },
+      {
+        when: function(answers) {
+          return answers.businessInformations === true;
+        },
+        type: 'input',
+        name: 'frontendSPS',
+        message: 'Which frontend support package stack is required?',
+        default: 'Appl1ance'
+      },
+      {
+        when: function(answers) {
+          return answers.businessInformations === true;
+        },
+        type: 'input',
+        name: 'frontendSCV',
+        message: 'Which frontend software component version is required?',
+        default: 'Appl1ance'
+      },
+      {
+        when: function(answers) {
+          return answers.businessInformations === true;
+        },
+        type: 'input',
+        name: 'backendProductVersion',
+        message: 'Which backend product version is required?',
+        default: 'Appl1ance'
+      },
+      {
+        when: function(answers) {
+          return answers.businessInformations === true;
+        },
+        type: 'input',
+        name: 'backendSPS',
+        message: 'Which backend support package stack is required?',
+        default: 'Appl1ance'
+      },
+      {
+        when: function(answers) {
+          return answers.businessInformations === true;
+        },
+        type: 'input',
+        name: 'backendSCV',
+        message: 'Which backend software component version is required?',
+        default: 'Appl1ance'
+      },
+      {
+        when: function(answers) {
+          return answers.businessInformations === true;
+        },
+        type: 'input',
+        name: 'applicationComponent',
+        message:
+          'Which application component is used by this application? (Technical name)',
+        default: 'Appl1ance'
+      },
+      {
+        when: function(answers) {
+          return answers.businessInformations === true;
+        },
+        type: 'input',
+        name: 'applicationComponentText',
+        message: 'What is the description of this application component?',
+        default: 'Appl1ance'
       }
     ];
 
