@@ -1,5 +1,5 @@
-# generator-ui5-boilerplate [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
-> Generator UI5 Boilerplate
+# UI5 Boilerplate Generator [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+> This generator is meant for use with Yeoman
 
 ## Installation
 
@@ -10,9 +10,10 @@ npm install -g yo
 npm install -g generator-ui5-boilerplate
 ```
 
-Then generate your new project:
+Navigate to your workspace directory and then generate your new project. The generator will ask you a bunch of questions to build a comprehensive boilerplate project for you.
 
 ```bash
+cd ~/workspace
 yo ui5-boilerplate
 ```
 
@@ -31,10 +32,11 @@ yo ui5-boilerplate
  * Add sub generators for views/controllers
  * Add option to read metadata file from provided OData-Service
  * Add further tests for right file content
+ * Add select questions for documentation purposes (All SAP Roles, ...)
 
 ## License
 
-MIT © [Nils Lutz]()
+MIT © [Nils Lutz](nilslutz.de)
 
 
 [npm-image]: https://badge.fury.io/js/generator-ui5-boilerplate.svg
