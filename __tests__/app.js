@@ -45,73 +45,243 @@ describe('generator-ui5-boilerplate:app', () => {
     });
   });
 
-  it('creates project meta files', () => {
+  it('creates ui5 tooling descriptor', () => {
+    assert.file(['io-ui5lab-nl-myProject/ui5.yaml']);
+  });
+
+  it('creates repository README', () => {
+    assert.file(['io-ui5lab-nl-myProject/README.md']);
+  });
+
+  it('creates package.json', () => {
+    assert.file(['io-ui5lab-nl-myProject/package.json']);
+  });
+
+  it('creates SCP UI5 resources destination file', () => {
+    assert.file(['io-ui5lab-nl-myProject/neo-app.json']);
+  });
+
+  it('creates LICENSE file', () => {
+    assert.file(['io-ui5lab-nl-myProject/LICENSE']);
+  });
+
+  it('creates Karma configuration files', () => {
     assert.file([
-      'io-ui5lab-nl-myProject/ui5.yaml',
-      'io-ui5lab-nl-myProject/README.md',
-      'io-ui5lab-nl-myProject/package.json',
-      'io-ui5lab-nl-myProject/neo-app.json',
-      'io-ui5lab-nl-myProject/LICENSE',
       'io-ui5lab-nl-myProject/karma.conf.js',
-      'io-ui5lab-nl-myProject/karma-ci.conf.js',
-      'io-ui5lab-nl-myProject/.travis.yml',
-      'io-ui5lab-nl-myProject/.npmrc',
-      'io-ui5lab-nl-myProject/.gitignore',
-      'io-ui5lab-nl-myProject/.eslintrc',
-      'io-ui5lab-nl-myProject/.eslintignore',
-      'io-ui5lab-nl-myProject/.editorconfig',
-      'io-ui5lab-nl-myProject/.che/project.json'
+      'io-ui5lab-nl-myProject/karma-ci.conf.js'
     ]);
   });
 
-  it('creates project files', () => {
+  it('creates Travis CI configuration file', () => {
+    assert.file(['io-ui5lab-nl-myProject/.travis.yml']);
+  });
+
+  it('creates npm destination for SAP packages', () => {
+    assert.file(['io-ui5lab-nl-myProject/.npmrc']);
+  });
+
+  it('creates gitignore file', () => {
+    assert.file(['io-ui5lab-nl-myProject/.gitignore']);
+  });
+
+  it('creates ESLint rules file', () => {
+    assert.file(['io-ui5lab-nl-myProject/.eslintrc']);
+  });
+
+  it('creates ESLint ignore file', () => {
+    assert.file(['io-ui5lab-nl-myProject/.eslintignore']);
+  });
+
+  it('creates editor configuration file', () => {
+    assert.file(['io-ui5lab-nl-myProject/.editorconfig']);
+  });
+
+  it('creates ui5 app descriptor', () => {
+    assert.file(['io-ui5lab-nl-myProject/webapp/manifest.json']);
+  });
+
+  it('creates entry point for standalone version', () => {
+    assert.file(['io-ui5lab-nl-myProject/webapp/index.html']);
+  });
+
+  it('creates UI component', () => {
+    assert.file(['io-ui5lab-nl-myProject/webapp/Component.js']);
+  });
+
+  it('creates BaseController.js', () => {
+    assert.file(['io-ui5lab-nl-myProject/webapp/controller/BaseController.js']);
+  });
+
+  it('creates Home.controller.js', () => {
+    assert.file(['io-ui5lab-nl-myProject/webapp/controller/Home.controller.js']);
+  });
+
+  it('creates style.css', () => {
+    assert.file(['io-ui5lab-nl-myProject/webapp/css/style.css']);
+  });
+
+  it('creates i18n.properties', () => {
+    assert.file(['io-ui5lab-nl-myProject/webapp/i18n/i18n.properties']);
+  });
+
+  it('creates formatter.js', () => {
+    assert.file(['io-ui5lab-nl-myProject/webapp/model/formatter.js']);
+  });
+
+  it('creates models.js', () => {
+    assert.file(['io-ui5lab-nl-myProject/webapp/model/models.js']);
+  });
+
+  it('creates Home.view.xml', () => {
+    assert.file(['io-ui5lab-nl-myProject/webapp/view/Home.view.xml']);
+  });
+
+  it('creates git placeholder for dialogs folder', () => {
+    assert.file(['io-ui5lab-nl-myProject/webapp/view/dialogs/.gitkeep']);
+  });
+
+  it('creates git placeholder for fragments folder', () => {
+    assert.file(['io-ui5lab-nl-myProject/webapp/view/fragments/.gitkeep']);
+  });
+
+  it('creates project docs', () => {
+    assert.file(['io-ui5lab-nl-myProject/docs/sw.js']);
+  });
+
+  it('creates project docs', () => {
+    assert.file(['io-ui5lab-nl-myProject/docs/README.md']);
+  });
+
+  it('creates project docs', () => {
+    assert.file(['io-ui5lab-nl-myProject/docs/index.html']);
+  });
+
+  it('creates project docs', () => {
+    assert.file(['io-ui5lab-nl-myProject/docs/.nojekyll']);
+  });
+
+  it('creates project docs', () => {
+    assert.file(['io-ui5lab-nl-myProject/docs/_sidebar.md']);
+  });
+
+  it('creates project docs', () => {
+    assert.file(['io-ui5lab-nl-myProject/docs/_navbar.md']);
+  });
+
+  it('creates project docs', () => {
+    assert.file(['io-ui5lab-nl-myProject/docs/_coverpage.md']);
+  });
+
+  it('creates project docs', () => {
     assert.file([
-      'io-ui5lab-nl-myProject/webapp/manifest.json',
-      'io-ui5lab-nl-myProject/webapp/index.html',
-      'io-ui5lab-nl-myProject/webapp/Component.js',
-      'io-ui5lab-nl-myProject/webapp/controller/BaseController.js',
-      'io-ui5lab-nl-myProject/webapp/controller/Home.controller.js',
-      'io-ui5lab-nl-myProject/webapp/css/style.css',
-      'io-ui5lab-nl-myProject/webapp/i18n/i18n.properties',
-      'io-ui5lab-nl-myProject/webapp/model/formatter.js',
-      'io-ui5lab-nl-myProject/webapp/model/models.js',
-      'io-ui5lab-nl-myProject/webapp/view/Home.view.xml',
-      'io-ui5lab-nl-myProject/webapp/view/dialogs/.gitkeep',
-      'io-ui5lab-nl-myProject/webapp/view/fragments/.gitkeep'
+      'io-ui5lab-nl-myProject/docs/_coverpage.md',
+      'io-ui5lab-nl-myProject/docs/implementation_information/configuration.md'
     ]);
   });
 
   it('creates project docs', () => {
     assert.file([
-      'io-ui5lab-nl-myProject/docs/sw.js',
-      'io-ui5lab-nl-myProject/docs/README.md',
-      'io-ui5lab-nl-myProject/docs/index.html',
-      'io-ui5lab-nl-myProject/docs/.nojekyll',
-      'io-ui5lab-nl-myProject/docs/_sidebar.md',
-      'io-ui5lab-nl-myProject/docs/_navbar.md',
-      'io-ui5lab-nl-myProject/docs/_coverpage.md',
-      'io-ui5lab-nl-myProject/docs/implementation_information/configuration.md',
-      'io-ui5lab-nl-myProject/docs/implementation_information/extensibility.md',
-      'io-ui5lab-nl-myProject/docs/implementation_information/installation.md',
-      'io-ui5lab-nl-myProject/docs/implementation_information/related_apps.md',
-      'io-ui5lab-nl-myProject/docs/implementation_information/sap_notes.md',
-      'io-ui5lab-nl-myProject/docs/implementation_information/support.md',
-      'io-ui5lab-nl-myProject/docs/media/theme.css',
-      'io-ui5lab-nl-myProject/docs/media/ui5-logo.png',
-      'io-ui5lab-nl-myProject/docs/product_features/general_data.md',
-      'io-ui5lab-nl-myProject/docs/product_features/key_features.md',
-      'io-ui5lab-nl-myProject/docs/de-de/README.md',
-      'io-ui5lab-nl-myProject/docs/de-de/_sidebar.md',
-      'io-ui5lab-nl-myProject/docs/de-de/_navbar.md',
-      'io-ui5lab-nl-myProject/docs/de-de/_coverpage.md',
-      'io-ui5lab-nl-myProject/docs/de-de/implementation_information/configuration.md',
-      'io-ui5lab-nl-myProject/docs/de-de/implementation_information/extensibility.md',
-      'io-ui5lab-nl-myProject/docs/de-de/implementation_information/installation.md',
-      'io-ui5lab-nl-myProject/docs/de-de/implementation_information/related_apps.md',
-      'io-ui5lab-nl-myProject/docs/de-de/implementation_information/sap_notes.md',
-      'io-ui5lab-nl-myProject/docs/de-de/implementation_information/support.md',
-      'io-ui5lab-nl-myProject/docs/de-de/product_features/general_data.md',
-      'io-ui5lab-nl-myProject/docs/de-de/product_features/key_features.md'
+      'io-ui5lab-nl-myProject/docs/implementation_information/extensibility.md'
     ]);
+  });
+
+  it('creates project docs', () => {
+    assert.file([
+      'io-ui5lab-nl-myProject/docs/implementation_information/installation.md'
+    ]);
+  });
+
+  it('creates project docs', () => {
+    assert.file([
+      'io-ui5lab-nl-myProject/docs/implementation_information/related_apps.md'
+    ]);
+  });
+
+  it('creates project docs', () => {
+    assert.file(['io-ui5lab-nl-myProject/docs/implementation_information/sap_notes.md']);
+  });
+
+  it('creates project docs', () => {
+    assert.file(['io-ui5lab-nl-myProject/docs/implementation_information/support.md']);
+  });
+
+  it('creates project docs', () => {
+    assert.file(['io-ui5lab-nl-myProject/docs/implementation_information/support.md']);
+  });
+
+  it('creates project docs', () => {
+    assert.file(['io-ui5lab-nl-myProject/docs/media/theme.css']);
+  });
+
+  it('creates project docs', () => {
+    assert.file(['io-ui5lab-nl-myProject/docs/media/ui5-logo.png']);
+  });
+
+  it('creates project docs', () => {
+    assert.file(['io-ui5lab-nl-myProject/docs/product_features/general_data.md']);
+  });
+
+  it('creates project docs', () => {
+    assert.file(['io-ui5lab-nl-myProject/docs/product_features/key_features.md']);
+  });
+
+  it('creates project docs', () => {
+    assert.file(['io-ui5lab-nl-myProject/docs/de-de/README.md']);
+  });
+
+  it('creates project docs', () => {
+    assert.file(['io-ui5lab-nl-myProject/docs/de-de/_sidebar.md']);
+  });
+
+  it('creates project docs', () => {
+    assert.file(['io-ui5lab-nl-myProject/docs/de-de/_navbar.md']);
+  });
+
+  it('creates project docs', () => {
+    assert.file(['io-ui5lab-nl-myProject/docs/de-de/_coverpage.md']);
+  });
+
+  it('creates project docs', () => {
+    assert.file([
+      'io-ui5lab-nl-myProject/docs/de-de/implementation_information/configuration.md'
+    ]);
+  });
+
+  it('creates project docs', () => {
+    assert.file([
+      'io-ui5lab-nl-myProject/docs/de-de/implementation_information/extensibility.md'
+    ]);
+  });
+
+  it('creates project docs', () => {
+    assert.file([
+      'io-ui5lab-nl-myProject/docs/de-de/implementation_information/installation.md'
+    ]);
+  });
+
+  it('creates project docs', () => {
+    assert.file([
+      'io-ui5lab-nl-myProject/docs/de-de/implementation_information/related_apps.md'
+    ]);
+  });
+
+  it('creates project docs', () => {
+    assert.file([
+      'io-ui5lab-nl-myProject/docs/de-de/implementation_information/sap_notes.md'
+    ]);
+  });
+
+  it('creates project docs', () => {
+    assert.file([
+      'io-ui5lab-nl-myProject/docs/de-de/implementation_information/support.md'
+    ]);
+  });
+
+  it('creates project docs', () => {
+    assert.file(['io-ui5lab-nl-myProject/docs/de-de/product_features/general_data.md']);
+  });
+
+  it('creates project docs', () => {
+    assert.file(['io-ui5lab-nl-myProject/docs/de-de/product_features/key_features.md']);
   });
 });

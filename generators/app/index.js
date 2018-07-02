@@ -18,7 +18,7 @@ module.exports = class extends Generator {
   }
 
   prompting() {
-    const questions = [
+    const aProjectQuestions = [
       {
         type: 'list',
         name: 'projectType',
@@ -235,7 +235,9 @@ module.exports = class extends Generator {
             checked: false
           }
         ]
-      },
+      }
+    ];
+    const aDeploymentQuestions = [
       {
         type: 'confirm',
         name: 'deploymentInformations',
@@ -304,7 +306,9 @@ module.exports = class extends Generator {
         name: 'nwSysPassword',
         message: 'What is the password for the deployment user?',
         default: 'Appl1ance'
-      },
+      }
+    ];
+    const aDocumentationQuestions = [
       {
         type: 'confirm',
         name: 'businessInformations',
@@ -478,7 +482,10 @@ module.exports = class extends Generator {
       }
     ];
 
-    return this.prompt(questions).then(answers => {
+    const aQuestions = aProjectQuestions
+      .concat(aDeploymentQuestions)
+      .concat(aDocumentationQuestions);
+    return this.prompt(aQuestions).then(answers => {
       // To access props later use this.answers.someAnswer;
       this.answers = answers;
     });
@@ -568,6 +575,9 @@ module.exports = class extends Generator {
       applicationComponentText: sApplicationComponentText
     };
 
+    // Generate project settings boilerplate
+    this._createTemplateSettings(oProps);
+
     // Generate project boilerplate
     switch (oProps.projectType) {
       case 'simple-app':
@@ -590,6 +600,20 @@ module.exports = class extends Generator {
 
     // Save cwd for npm install task
     this.currentWorkingDir = oProps.projectPath;
+  }
+
+  /**
+   * Create relevant dependencies for boilerplate settings
+   * @param  {Object} oProps properties used in template
+   */
+  _createTemplateSettings(oProps) {
+    this.fs.copyTpl(
+      this.templatePath('settings/**/*'),
+      this.destinationPath(`${oProps.projectPath}/`),
+      oProps,
+      {},
+      { globOptions: { dot: true } }
+    );
   }
 
   /**

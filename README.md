@@ -17,6 +17,8 @@ cd ~/workspace
 yo ui5-boilerplate
 ```
 
+After everything is set up navigate into the newly created project directory. You'll find a quick start guide in the project `README.md` file.
+
 ## Getting To Know Yeoman
 
  * Yeoman has a heart of gold.
