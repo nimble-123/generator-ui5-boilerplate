@@ -2,6 +2,7 @@
 const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
+const pkg = require('../../package.json');
 
 module.exports = class extends Generator {
   constructor(args, opts) {
@@ -13,12 +14,78 @@ module.exports = class extends Generator {
 
     // Have Yeoman greet the user.
     this.log(
-      yosay(`Welcome to the priceless ${chalk.red('UI5 Boilerplate Generator')}!`)
+      yosay(`Welcome to the priceless ${chalk.red('UI5 Boilerplate Generator ' + pkg.version)}!`)
     );
   }
 
   prompting() {
     const aProjectQuestions = [
+      {
+        type: 'confirm',
+        name: 'deploymentInformations',
+        message: 'Do you want to add deployment informations?',
+        default: false
+      },
+      {
+        type: 'confirm',
+        name: 'projectDocs',
+        message: 'Do you want to add documentation?',
+        default: false
+      },
+      {
+        when: function(answers) {
+          return answers.projectDocs === true;
+        },
+        type: 'confirm',
+        name: 'docsProductGeneralData',
+        message: 'Do you want to add general data information?',
+        default: false
+      },
+      {
+        when: function(answers) {
+          return answers.projectDocs === true;
+        },
+        type: 'confirm',
+        name: 'docsProductKeyFeatures',
+        message: 'Do you want to add key features information?',
+        default: false
+      },
+      {
+        when: function(answers) {
+          return answers.projectDocs === true;
+        },
+        type: 'confirm',
+        name: 'docsImplementationInstallation',
+        message: 'Do you want to add installation information?',
+        default: false
+      },
+      {
+        when: function(answers) {
+          return answers.projectDocs === true;
+        },
+        type: 'confirm',
+        name: 'docsImplementationConfiguration',
+        message: 'Do you want to add configuration information?',
+        default: false
+      },
+      {
+        when: function(answers) {
+          return answers.projectDocs === true;
+        },
+        type: 'confirm',
+        name: 'docsImplementationSupport',
+        message: 'Do you want to add support information?',
+        default: false
+      },
+      {
+        when: function(answers) {
+          return answers.projectDocs === true;
+        },
+        type: 'confirm',
+        name: 'docsImplementationRelatedApps',
+        message: 'Do you want to add related apps information?',
+        default: false
+      },
       {
         type: 'list',
         name: 'projectType',
@@ -249,14 +316,7 @@ module.exports = class extends Generator {
         ]
       }
     ];
-
     const aDeploymentQuestions = [
-      {
-        type: 'confirm',
-        name: 'deploymentInformations',
-        message: 'Do you want to add deployment informations?',
-        default: false
-      },
       {
         when: function(answers) {
           return answers.deploymentInformations === true;
@@ -321,14 +381,7 @@ module.exports = class extends Generator {
         default: 'Appl1ance'
       }
     ];
-
     const aProductFeaturesGeneralData = [
-      {
-        type: 'confirm',
-        name: 'docsProductGeneralData',
-        message: 'Do you want to add general data information?',
-        default: false
-      },
       {
         when: function(answers) {
           return answers.docsProductGeneralData === true;
@@ -933,14 +986,7 @@ module.exports = class extends Generator {
         default: '0001'
       }
     ];
-
     const aProductFeaturesKeyFeatures = [
-      {
-        type: 'confirm',
-        name: 'docsProductKeyFeatures',
-        message: 'Do you want to add key features information?',
-        default: false
-      },
       {
         when: function(answers) {
           return answers.docsProductKeyFeatures === true;
@@ -983,14 +1029,7 @@ module.exports = class extends Generator {
         ]
       }
     ];
-
     const aImplementationInformationInstallation = [
-      {
-        type: 'confirm',
-        name: 'docsImplementationInstallation',
-        message: 'Do you want to add installation information?',
-        default: false
-      },
       {
         when: function(answers) {
           return answers.docsImplementationInstallation === true;
@@ -1046,14 +1085,7 @@ module.exports = class extends Generator {
         default: '00'
       }
     ];
-
     const aImplementationInformationConfiguration = [
-      {
-        type: 'confirm',
-        name: 'docsImplementationConfiguration',
-        message: 'Do you want to add configuration information?',
-        default: false
-      },
       {
         when: function(answers) {
           return answers.docsImplementationConfiguration === true;
@@ -1096,8 +1128,7 @@ module.exports = class extends Generator {
         },
         type: 'input',
         name: 'docsBusinessCatalog',
-        message:
-          'Which business catalog will this application belong to? (Technical name)',
+        message: 'Which business catalog will this application belong to? (Technical name)',
         default: '(/NAMESPACE/)BUS_CAT'
       },
       {
@@ -1142,27 +1173,18 @@ module.exports = class extends Generator {
         },
         type: 'input',
         name: 'docsPfcgRole',
-        message:
-          'Which PFCG role is needed to access the OData service? (Technical name)',
+        message: 'Which PFCG role is needed to access the OData service? (Technical name)',
         default: '(/NAMESPACE/)ODATA_ROLE'
       }
     ];
-
     const aImplementationInformationSupport = [
-      {
-        type: 'confirm',
-        name: 'docsImplementationSupport',
-        message: 'Do you want to add support information?',
-        default: false
-      },
       {
         when: function(answers) {
           return answers.docsImplementationSupport === true;
         },
         type: 'input',
         name: 'docsApplicationComponent',
-        message:
-          'Which application component is used by this application? (Technical name)',
+        message: 'Which application component is used by this application? (Technical name)',
         default: 'BA-FIO-'
       },
       {
@@ -1175,16 +1197,7 @@ module.exports = class extends Generator {
         default: 'Basic Apps Fiori'
       }
     ];
-
-    const aImplementationInformationRelatedApps = [
-      {
-        type: 'confirm',
-        name: 'docsImplementationRelatedApps',
-        message: 'Do you want to add related apps information?',
-        default: false
-      }
-    ];
-
+    const aImplementationInformationRelatedApps = [];
     const aQuestions = aProjectQuestions
       .concat(aDeploymentQuestions)
       .concat(aProductFeaturesGeneralData)
@@ -1193,7 +1206,6 @@ module.exports = class extends Generator {
       .concat(aImplementationInformationConfiguration)
       .concat(aImplementationInformationSupport)
       .concat(aImplementationInformationRelatedApps);
-
     return this.prompt(aQuestions).then(answers => {
       // To access props later use this.answers.someAnswer;
       this.answers = answers;
@@ -1202,6 +1214,7 @@ module.exports = class extends Generator {
 
   writing() {
     const sProjectType = this.answers.projectType;
+    const sProjectDocs = this.answers.projectDocs;
     const sProjectName = this.answers.projectName;
     const sProjectNamespace = this.answers.projectNamespace;
     const sProjectNamespaceAMD = sProjectNamespace.split('.').join('/');
@@ -1209,8 +1222,7 @@ module.exports = class extends Generator {
     const sProjectMinimumUI5Version = this.answers.projectMinimumUI5Version;
     const sProjectRepository = this.answers.projectRepository;
     const sProjectOwner = this.answers.projectOwner;
-    const sGitRepository =
-      'https://github.com/' + sProjectOwner + '/' + sProjectRepository;
+    const sGitRepository = 'https://github.com/' + sProjectOwner + '/' + sProjectRepository;
     const sProjectAuthor = this.answers.projectAuthor;
     const sProjectAuthorEmail = this.answers.projectAuthorEmail;
     const sProjectPath = sProjectNamespace.split('.').join('-');
@@ -1224,12 +1236,9 @@ module.exports = class extends Generator {
     const sNwSysUser = this.answers.deploymentNwSysUser;
     const sNwSysPassword = this.answers.deploymentNwSysPassword;
     const aDocsProductGeneralDataRoles = this.answers.docsProductGeneralDataRoles;
-    const aDocsProductGeneralDataProductSuite = this.answers
-      .docsProductGeneralDataProductSuite;
-    const aDocsProductGeneralDataProductVersion = this.answers
-      .docsProductGeneralDataProductVersion;
-    const aDocsProductGeneralDataLineOfBusiness = this.answers
-      .docsProductGeneralDataLineOfBusiness;
+    const aDocsProductGeneralDataProductSuite = this.answers.docsProductGeneralDataProductSuite;
+    const aDocsProductGeneralDataProductVersion = this.answers.docsProductGeneralDataProductVersion;
+    const aDocsProductGeneralDataLineOfBusiness = this.answers.docsProductGeneralDataLineOfBusiness;
     const aDocsProductGeneralDataIndustry = this.answers.docsProductGeneralDataIndustry;
     const aDocsProductGeneralDataSolutionCapabilityS4HanaCloud = this.answers
       .docsProductGeneralDataSolutionCapabilityS4HanaCloud;
@@ -1276,11 +1285,9 @@ module.exports = class extends Generator {
     const sDocsProductGeneralDataUserInterfaceTechnology = this.answers
       .docsProductGeneralDataUserInterfaceTechnology;
     const aDocsProductGeneralDataDatabase = this.answers.docsProductGeneralDataDatabase;
-    const aDocsProductGeneralDataFormFactor = this.answers
-      .docsProductGeneralDataFormFactor;
+    const aDocsProductGeneralDataFormFactor = this.answers.docsProductGeneralDataFormFactor;
     const sDocsProductGeneralDataAppId = this.answers.docsProductGeneralDataAppId;
-    const aDocsProductKeyFeaturesCRUDOperations = this.answers
-      .docsProductKeyFeaturesCRUDOperations;
+    const aDocsProductKeyFeaturesCRUDOperations = this.answers.docsProductKeyFeaturesCRUDOperations;
     const sDocsFrontendProductVersion = this.answers.docsFrontendProductVersion;
     const sDocsFrontendSPS = this.answers.docsFrontendSPS;
     const sDocsFrontendSCV = this.answers.docsFrontendSCV;
@@ -1302,6 +1309,7 @@ module.exports = class extends Generator {
 
     const oProps = {
       projectType: sProjectType,
+      projectDocs: sProjectDocs,
       projectName: sProjectName,
       projectNamespace: sProjectNamespace,
       projectNamespaceAMD: sProjectNamespaceAMD,
@@ -1373,114 +1381,38 @@ module.exports = class extends Generator {
       docsApplicationComponentText: sDocsApplicationComponentText
     };
 
-    // Generate project settings boilerplate
-    this._createTemplateSettings(oProps);
-
     // Generate project boilerplate
-    switch (oProps.projectType) {
-      case 'app-simple':
-        // Create simple app template
-        this._createTemplateSimpleApp(oProps);
-        this._createTemplateAppDocs(oProps);
-        break;
-      case 'app-master-detail-layout':
-        // Create master/detail app template
-        this._createTemplateMasterDetailApp(oProps);
-        this._createTemplateAppDocs(oProps);
-        break;
-      case 'app-flexible-column-layout':
-        // Create master/detail app template
-        this._createTemplateFlexibleColumnLayoutApp(oProps);
-        this._createTemplateAppDocs(oProps);
-        break;
-      case 'lib-control':
-        // Create master/detail app template
-        this._createTemplateControlLib(oProps);
-        this._createTemplateLibDocs(oProps);
-        break;
-      default:
-        break;
+    if (
+      oProps.projectType === 'app-simple' ||
+      oProps.projectType === 'app-master-detail-layout' ||
+      oProps.projectType === 'app-flexible-column-layout'
+    ) {
+      this._createTemplateApp(oProps);
+    } else {
+      this._createTemplateControlLib(oProps);
     }
-
-    // Add dependencies
-    this._createTemplateDependencies(oProps);
 
     // Save cwd for npm install task
     this.currentWorkingDir = oProps.projectPath;
   }
 
   /**
-   * Create relevant dependencies for boilerplate settings
-   * @param  {Object} oProps properties used in template
-   */
-  _createTemplateSettings(oProps) {
-    this.fs.copyTpl(
-      this.templatePath('app-settings/**/*'),
-      this.destinationPath(`${oProps.projectPath}/`),
-      oProps,
-      {},
-      { globOptions: { dot: true } }
-    );
-  }
-
-  /**
-   * Create relevant dependencies for boilerplate project
-   * @param  {Object} oProps properties used in template
-   */
-  _createTemplateDependencies(oProps) {
-    const pkgJson = {
-      devDependencies: {},
-      dependencies: {}
-    };
-    oProps.projectUI5LibsUsed.forEach(lib => {
-      pkgJson.dependencies['@openui5/' + lib] = oProps.projectMinimumUI5Version;
-    });
-    this.fs.extendJSON(
-      this.destinationPath(`${oProps.projectPath}/package.json`),
-      pkgJson
-    );
-  }
-
-  /**
    * Copies relevant artifacts for simple app
    * @param  {Object} oProps properties used in template
    */
-  _createTemplateSimpleApp(oProps) {
+  _createTemplateApp(oProps) {
     this.fs.copyTpl(
-      this.templatePath('app-simple/**/*'),
+      this.templatePath(`${oProps.projectType}/**/*`),
       this.destinationPath(`${oProps.projectPath}/`),
       oProps,
       {},
       { globOptions: { dot: true } }
     );
-  }
-
-  /**
-   * Copies relevant artifacts for master/detail app
-   * @param  {Object} oProps properties used in template
-   */
-  _createTemplateMasterDetailApp(oProps) {
-    this.fs.copyTpl(
-      this.templatePath('app-master-detail-layout/**/*'),
-      this.destinationPath(`${oProps.projectPath}/`),
-      oProps,
-      {},
-      { globOptions: { dot: true } }
-    );
-  }
-
-  /**
-   * Copies relevant artifacts for master/detail app
-   * @param  {Object} oProps properties used in template
-   */
-  _createTemplateFlexibleColumnLayoutApp(oProps) {
-    this.fs.copyTpl(
-      this.templatePath('app-flexible-column-layout/**/*'),
-      this.destinationPath(`${oProps.projectPath}/`),
-      oProps,
-      {},
-      { globOptions: { dot: true } }
-    );
+    this._createTemplateAppSettings(oProps);
+    this._createTemplateDependencies(oProps);
+    if (oProps.projectDocs === true) {
+      this._createTemplateAppDocs(oProps);
+    }
   }
 
   /**
@@ -1489,12 +1421,17 @@ module.exports = class extends Generator {
    */
   _createTemplateControlLib(oProps) {
     this.fs.copyTpl(
-      this.templatePath('lib-control/**/*'),
+      this.templatePath(`${oProps.projectType}/**/*`),
       this.destinationPath(`${oProps.projectPath}/`),
       oProps,
       {},
       { globOptions: { dot: true } }
     );
+    this._createTemplateLibSettings(oProps);
+    this._createTemplateDependencies(oProps);
+    if (oProps.projectDocs === true) {
+      this._createTemplateLibDocs(oProps);
+    }
   }
 
   /**
@@ -1523,6 +1460,49 @@ module.exports = class extends Generator {
       {},
       { globOptions: { dot: true } }
     );
+  }
+
+  /**
+   * Create relevant dependencies for boilerplate settings
+   * @param  {Object} oProps properties used in template
+   */
+  _createTemplateAppSettings(oProps) {
+    this.fs.copyTpl(
+      this.templatePath('app-settings/**/*'),
+      this.destinationPath(`${oProps.projectPath}/`),
+      oProps,
+      {},
+      { globOptions: { dot: true } }
+    );
+  }
+
+  /**
+   * Create relevant dependencies for boilerplate settings
+   * @param  {Object} oProps properties used in template
+   */
+  _createTemplateLibSettings(oProps) {
+    this.fs.copyTpl(
+      this.templatePath('lib-settings/**/*'),
+      this.destinationPath(`${oProps.projectPath}/`),
+      oProps,
+      {},
+      { globOptions: { dot: true } }
+    );
+  }
+
+  /**
+   * Create relevant dependencies for boilerplate project
+   * @param  {Object} oProps properties used in template
+   */
+  _createTemplateDependencies(oProps) {
+    const pkgJson = {
+      devDependencies: {},
+      dependencies: {}
+    };
+    oProps.projectUI5LibsUsed.forEach(lib => {
+      pkgJson.dependencies['@openui5/' + lib] = oProps.projectMinimumUI5Version;
+    });
+    this.fs.extendJSON(this.destinationPath(`${oProps.projectPath}/package.json`), pkgJson);
   }
 
   /**

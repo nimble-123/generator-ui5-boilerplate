@@ -6,6 +6,14 @@ const helpers = require('yeoman-test');
 describe('generator-ui5-boilerplate:app', () => {
   beforeAll(() => {
     return helpers.run(path.join(__dirname, '../generators/app')).withPrompts({
+      deploymentInformations: true,
+      projectDocs: true,
+      docsProductGeneralData: true,
+      docsProductKeyFeatures: true,
+      docsImplementationInstallation: true,
+      docsImplementationConfiguration: true,
+      docsImplementationSupport: true,
+      docsImplementationRelatedApps: true,
       projectType: 'app-simple',
       projectName: 'My Project',
       projectNamespace: 'io.ui5lab.nl.myProject',
@@ -16,12 +24,7 @@ describe('generator-ui5-boilerplate:app', () => {
       projectAuthor: 'nlsltz',
       projectAuthorEmail: 'info@nilslutz.de',
       projectUI5LibSource: 'https://openui5.hana.ondemand.com/',
-      projectUI5LibsUsed: [
-        'sap.m',
-        'sap.ui.core',
-        'sap.ui.layout',
-        'themelib_sap_belize'
-      ],
+      projectUI5LibsUsed: ['sap.m', 'sap.ui.core', 'sap.ui.layout', 'themelib_sap_belize'],
       deploymentDevPackage: 'ZZ_UI_NL',
       deploymentBspContainer: 'ZZ_UI5_NL_APP',
       deploymentBspContainerText: 'UI Application My Project',
@@ -216,21 +219,15 @@ describe('generator-ui5-boilerplate:app', () => {
   });
 
   it('creates project docs', () => {
-    assert.file([
-      'io-ui5lab-nl-myProject/docs/implementation_information/extensibility.md'
-    ]);
+    assert.file(['io-ui5lab-nl-myProject/docs/implementation_information/extensibility.md']);
   });
 
   it('creates project docs', () => {
-    assert.file([
-      'io-ui5lab-nl-myProject/docs/implementation_information/installation.md'
-    ]);
+    assert.file(['io-ui5lab-nl-myProject/docs/implementation_information/installation.md']);
   });
 
   it('creates project docs', () => {
-    assert.file([
-      'io-ui5lab-nl-myProject/docs/implementation_information/related_apps.md'
-    ]);
+    assert.file(['io-ui5lab-nl-myProject/docs/implementation_information/related_apps.md']);
   });
 
   it('creates project docs', () => {
@@ -278,39 +275,27 @@ describe('generator-ui5-boilerplate:app', () => {
   });
 
   it('creates project docs', () => {
-    assert.file([
-      'io-ui5lab-nl-myProject/docs/de-de/implementation_information/configuration.md'
-    ]);
+    assert.file(['io-ui5lab-nl-myProject/docs/de-de/implementation_information/configuration.md']);
   });
 
   it('creates project docs', () => {
-    assert.file([
-      'io-ui5lab-nl-myProject/docs/de-de/implementation_information/extensibility.md'
-    ]);
+    assert.file(['io-ui5lab-nl-myProject/docs/de-de/implementation_information/extensibility.md']);
   });
 
   it('creates project docs', () => {
-    assert.file([
-      'io-ui5lab-nl-myProject/docs/de-de/implementation_information/installation.md'
-    ]);
+    assert.file(['io-ui5lab-nl-myProject/docs/de-de/implementation_information/installation.md']);
   });
 
   it('creates project docs', () => {
-    assert.file([
-      'io-ui5lab-nl-myProject/docs/de-de/implementation_information/related_apps.md'
-    ]);
+    assert.file(['io-ui5lab-nl-myProject/docs/de-de/implementation_information/related_apps.md']);
   });
 
   it('creates project docs', () => {
-    assert.file([
-      'io-ui5lab-nl-myProject/docs/de-de/implementation_information/sap_notes.md'
-    ]);
+    assert.file(['io-ui5lab-nl-myProject/docs/de-de/implementation_information/sap_notes.md']);
   });
 
   it('creates project docs', () => {
-    assert.file([
-      'io-ui5lab-nl-myProject/docs/de-de/implementation_information/support.md'
-    ]);
+    assert.file(['io-ui5lab-nl-myProject/docs/de-de/implementation_information/support.md']);
   });
 
   it('creates project docs', () => {

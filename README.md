@@ -1,5 +1,10 @@
 # UI5 Boilerplate Generator [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+
+> **Note:** 🚧 This generator is under heavy development. Use at your own risk! 🚧
+
 > This generator is meant for use with Yeoman
+
+### Contributions are very welcome! ✌️
 
 ## Installation
 
