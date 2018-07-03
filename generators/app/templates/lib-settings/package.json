@@ -1,0 +1,22 @@
+{
+  "name": "<%= projectNamespace %>",
+  "version": "0.0.1",
+  "description": "<%= projectDescription %>",
+  "private": true,
+  "author": "<%= projectAuthor %> <<%= projectAuthorEmail %>>",
+  "repository": {
+    "type": "git",
+    "url": "<%= gitRepository %>.git"
+  },
+  "bugs": {
+    "url": "<%= gitRepository %>/issues"
+  },
+  "homepage": "<%= gitRepository %>.git#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified. Please add some.\" && exit 1",
+    "start": "ui5 serve -o"
+  },
+  "devDependencies": {
+    "ui5lab-browser": "^0.1.0"
+  }
+}

@@ -1,0 +1,31 @@
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:f="sap.f"
+  controllerName="<%= projectNamespace %>.controller.Master"
+>
+  <f:DynamicPage showFooter="true">
+    <f:title>
+      <f:DynamicPageTitle>
+        <f:heading>
+          <Title text="Carriers"/>
+        </f:heading>
+      </f:DynamicPageTitle>
+    </f:title>
+    <f:content>
+      <List
+        class="sapFDynamicPageAlignContent"
+        width="auto"
+        mode="SingleSelectMaster"
+        itemPress=".onItemPress"
+        items="{odata>/CarrierCollection}"
+      >
+        <ObjectListItem
+          title="{odata>CARRNAME}"
+          number="{odata>CURRCODE}"
+          type="Navigation"
+        />
+    </List>
+    </f:content>
+  </f:DynamicPage>
+</mvc:View>

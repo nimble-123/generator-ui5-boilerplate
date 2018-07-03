@@ -19,10 +19,6 @@
           "localUri": "localService/metadata.xml"
         }
       }
-    },
-    "sourceTemplate": {
-      "id": "ui5template.basicSAPUI5ApplicationProject",
-      "version": "1.40.12"
     }
   },
   "sap.ui": {
@@ -66,36 +62,45 @@
       }
     },
     "rootView": {
-      "viewName": "<%= projectNamespace %>.view.Home",
-      "id": "idAppControl",
+      "viewName": "<%= projectNamespace %>.view.App",
+      "id": "rootView",
       "type": "XML",
       "async": true,
       "height": "100%"
     },
     "routing": {
-      "config": {
-        "routerClass": "sap.m.routing.Router",
-        "viewType": "XML",
-        "async": true,
-        "viewPath": "<%= projectNamespace %>.view",
-        "controlAggregation": "pages",
-        "controlId": "idAppControl",
-        "clearControlAggregation": false
-      },
       "routes": [
         {
-          "name": "home",
+          "name": "master",
           "pattern": "",
-          "target": ["home"]
+          "target": "master",
+          "layout": "OneColumn"
+        },
+        {
+          "name": "masterDetail",
+          "pattern": "items/{itemId}",
+          "target": ["master", "detail"],
+          "layout": "TwoColumnsMidExpanded"
         }
       ],
       "targets": {
-        "home": {
-          "viewType": "XML",
-          "transition": "slide",
-          "clearControlAggregation": false,
-          "viewName": "Home"
+        "master": {
+          "viewId": "masterView",
+          "viewName": "Master",
+          "controlAggregation": "beginColumnPages"
+        },
+        "detail": {
+          "viewId": "detailView",
+          "viewName": "Detail",
+          "controlAggregation": "midColumnPages"
         }
+      },
+      "config": {
+        "routerClass": "sap.f.routing.Router",
+        "async": true,
+        "viewType": "XML",
+        "viewPath": "<%= projectNamespace %>.view",
+        "controlId": "app"
       }
     },
     "dependencies": {
@@ -103,17 +108,15 @@
       "libs": {
         "sap.ui.core": {},
         "sap.m": {},
-        "sap.ushell": {},
-        "sap.collaboration": {}
+        "sap.f": {},
+        "sap.uxap": {},
+        "sap.ui.unified": {},
+        "sap.ui.layout": {}
       }
     },
     "resources": {
       "js": [],
-      "css": [
-        {
-          "uri": "css/style.css"
-        }
-      ]
+      "css": []
     },
     "contentDensities": {
       "compact": true,

@@ -25,19 +25,23 @@ module.exports = class extends Generator {
         message: 'Which type of UI5 application do you want to create?',
         choices: [
           {
-            name: 'App: Simple',
+            name: '🖥 App: Simple',
             value: 'app-simple'
           },
           {
-            name: 'App: Master/Detail',
+            name: '🖥 App: Master/Detail',
             value: 'app-master-detail'
           },
           {
-            name: 'App: Flexible Column Layout',
+            name: '🖥 App: Flexible Column Layout',
             value: 'app-flexible-column-layout'
           },
           {
-            name: 'Lib: Control',
+            name: '👨‍💻 App: Admin Layout',
+            value: 'app-admin-layout'
+          },
+          {
+            name: '📘 Lib: Control',
             value: 'lib-control'
           }
         ]
@@ -64,7 +68,7 @@ module.exports = class extends Generator {
         type: 'input',
         name: 'projectRepository',
         message: 'What is the git repository name?',
-        default: 'io-nlsltz-ui5-myproject'
+        default: 'io.ui5lab.nl.myProject'
       },
       {
         type: 'input',
@@ -742,32 +746,32 @@ module.exports = class extends Generator {
           {
             name: 'Fiori Object page / Fact sheet',
             value: 'fiori-object-page',
-            checked: true
+            checked: false
           },
           {
             name: 'Fiori - Analytical',
             value: 'fiori-analytical',
-            checked: true
+            checked: false
           },
           {
             name: 'Fiori - Reuse Component',
             value: 'fiori-reuse-component',
-            checked: true
+            checked: false
           },
           {
             name: 'Design Studio',
             value: 'design-studio',
-            checked: true
+            checked: false
           },
           {
             name: 'Web Dynpro',
             value: 'web-dynpro',
-            checked: true
+            checked: false
           },
           {
             name: 'SAP GUI',
             value: 'sap-gui',
-            checked: true
+            checked: false
           }
         ]
       },
@@ -783,12 +787,12 @@ module.exports = class extends Generator {
           {
             name: 'Design Studio (Planning)',
             value: 'design-studio-planning',
-            checked: true
+            checked: false
           },
           {
             name: 'Design Studio (Reporting)',
             value: 'design-studio-reporting',
-            checked: true
+            checked: false
           },
           {
             name: 'SAP Fiori (SAPUI5)',
@@ -798,72 +802,72 @@ module.exports = class extends Generator {
           {
             name: 'SAP Fiori Elements',
             value: 'sap-fiori-elements',
-            checked: true
+            checked: false
           },
           {
             name: 'SAP Fiori Elements for CoPilot',
             value: 'sap-fiori-elements-copilot',
-            checked: true
+            checked: false
           },
           {
             name: 'SAP Fiori: Analysis Path Framework (APF)',
             value: 'sap-fiori-analysis-path-framework',
-            checked: true
+            checked: false
           },
           {
             name: 'SAP Fiori: Design Studio',
             value: 'sap-fiori-design-studio',
-            checked: true
+            checked: false
           },
           {
             name: 'SAP Fiori: Generic Application Log Framework',
             value: 'sap-fiori-generic-application-log-framework',
-            checked: true
+            checked: false
           },
           {
             name: 'SAP Fiori: Generic Configuration Framework',
             value: 'sap-fiori-generic-configuration-framework',
-            checked: true
+            checked: false
           },
           {
             name: 'SAP Fiori: Generic Job Scheduling Framework',
             value: 'sap-fiori-generic-job-scheduling-framework',
-            checked: true
+            checked: false
           },
           {
             name: 'SAP Fiori: Manage Workflow',
             value: 'sap-fiori-manage-workflow',
-            checked: true
+            checked: false
           },
           {
             name: 'SAP Fiori: My Inbox',
             value: 'sap-fiori-my-inbox',
-            checked: true
+            checked: false
           },
           {
             name: 'SAP Fiori: SAP Smart Business generic drill down app',
             value: 'sap-fiori-smart-business-generic',
-            checked: true
+            checked: false
           },
           {
             name: 'SAP Fiori: SAP Smart Business tile & custom drill down app',
             value: 'sap-fiori-smart-business-custom',
-            checked: true
+            checked: false
           },
           {
             name: 'SAP GUI',
             value: 'sap-gui',
-            checked: true
+            checked: false
           },
           {
             name: 'SAPUI5',
             value: 'sapui5',
-            checked: true
+            checked: false
           },
           {
             name: 'Web Dynpro',
             value: 'web-dynpro',
-            checked: true
+            checked: false
           }
         ]
       },
@@ -889,7 +893,7 @@ module.exports = class extends Generator {
           {
             name: 'HANA DB exclusive',
             value: 'hana-excl',
-            checked: true
+            checked: false
           }
         ]
       },
@@ -910,12 +914,12 @@ module.exports = class extends Generator {
           {
             name: 'Tablet',
             value: 'tablet',
-            checked: true
+            checked: false
           },
           {
             name: 'Phone',
             value: 'phone',
-            checked: true
+            checked: false
           }
         ]
       },

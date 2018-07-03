@@ -19,10 +19,6 @@
           "localUri": "localService/metadata.xml"
         }
       }
-    },
-    "sourceTemplate": {
-      "id": "ui5template.basicSAPUI5ApplicationProject",
-      "version": "1.40.12"
     }
   },
   "sap.ui": {
@@ -56,6 +52,18 @@
           "bundleName": "<%= projectNamespace %>.i18n.i18n"
         }
       },
+      "side": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/sideContent.json"
+      },
+      "alerts": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/alerts.json"
+      },
+      "customer": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/customers.json"
+      },
       "odata": {
         "type": "sap.ui.model.odata.v2.ODataModel",
         "dataSource": "RMTSAMPLEFLIGHT",
@@ -66,36 +74,70 @@
       }
     },
     "rootView": {
-      "viewName": "<%= projectNamespace %>.view.Home",
-      "id": "idAppControl",
+      "viewName": "<%= projectNamespace %>.view.App",
+      "id": "app",
       "type": "XML",
       "async": true,
       "height": "100%"
     },
     "routing": {
-      "config": {
-        "routerClass": "sap.m.routing.Router",
-        "viewType": "XML",
-        "async": true,
-        "viewPath": "<%= projectNamespace %>.view",
-        "controlAggregation": "pages",
-        "controlId": "idAppControl",
-        "clearControlAggregation": false
-      },
       "routes": [
         {
           "name": "home",
           "pattern": "",
-          "target": ["home"]
+          "target": "home"
+        },
+        {
+          "name": "masterSettings",
+          "pattern": "MasterSettings",
+          "target": ["detailSettings", "masterSettings"]
+        },
+        {
+          "name": "systemSettings",
+          "pattern": "SystemSettings",
+          "target": "detailSettings"
+        },
+        {
+          "name": "statistics",
+          "pattern": "Statistics",
+          "target": "statistics"
         }
       ],
       "targets": {
         "home": {
-          "viewType": "XML",
-          "transition": "slide",
-          "clearControlAggregation": false,
+          "viewId": "home",
           "viewName": "Home"
+        },
+        "appSettings": {
+          "viewId": "appSettings",
+          "viewName": "settings.AppSettings"
+        },
+        "masterSettings": {
+          "viewId": "masterSettings",
+          "viewName": "settings.MasterSettings",
+          "controlId": "appSettings",
+          "controlAggregation": "masterPages",
+          "parent": "appSettings"
+        },
+        "detailSettings": {
+          "viewId": "detailSettings",
+          "viewName": "settings.DetailSettings",
+          "controlId": "appSettings",
+          "controlAggregation": "detailPages",
+          "parent": "appSettings"
+        },
+        "statistics": {
+          "viewId": "statistics",
+          "viewName": "Statistics"
         }
+      },
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "async": true,
+        "viewType": "XML",
+        "viewPath": "<%= projectNamespace %>.view",
+        "controlId": "mainContents",
+        "controlAggregation": "pages"
       }
     },
     "dependencies": {
@@ -103,17 +145,13 @@
       "libs": {
         "sap.ui.core": {},
         "sap.m": {},
-        "sap.ushell": {},
-        "sap.collaboration": {}
+        "sap.tnt": {},
+        "sap.ui.layout": {}
       }
     },
     "resources": {
       "js": [],
-      "css": [
-        {
-          "uri": "css/style.css"
-        }
-      ]
+      "css": []
     },
     "contentDensities": {
       "compact": true,

@@ -11,8 +11,8 @@
       "version": "0.0.1"
     },
     "dataSources": {
-      "RMTSAMPLEFLIGHT": {
-        "uri": "/",
+      "mainService": {
+        "uri": "/northwind/V2/Northwind/Northwind.svc/",
         "type": "OData",
         "settings": {
           "odataVersion": "2.0",
@@ -21,8 +21,8 @@
       }
     },
     "sourceTemplate": {
-      "id": "ui5template.basicSAPUI5ApplicationProject",
-      "version": "1.40.12"
+      "id": "sap.ui.ui5-template-plugin.2masterdetail",
+      "version": "1.52.7"
     }
   },
   "sap.ui": {
@@ -56,18 +56,14 @@
           "bundleName": "<%= projectNamespace %>.i18n.i18n"
         }
       },
-      "odata": {
-        "type": "sap.ui.model.odata.v2.ODataModel",
-        "dataSource": "RMTSAMPLEFLIGHT",
-        "settings": {
-          "defaultBindingMode": "TwoWay"
-        },
+      "": {
+        "dataSource": "mainService",
         "preload": true
       }
     },
     "rootView": {
-      "viewName": "<%= projectNamespace %>.view.Home",
-      "id": "idAppControl",
+      "viewName": "<%= projectNamespace %>.view.App",
+      "id": "app",
       "type": "XML",
       "async": true,
       "height": "100%"
@@ -76,25 +72,49 @@
       "config": {
         "routerClass": "sap.m.routing.Router",
         "viewType": "XML",
-        "async": true,
         "viewPath": "<%= projectNamespace %>.view",
-        "controlAggregation": "pages",
         "controlId": "idAppControl",
-        "clearControlAggregation": false
+        "controlAggregation": "detailPages",
+        "bypassed": {
+          "target": ["master", "notFound"]
+        },
+        "async": true
       },
       "routes": [
         {
-          "name": "home",
           "pattern": "",
-          "target": ["home"]
+          "name": "master",
+          "target": ["object", "master"]
+        },
+        {
+          "pattern": "Products/{objectId}",
+          "name": "object",
+          "target": ["master", "object"]
         }
       ],
       "targets": {
-        "home": {
-          "viewType": "XML",
-          "transition": "slide",
-          "clearControlAggregation": false,
-          "viewName": "Home"
+        "master": {
+          "viewName": "Master",
+          "viewLevel": 1,
+          "viewId": "master",
+          "controlAggregation": "masterPages"
+        },
+        "object": {
+          "viewName": "Detail",
+          "viewId": "detail",
+          "viewLevel": 2
+        },
+        "detailObjectNotFound": {
+          "viewName": "DetailObjectNotFound",
+          "viewId": "detailObjectNotFound"
+        },
+        "detailNoObjectsAvailable": {
+          "viewName": "DetailNoObjectsAvailable",
+          "viewId": "detailNoObjectsAvailable"
+        },
+        "notFound": {
+          "viewName": "NotFound",
+          "viewId": "notFound"
         }
       }
     },
@@ -109,11 +129,7 @@
     },
     "resources": {
       "js": [],
-      "css": [
-        {
-          "uri": "css/style.css"
-        }
-      ]
+      "css": []
     },
     "contentDensities": {
       "compact": true,

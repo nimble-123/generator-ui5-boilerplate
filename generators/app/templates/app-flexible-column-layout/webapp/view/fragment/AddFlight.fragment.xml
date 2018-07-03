@@ -1,0 +1,72 @@
+<Dialog
+  xmlns="sap.m"
+  xmlns:form="sap.ui.layout.form"
+  id="dialog"
+  title="New Flight"
+  draggable="true"
+  beforeOpen=".onBeforeDialogOpen"
+  afterClose=".onAfterDialogClose"
+>
+  <form:SimpleForm>
+    <Label text="Flight Number"></Label>
+    <Input
+      fieldGroupIds="inputs"
+      value="{
+        path: 'odata>connid',
+        type: 'sap.ui.model.odata.type.String',
+        constraints: {
+          isDigitSequence: true,
+          maxLength: 4,
+          nullable: false
+        }
+      }"
+    ></Input>
+    <Label text="Flight Date"></Label>
+    <DatePicker
+      fieldGroupIds="inputs"
+      value="{
+        path: 'odata>fldate',
+        type: 'sap.ui.model.odata.type.DateTime',
+        constraints: {
+          isDateOnly: true,
+          displayFormat: 'Date'
+        }
+      }"
+    ></DatePicker>
+    <Label text="Departure Time"></Label>
+    <TimePicker 
+      fieldGroupIds="inputs"
+      value="{
+        path: 'odata>flightDetails/departureTime',
+        type: 'sap.ui.model.odata.type.Time'
+      }">
+    </TimePicker>
+    <Label text="Ticket Price"></Label>
+    <Input
+      fieldGroupIds="inputs"
+      value="{
+        parts: [
+          'odata>PRICE',
+          'odata>CURRENCY'
+        ],
+        type: 'sap.ui.model.type.Currency',
+        formatOptions: {
+          showMeasure: true,
+          currencyCode: true,
+          currencyContext: 'accounting'
+        },
+        constraints: {
+          minimum: 1
+        }
+      }"
+      placeholder="E.g.: 2222 &#8364;"
+    >
+    </Input>
+  </form:SimpleForm>
+  <beginButton>
+    <Button text="Add" type="Emphasized" press=".onDialogAddPress"/>
+  </beginButton>
+  <endButton>
+    <Button text="Cancel" press=".onDialogCancelPress"/>
+  </endButton>
+</Dialog>

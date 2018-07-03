@@ -1,0 +1,25 @@
+<mvc:View
+	controllerName="<%= projectNamespace %>.controller.Statistics"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+	<Page showHeader="false">
+		<content>
+			<Panel id="statisticsContainer" class="sapUiNoContentPadding">
+				<headerToolbar>
+					<Toolbar>
+						<Title
+							text="{i18n>shopStatisticsTitle}"
+							level="H4"
+							textAlign="Left"/>
+						<ToolbarSpacer/>
+						<Button
+							id="refresh"
+							icon="sap-icon://refresh"
+							press="onRefresh"
+							tooltip="{i18n>refreshButtonTooltip}"/>
+					</Toolbar>
+				</headerToolbar>
+			</Panel>
+		</content>
+	</Page>
+</mvc:View>

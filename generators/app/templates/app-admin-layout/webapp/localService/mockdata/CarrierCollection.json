@@ -1,0 +1,99 @@
+{
+  "d": {
+    "results": [
+      {
+        "__metadata": {
+          "id":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/CarrierCollection('AC')",
+          "uri":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/CarrierCollection('AC')",
+          "type": "RMTSAMPLEFLIGHT.Carrier",
+          "content_type": "text/html",
+          "media_src":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/CarrierCollection('AC')/$value",
+          "edit_media":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/CarrierCollection('AC')/$value"
+        },
+        "carrid": "AC",
+        "CARRNAME": "Air Canada",
+        "CURRCODE": "CAD",
+        "URL": "http://www.AC.com",
+        "mimeType": "text/html",
+        "carrierFlights": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/CarrierCollection('AC')/carrierFlights"
+          }
+        },
+        "carrierFlights_FW": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/CarrierCollection('AC')/carrierFlights_FW"
+          }
+        }
+      },
+      {
+        "__metadata": {
+          "id":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/CarrierCollection('AF')",
+          "uri":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/CarrierCollection('AF')",
+          "type": "RMTSAMPLEFLIGHT.Carrier",
+          "content_type": "text/html",
+          "media_src":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/CarrierCollection('AF')/$value",
+          "edit_media":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/CarrierCollection('AF')/$value"
+        },
+        "carrid": "AF",
+        "CARRNAME": "Air France",
+        "CURRCODE": "EUR",
+        "URL": "http://www.AF.com",
+        "mimeType": "text/html",
+        "carrierFlights": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/CarrierCollection('AF')/carrierFlights"
+          }
+        },
+        "carrierFlights_FW": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/CarrierCollection('AF')/carrierFlights_FW"
+          }
+        }
+      },
+      {
+        "__metadata": {
+          "id":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/CarrierCollection('LH')",
+          "uri":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/CarrierCollection('LH')",
+          "type": "RMTSAMPLEFLIGHT.Carrier",
+          "content_type": "text/html",
+          "media_src":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/CarrierCollection('LH')/$value",
+          "edit_media":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/CarrierCollection('LH')/$value"
+        },
+        "carrid": "LH",
+        "CARRNAME": "Lufthansa",
+        "CURRCODE": "EUR",
+        "URL": "http://www.LH.com",
+        "mimeType": "text/html",
+        "carrierFlights": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/CarrierCollection('LH')/carrierFlights"
+          }
+        },
+        "carrierFlights_FW": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/CarrierCollection('LH')/carrierFlights_FW"
+          }
+        }
+      }
+    ]
+  }
+}

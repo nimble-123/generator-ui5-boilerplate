@@ -1,0 +1,109 @@
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:uxap="sap.uxap"
+  xmlns:form="sap.ui.layout.form"
+  xmlns:core="sap.ui.core"
+  controllerName="<%= projectNamespace %>.controller.Detail"
+>
+  <uxap:ObjectPageLayout
+    isChildPage="true"
+    showAnchorBar="false"
+    subSectionLayout="TitleOnLeft"
+    useIconTabBar="true"
+    useTwoColumnsForLargeScreen="true"
+    flexEnabled="true"
+    showFooter="false"
+  >
+    <uxap:headerTitle>
+      <uxap:ObjectPageHeader
+        objectImageURI="sap-icon://product"
+        objectImageAlt="Product"
+        objectTitle="Carrier {odata>CARRNAME}"
+      />
+    </uxap:headerTitle>
+    <uxap:sections>
+      <uxap:ObjectPageSection>
+        <uxap:subSections>
+          <uxap:ObjectPageSubSection mode="Expanded" >
+            <uxap:blocks>
+              <Table id="table"
+                items="{odata>carrierFlights}"
+              >
+                <headerToolbar>
+                  <OverflowToolbar>
+                    <Title text="Flights"/>
+                    <ToolbarSpacer/>
+                    <OverflowToolbarButton
+                      icon="sap-icon://add"
+                      press=".onAddBtnPress"
+                    />
+                  </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                  <Column>
+                    <Text text="Flight Number" />
+                  </Column>
+                  <Column>
+                    <Text text="Flight Date" />
+                  </Column>
+                  <Column>
+                    <Text text="Departure Time" />
+                  </Column>
+                  <Column>
+                    <Text text="Ticket Price" />
+                  </Column>
+                </columns>
+                <items>
+                  <ColumnListItem>
+                    <cells>
+                      <Text text="{
+                        path: 'odata>connid',
+                        type: 'sap.ui.model.odata.type.String'
+                      }" />
+                      <Text text="{
+                        path: 'odata>fldate',
+                        type: 'sap.ui.model.odata.type.DateTime',
+                        constraints: {
+                          isDateOnly: true,
+                          displayFormat: 'Date'
+                        }
+                      }"/>
+                      <Text text="{
+                        path: 'odata>flightDetails/departureTime',
+                        type: 'sap.ui.model.odata.type.Time',
+                        formatOptions: {
+                          style: 'long'
+                        }
+                      }"/>
+                      <Text text="{
+                        parts: [
+                          'odata>PRICE',
+                          'odata>CURRENCY'
+                        ],
+                        type: 'sap.ui.model.type.Currency',
+                        formatOptions: {
+                          showMeasure: true
+                        }
+                      }"/>
+                    </cells>
+                  </ColumnListItem>
+                </items>
+              </Table>
+            </uxap:blocks>
+          </uxap:ObjectPageSubSection>
+        </uxap:subSections>
+      </uxap:ObjectPageSection>
+    </uxap:sections>
+    <uxap:footer>
+      <OverflowToolbar>
+        <ToolbarSpacer/>
+        <Button text="Dummy1" type="Accept" />
+        <Button text="Dummy2" type="Reject" />
+      </OverflowToolbar>
+    </uxap:footer>
+    <uxap:dependents>
+      <core:Fragment fragmentName="<%= projectNamespace %>.view.fragment.AddFlight" type="XML" />
+    </uxap:dependents>
+  </uxap:ObjectPageLayout>
+</mvc:View>

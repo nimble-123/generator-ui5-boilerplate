@@ -1,0 +1,838 @@
+{
+  "d": {
+    "results": [
+      {
+        "__metadata": {
+          "id":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='AC',connid='0820',fldate=datetime'2002-12-20T00%3A00%3A00')",
+          "uri":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='AC',connid='0820',fldate=datetime'2002-12-20T00%3A00%3A00')",
+          "type": "RMTSAMPLEFLIGHT.Flight"
+        },
+        "flightDetails": {
+          "__metadata": {
+            "type": "RMTSAMPLEFLIGHT.FlightDetails"
+          },
+          "countryFrom": "DE",
+          "cityFrom": "frankfurt/main",
+          "airportFrom": "FRA",
+          "countryTo": "CA",
+          "cityTo": "MONTREAL-DORVAL",
+          "airportTo": "YUL",
+          "flightTime": 28800,
+          "departureTime": "PT10H00M00S",
+          "arrivalTime": "PT12H00M00S",
+          "distance": "5400.0000",
+          "distanceUnit": "",
+          "flightType": "",
+          "period": 0
+        },
+        "carrid": "AC",
+        "connid": "0820",
+        "fldate": "/Date(1040342400000)/",
+        "PRICE": "1222.00",
+        "CURRENCY": "CAD",
+        "PLANETYPE": "A330-300",
+        "SEATSMAX": 320,
+        "SEATSOCC": 12,
+        "PAYMENTSUM": "0.00",
+        "SEATSMAX_B": 20,
+        "SEATSOCC_B": 1,
+        "SEATSMAX_F": 0,
+        "SEATSOCC_F": 0,
+        "flightbooking": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='AC',connid='0820',fldate=datetime'2002-12-20T00%3A00%3A00')/flightbooking"
+          }
+        },
+        "flightBookings": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='AC',connid='0820',fldate=datetime'2002-12-20T00%3A00%3A00')/flightBookings"
+          }
+        },
+        "FlightCarrier": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='AC',connid='0820',fldate=datetime'2002-12-20T00%3A00%3A00')/FlightCarrier"
+          }
+        },
+        "FlightCarrier_FW": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='AC',connid='0820',fldate=datetime'2002-12-20T00%3A00%3A00')/FlightCarrier_FW"
+          }
+        }
+      },
+      {
+        "__metadata": {
+          "id":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='AF',connid='0820',fldate=datetime'2002-12-23T00%3A00%3A00')",
+          "uri":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='AF',connid='0820',fldate=datetime'2002-12-23T00%3A00%3A00')",
+          "type": "RMTSAMPLEFLIGHT.Flight"
+        },
+        "flightDetails": {
+          "__metadata": {
+            "type": "RMTSAMPLEFLIGHT.FlightDetails"
+          },
+          "countryFrom": "DE",
+          "cityFrom": "frankfurt/main",
+          "airportFrom": "FRA",
+          "countryTo": "MQ",
+          "cityTo": "FORT DE FRANCE",
+          "airportTo": "FDF",
+          "flightTime": 39600,
+          "departureTime": "PT10H00M00S",
+          "arrivalTime": "PT15H00M00S",
+          "distance": "7233.0000",
+          "distanceUnit": "",
+          "flightType": "",
+          "period": 0
+        },
+        "carrid": "AF",
+        "connid": "0820",
+        "fldate": "/Date(1040601600000)/",
+        "PRICE": "2222.00",
+        "CURRENCY": "EUR",
+        "PLANETYPE": "A330-300",
+        "SEATSMAX": 320,
+        "SEATSOCC": 2,
+        "PAYMENTSUM": "0.00",
+        "SEATSMAX_B": 20,
+        "SEATSOCC_B": 1,
+        "SEATSMAX_F": 0,
+        "SEATSOCC_F": 0,
+        "flightbooking": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='AF',connid='0820',fldate=datetime'2002-12-23T00%3A00%3A00')/flightbooking"
+          }
+        },
+        "flightBookings": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='AF',connid='0820',fldate=datetime'2002-12-23T00%3A00%3A00')/flightBookings"
+          }
+        },
+        "FlightCarrier": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='AF',connid='0820',fldate=datetime'2002-12-23T00%3A00%3A00')/FlightCarrier"
+          }
+        },
+        "FlightCarrier_FW": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='AF',connid='0820',fldate=datetime'2002-12-23T00%3A00%3A00')/FlightCarrier_FW"
+          }
+        }
+      },
+      {
+        "__metadata": {
+          "id":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='0400',fldate=datetime'1995-02-28T00%3A00%3A00')",
+          "uri":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='0400',fldate=datetime'1995-02-28T00%3A00%3A00')",
+          "type": "RMTSAMPLEFLIGHT.Flight"
+        },
+        "flightDetails": {
+          "__metadata": {
+            "type": "RMTSAMPLEFLIGHT.FlightDetails"
+          },
+          "countryFrom": "",
+          "cityFrom": "frankfurt",
+          "airportFrom": "FRA",
+          "countryTo": "",
+          "cityTo": "NEW YORK",
+          "airportTo": "JFK",
+          "flightTime": 30240,
+          "departureTime": "PT10H10M00S",
+          "arrivalTime": "PT11H34M00S",
+          "distance": "7865.0000",
+          "distanceUnit": "KMT",
+          "flightType": "",
+          "period": 0
+        },
+        "carrid": "LH",
+        "connid": "0400",
+        "fldate": "/Date(793929600000)/",
+        "PRICE": "899.00",
+        "CURRENCY": "DEM",
+        "PLANETYPE": "A319",
+        "SEATSMAX": 350,
+        "SEATSOCC": 4,
+        "PAYMENTSUM": "2639.00",
+        "SEATSMAX_B": 0,
+        "SEATSOCC_B": 0,
+        "SEATSMAX_F": 0,
+        "SEATSOCC_F": 0,
+        "flightbooking": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='0400',fldate=datetime'1995-02-28T00%3A00%3A00')/flightbooking"
+          }
+        },
+        "flightBookings": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='0400',fldate=datetime'1995-02-28T00%3A00%3A00')/flightBookings"
+          }
+        },
+        "FlightCarrier": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='0400',fldate=datetime'1995-02-28T00%3A00%3A00')/FlightCarrier"
+          }
+        },
+        "FlightCarrier_FW": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='0400',fldate=datetime'1995-02-28T00%3A00%3A00')/FlightCarrier_FW"
+          }
+        }
+      },
+      {
+        "__metadata": {
+          "id":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='0454',fldate=datetime'1995-11-17T00%3A00%3A00')",
+          "uri":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='0454',fldate=datetime'1995-11-17T00%3A00%3A00')",
+          "type": "RMTSAMPLEFLIGHT.Flight"
+        },
+        "flightDetails": {
+          "__metadata": {
+            "type": "RMTSAMPLEFLIGHT.FlightDetails"
+          },
+          "countryFrom": "",
+          "cityFrom": "frankfurt",
+          "airportFrom": "FRA",
+          "countryTo": "",
+          "cityTo": "SAN FRANCISCO",
+          "airportTo": "SFO",
+          "flightTime": 44400,
+          "departureTime": "PT10H10M00S",
+          "arrivalTime": "PT12H30M00S",
+          "distance": "0.0000",
+          "distanceUnit": "",
+          "flightType": "",
+          "period": 0
+        },
+        "carrid": "LH",
+        "connid": "0454",
+        "fldate": "/Date(816566400000)/",
+        "PRICE": "1499.00",
+        "CURRENCY": "DEM",
+        "PLANETYPE": "A319",
+        "SEATSMAX": 350,
+        "SEATSOCC": 2,
+        "PAYMENTSUM": "2949.00",
+        "SEATSMAX_B": 0,
+        "SEATSOCC_B": 0,
+        "SEATSMAX_F": 0,
+        "SEATSOCC_F": 0,
+        "flightbooking": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='0454',fldate=datetime'1995-11-17T00%3A00%3A00')/flightbooking"
+          }
+        },
+        "flightBookings": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='0454',fldate=datetime'1995-11-17T00%3A00%3A00')/flightBookings"
+          }
+        },
+        "FlightCarrier": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='0454',fldate=datetime'1995-11-17T00%3A00%3A00')/FlightCarrier"
+          }
+        },
+        "FlightCarrier_FW": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='0454',fldate=datetime'1995-11-17T00%3A00%3A00')/FlightCarrier_FW"
+          }
+        }
+      },
+      {
+        "__metadata": {
+          "id":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='0455',fldate=datetime'1995-06-06T00%3A00%3A00')",
+          "uri":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='0455',fldate=datetime'1995-06-06T00%3A00%3A00')",
+          "type": "RMTSAMPLEFLIGHT.Flight"
+        },
+        "flightDetails": {
+          "__metadata": {
+            "type": "RMTSAMPLEFLIGHT.FlightDetails"
+          },
+          "countryFrom": "",
+          "cityFrom": "san francisco",
+          "airportFrom": "SFO",
+          "countryTo": "",
+          "cityTo": "FRANKFURT",
+          "airportTo": "FRA",
+          "flightTime": 48600,
+          "departureTime": "PT15H00M00S",
+          "arrivalTime": "PT10H30M00S",
+          "distance": "0.0000",
+          "distanceUnit": "",
+          "flightType": "",
+          "period": 0
+        },
+        "carrid": "LH",
+        "connid": "0455",
+        "fldate": "/Date(802396800000)/",
+        "PRICE": "1090.00",
+        "CURRENCY": "USD",
+        "PLANETYPE": "A319",
+        "SEATSMAX": 220,
+        "SEATSOCC": 1,
+        "PAYMENTSUM": "1499.00",
+        "SEATSMAX_B": 0,
+        "SEATSOCC_B": 0,
+        "SEATSMAX_F": 0,
+        "SEATSOCC_F": 0,
+        "flightbooking": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='0455',fldate=datetime'1995-06-06T00%3A00%3A00')/flightbooking"
+          }
+        },
+        "flightBookings": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='0455',fldate=datetime'1995-06-06T00%3A00%3A00')/flightBookings"
+          }
+        },
+        "FlightCarrier": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='0455',fldate=datetime'1995-06-06T00%3A00%3A00')/FlightCarrier"
+          }
+        },
+        "FlightCarrier_FW": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='0455',fldate=datetime'1995-06-06T00%3A00%3A00')/FlightCarrier_FW"
+          }
+        }
+      },
+      {
+        "__metadata": {
+          "id":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='0455',fldate=datetime'1996-12-31T00%3A00%3A00')",
+          "uri":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='0455',fldate=datetime'1996-12-31T00%3A00%3A00')",
+          "type": "RMTSAMPLEFLIGHT.Flight"
+        },
+        "flightDetails": {
+          "__metadata": {
+            "type": "RMTSAMPLEFLIGHT.FlightDetails"
+          },
+          "countryFrom": "",
+          "cityFrom": "san francisco",
+          "airportFrom": "SFO",
+          "countryTo": "",
+          "cityTo": "FRANKFURT",
+          "airportTo": "FRA",
+          "flightTime": 48600,
+          "departureTime": "PT15H00M00S",
+          "arrivalTime": "PT10H30M00S",
+          "distance": "0.0000",
+          "distanceUnit": "",
+          "flightType": "",
+          "period": 0
+        },
+        "carrid": "LH",
+        "connid": "0455",
+        "fldate": "/Date(851990400000)/",
+        "PRICE": "1919.00",
+        "CURRENCY": "DEM",
+        "PLANETYPE": "DC-10-10",
+        "SEATSMAX": 380,
+        "SEATSOCC": 190,
+        "PAYMENTSUM": "344479.69",
+        "SEATSMAX_B": 0,
+        "SEATSOCC_B": 0,
+        "SEATSMAX_F": 0,
+        "SEATSOCC_F": 0,
+        "flightbooking": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='0455',fldate=datetime'1996-12-31T00%3A00%3A00')/flightbooking"
+          }
+        },
+        "flightBookings": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='0455',fldate=datetime'1996-12-31T00%3A00%3A00')/flightBookings"
+          }
+        },
+        "FlightCarrier": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='0455',fldate=datetime'1996-12-31T00%3A00%3A00')/FlightCarrier"
+          }
+        },
+        "FlightCarrier_FW": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='0455',fldate=datetime'1996-12-31T00%3A00%3A00')/FlightCarrier_FW"
+          }
+        }
+      },
+      {
+        "__metadata": {
+          "id":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='2402',fldate=datetime'1997-08-21T00%3A00%3A00')",
+          "uri":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='2402',fldate=datetime'1997-08-21T00%3A00%3A00')",
+          "type": "RMTSAMPLEFLIGHT.Flight"
+        },
+        "flightDetails": {
+          "__metadata": {
+            "type": "RMTSAMPLEFLIGHT.FlightDetails"
+          },
+          "countryFrom": "",
+          "cityFrom": "frankfurt",
+          "airportFrom": "FRA",
+          "countryTo": "",
+          "cityTo": "BERLIN",
+          "airportTo": "SXF",
+          "flightTime": 3900,
+          "departureTime": "PT10H30M00S",
+          "arrivalTime": "PT11H35M00S",
+          "distance": "0.0000",
+          "distanceUnit": "",
+          "flightType": "",
+          "period": 0
+        },
+        "carrid": "LH",
+        "connid": "2402",
+        "fldate": "/Date(872121600000)/",
+        "PRICE": "555.00",
+        "CURRENCY": "DEM",
+        "PLANETYPE": "A319",
+        "SEATSMAX": 300,
+        "SEATSOCC": 100,
+        "PAYMENTSUM": "0.00",
+        "SEATSMAX_B": 0,
+        "SEATSOCC_B": 0,
+        "SEATSMAX_F": 0,
+        "SEATSOCC_F": 0,
+        "flightbooking": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='2402',fldate=datetime'1997-08-21T00%3A00%3A00')/flightbooking"
+          }
+        },
+        "flightBookings": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='2402',fldate=datetime'1997-08-21T00%3A00%3A00')/flightBookings"
+          }
+        },
+        "FlightCarrier": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='2402',fldate=datetime'1997-08-21T00%3A00%3A00')/FlightCarrier"
+          }
+        },
+        "FlightCarrier_FW": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='2402',fldate=datetime'1997-08-21T00%3A00%3A00')/FlightCarrier_FW"
+          }
+        }
+      },
+      {
+        "__metadata": {
+          "id":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='2402',fldate=datetime'1997-08-22T00%3A00%3A00')",
+          "uri":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='2402',fldate=datetime'1997-08-22T00%3A00%3A00')",
+          "type": "RMTSAMPLEFLIGHT.Flight"
+        },
+        "flightDetails": {
+          "__metadata": {
+            "type": "RMTSAMPLEFLIGHT.FlightDetails"
+          },
+          "countryFrom": "",
+          "cityFrom": "frankfurt",
+          "airportFrom": "FRA",
+          "countryTo": "",
+          "cityTo": "BERLIN",
+          "airportTo": "SXF",
+          "flightTime": 3900,
+          "departureTime": "PT10H30M00S",
+          "arrivalTime": "PT11H35M00S",
+          "distance": "0.0000",
+          "distanceUnit": "",
+          "flightType": "",
+          "period": 0
+        },
+        "carrid": "LH",
+        "connid": "2402",
+        "fldate": "/Date(872208000000)/",
+        "PRICE": "590.00",
+        "CURRENCY": "DEM",
+        "PLANETYPE": "A330-300",
+        "SEATSMAX": 300,
+        "SEATSOCC": 250,
+        "PAYMENTSUM": "0.00",
+        "SEATSMAX_B": 0,
+        "SEATSOCC_B": 0,
+        "SEATSMAX_F": 0,
+        "SEATSOCC_F": 0,
+        "flightbooking": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='2402',fldate=datetime'1997-08-22T00%3A00%3A00')/flightbooking"
+          }
+        },
+        "flightBookings": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='2402',fldate=datetime'1997-08-22T00%3A00%3A00')/flightBookings"
+          }
+        },
+        "FlightCarrier": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='2402',fldate=datetime'1997-08-22T00%3A00%3A00')/FlightCarrier"
+          }
+        },
+        "FlightCarrier_FW": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='2402',fldate=datetime'1997-08-22T00%3A00%3A00')/FlightCarrier_FW"
+          }
+        }
+      },
+      {
+        "__metadata": {
+          "id":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='2402',fldate=datetime'1997-08-25T00%3A00%3A00')",
+          "uri":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='2402',fldate=datetime'1997-08-25T00%3A00%3A00')",
+          "type": "RMTSAMPLEFLIGHT.Flight"
+        },
+        "flightDetails": {
+          "__metadata": {
+            "type": "RMTSAMPLEFLIGHT.FlightDetails"
+          },
+          "countryFrom": "",
+          "cityFrom": "frankfurt",
+          "airportFrom": "FRA",
+          "countryTo": "",
+          "cityTo": "BERLIN",
+          "airportTo": "SXF",
+          "flightTime": 3900,
+          "departureTime": "PT10H30M00S",
+          "arrivalTime": "PT11H35M00S",
+          "distance": "0.0000",
+          "distanceUnit": "",
+          "flightType": "",
+          "period": 0
+        },
+        "carrid": "LH",
+        "connid": "2402",
+        "fldate": "/Date(872467200000)/",
+        "PRICE": "490.00",
+        "CURRENCY": "DEM",
+        "PLANETYPE": "A330-300",
+        "SEATSMAX": 300,
+        "SEATSOCC": 290,
+        "PAYMENTSUM": "0.00",
+        "SEATSMAX_B": 0,
+        "SEATSOCC_B": 0,
+        "SEATSMAX_F": 0,
+        "SEATSOCC_F": 0,
+        "flightbooking": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='2402',fldate=datetime'1997-08-25T00%3A00%3A00')/flightbooking"
+          }
+        },
+        "flightBookings": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='2402',fldate=datetime'1997-08-25T00%3A00%3A00')/flightBookings"
+          }
+        },
+        "FlightCarrier": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='2402',fldate=datetime'1997-08-25T00%3A00%3A00')/FlightCarrier"
+          }
+        },
+        "FlightCarrier_FW": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='2402',fldate=datetime'1997-08-25T00%3A00%3A00')/FlightCarrier_FW"
+          }
+        }
+      },
+      {
+        "__metadata": {
+          "id":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='2402',fldate=datetime'1997-08-30T00%3A00%3A00')",
+          "uri":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='2402',fldate=datetime'1997-08-30T00%3A00%3A00')",
+          "type": "RMTSAMPLEFLIGHT.Flight"
+        },
+        "flightDetails": {
+          "__metadata": {
+            "type": "RMTSAMPLEFLIGHT.FlightDetails"
+          },
+          "countryFrom": "",
+          "cityFrom": "frankfurt",
+          "airportFrom": "FRA",
+          "countryTo": "",
+          "cityTo": "BERLIN",
+          "airportTo": "SXF",
+          "flightTime": 3900,
+          "departureTime": "PT10H30M00S",
+          "arrivalTime": "PT11H35M00S",
+          "distance": "0.0000",
+          "distanceUnit": "",
+          "flightType": "",
+          "period": 0
+        },
+        "carrid": "LH",
+        "connid": "2402",
+        "fldate": "/Date(872899200000)/",
+        "PRICE": "485.00",
+        "CURRENCY": "DEM",
+        "PLANETYPE": "A330-300",
+        "SEATSMAX": 300,
+        "SEATSOCC": 290,
+        "PAYMENTSUM": "0.00",
+        "SEATSMAX_B": 0,
+        "SEATSOCC_B": 0,
+        "SEATSMAX_F": 0,
+        "SEATSOCC_F": 0,
+        "flightbooking": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='2402',fldate=datetime'1997-08-30T00%3A00%3A00')/flightbooking"
+          }
+        },
+        "flightBookings": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='2402',fldate=datetime'1997-08-30T00%3A00%3A00')/flightBookings"
+          }
+        },
+        "FlightCarrier": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='2402',fldate=datetime'1997-08-30T00%3A00%3A00')/FlightCarrier"
+          }
+        },
+        "FlightCarrier_FW": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='2402',fldate=datetime'1997-08-30T00%3A00%3A00')/FlightCarrier_FW"
+          }
+        }
+      },
+      {
+        "__metadata": {
+          "id":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='3577',fldate=datetime'1995-04-28T00%3A00%3A00')",
+          "uri":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='3577',fldate=datetime'1995-04-28T00%3A00%3A00')",
+          "type": "RMTSAMPLEFLIGHT.Flight"
+        },
+        "flightDetails": {
+          "__metadata": {
+            "type": "RMTSAMPLEFLIGHT.FlightDetails"
+          },
+          "countryFrom": "",
+          "cityFrom": "rom",
+          "airportFrom": "FCO",
+          "countryTo": "",
+          "cityTo": "FRANKFURT",
+          "airportTo": "FRA",
+          "flightTime": 7200,
+          "departureTime": "PT07H05M00S",
+          "arrivalTime": "PT09H05M00S",
+          "distance": "1870.0000",
+          "distanceUnit": "KMT",
+          "flightType": "",
+          "period": 0
+        },
+        "carrid": "LH",
+        "connid": "3577",
+        "fldate": "/Date(799027200000)/",
+        "PRICE": "6000.00",
+        "CURRENCY": "LIT",
+        "PLANETYPE": "A319",
+        "SEATSMAX": 220,
+        "SEATSOCC": 1,
+        "PAYMENTSUM": "600.00",
+        "SEATSMAX_B": 0,
+        "SEATSOCC_B": 0,
+        "SEATSMAX_F": 0,
+        "SEATSOCC_F": 0,
+        "flightbooking": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='3577',fldate=datetime'1995-04-28T00%3A00%3A00')/flightbooking"
+          }
+        },
+        "flightBookings": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='3577',fldate=datetime'1995-04-28T00%3A00%3A00')/flightBookings"
+          }
+        },
+        "FlightCarrier": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='3577',fldate=datetime'1995-04-28T00%3A00%3A00')/FlightCarrier"
+          }
+        },
+        "FlightCarrier_FW": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='3577',fldate=datetime'1995-04-28T00%3A00%3A00')/FlightCarrier_FW"
+          }
+        }
+      },
+      {
+        "__metadata": {
+          "id":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='9981',fldate=datetime'2002-12-21T00%3A00%3A00')",
+          "uri":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='9981',fldate=datetime'2002-12-21T00%3A00%3A00')",
+          "type": "RMTSAMPLEFLIGHT.Flight"
+        },
+        "flightDetails": {
+          "__metadata": {
+            "type": "RMTSAMPLEFLIGHT.FlightDetails"
+          },
+          "countryFrom": "DE",
+          "cityFrom": "frankfurt",
+          "airportFrom": "FRA",
+          "countryTo": "DE",
+          "cityTo": "DRESDEN",
+          "airportTo": "DRS",
+          "flightTime": 3300,
+          "departureTime": "PT16H40M00S",
+          "arrivalTime": "PT17H35M00S",
+          "distance": "300.0000",
+          "distanceUnit": "",
+          "flightType": "",
+          "period": 0
+        },
+        "carrid": "LH",
+        "connid": "9981",
+        "fldate": "/Date(1040428800000)/",
+        "PRICE": "222.00",
+        "CURRENCY": "EUR",
+        "PLANETYPE": "A330-300",
+        "SEATSMAX": 320,
+        "SEATSOCC": 12,
+        "PAYMENTSUM": "0.00",
+        "SEATSMAX_B": 20,
+        "SEATSOCC_B": 1,
+        "SEATSMAX_F": 0,
+        "SEATSOCC_F": 0,
+        "flightbooking": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='9981',fldate=datetime'2002-12-21T00%3A00%3A00')/flightbooking"
+          }
+        },
+        "flightBookings": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='9981',fldate=datetime'2002-12-21T00%3A00%3A00')/flightBookings"
+          }
+        },
+        "FlightCarrier": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='9981',fldate=datetime'2002-12-21T00%3A00%3A00')/FlightCarrier"
+          }
+        },
+        "FlightCarrier_FW": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='LH',connid='9981',fldate=datetime'2002-12-21T00%3A00%3A00')/FlightCarrier_FW"
+          }
+        }
+      },
+      {
+        "__metadata": {
+          "id":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='SQ',connid='0026',fldate=datetime'1995-02-28T00%3A00%3A00')",
+          "uri":
+            "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='SQ',connid='0026',fldate=datetime'1995-02-28T00%3A00%3A00')",
+          "type": "RMTSAMPLEFLIGHT.Flight"
+        },
+        "flightDetails": {
+          "__metadata": {
+            "type": "RMTSAMPLEFLIGHT.FlightDetails"
+          },
+          "countryFrom": "",
+          "cityFrom": "frankfurt",
+          "airportFrom": "FRA",
+          "countryTo": "",
+          "cityTo": "NEW YORK",
+          "airportTo": "JFK",
+          "flightTime": 30000,
+          "departureTime": "PT08H30M00S",
+          "arrivalTime": "PT09H50M00S",
+          "distance": "7865.0000",
+          "distanceUnit": "KMT",
+          "flightType": "",
+          "period": 0
+        },
+        "carrid": "SQ",
+        "connid": "0026",
+        "fldate": "/Date(793929600000)/",
+        "PRICE": "849.00",
+        "CURRENCY": "DEM",
+        "PLANETYPE": "DC-10-10",
+        "SEATSMAX": 380,
+        "SEATSOCC": 35,
+        "PAYMENTSUM": "1684.00",
+        "SEATSMAX_B": 0,
+        "SEATSOCC_B": 0,
+        "SEATSMAX_F": 0,
+        "SEATSOCC_F": 0,
+        "flightbooking": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='SQ',connid='0026',fldate=datetime'1995-02-28T00%3A00%3A00')/flightbooking"
+          }
+        },
+        "flightBookings": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='SQ',connid='0026',fldate=datetime'1995-02-28T00%3A00%3A00')/flightBookings"
+          }
+        },
+        "FlightCarrier": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='SQ',connid='0026',fldate=datetime'1995-02-28T00%3A00%3A00')/FlightCarrier"
+          }
+        },
+        "FlightCarrier_FW": {
+          "__deferred": {
+            "uri":
+              "http://localhost:50000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT/FlightCollection(carrid='SQ',connid='0026',fldate=datetime'1995-02-28T00%3A00%3A00')/FlightCarrier_FW"
+          }
+        }
+      }
+    ]
+  }
+}
