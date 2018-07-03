@@ -4,18 +4,14 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>My Project</title>
+		<title><%= projectName %></title>
 
 		<!-- Bootstrap the unified shell in sandbox mode for standalone usage.
-
 			The renderer is specified in the global Unified Shell configuration object "sap-ushell-config".
-
 			The fiori2 renderer will render the shell header allowing, for instance,
 			testing of additional application setting buttons.
-
 			The navigation target resolution service is configured in a way that the empty URL hash is
 			resolved to our own application.
-
 			This example uses relative path references for the SAPUI5 resources and test-resources;
 			it might be necessary to adapt them depending on the target runtime platform.
 			The sandbox platform is restricted to development or demo use cases and must NOT be used
@@ -34,12 +30,12 @@
 					}
 				},
 				applications: {
-					"MyProject-display": {
+					"<%= projectNamespace %>-display": {
 						additionalInformation: "SAPUI5.Component=<%= projectNamespace %>",
 						applicationType: "URL",
 						url: "../",
-						description: "Master Detail Application",
-						title: "My Project"
+						description: "<%= projectDescription %>",
+						title: "<%= projectName %>"
 					}
 				}
 			};

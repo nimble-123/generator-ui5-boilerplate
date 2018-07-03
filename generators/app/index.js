@@ -29,8 +29,8 @@ module.exports = class extends Generator {
             value: 'app-simple'
           },
           {
-            name: '🖥 App: Master/Detail',
-            value: 'app-master-detail'
+            name: '🖥 App: Master/Detail Layout',
+            value: 'app-master-detail-layout'
           },
           {
             name: '🖥 App: Flexible Column Layout',
@@ -1383,7 +1383,7 @@ module.exports = class extends Generator {
         this._createTemplateSimpleApp(oProps);
         this._createTemplateAppDocs(oProps);
         break;
-      case 'app-master-detail':
+      case 'app-master-detail-layout':
         // Create master/detail app template
         this._createTemplateMasterDetailApp(oProps);
         this._createTemplateAppDocs(oProps);
@@ -1461,7 +1461,7 @@ module.exports = class extends Generator {
    */
   _createTemplateMasterDetailApp(oProps) {
     this.fs.copyTpl(
-      this.templatePath('app-master-detail/**/*'),
+      this.templatePath('app-master-detail-layout/**/*'),
       this.destinationPath(`${oProps.projectPath}/`),
       oProps,
       {},

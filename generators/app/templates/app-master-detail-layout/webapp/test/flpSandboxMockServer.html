@@ -4,7 +4,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>My Project</title>
+		<title><%= projectName %></title>
 
 
 		<!-- Bootstrap the unified shell in sandbox mode for standalone usage.
@@ -35,12 +35,12 @@
 					}
 				},
 				applications: {
-					"MyProject-display": {
+					"<%= projectNamespace %>-display": {
 						additionalInformation: "SAPUI5.Component=<%= projectNamespace %>",
 						applicationType: "URL",
 						url: "../",
-						description: "Master Detail Application",
-						title: "My Project"
+						description: "<%= projectDescription %>",
+						title: "<%= projectName %>"
 					}
 				}
 			};
