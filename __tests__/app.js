@@ -6,7 +6,7 @@ const helpers = require('yeoman-test');
 describe('generator-ui5-boilerplate:app', () => {
   beforeAll(() => {
     return helpers.run(path.join(__dirname, '../generators/app')).withPrompts({
-      projectType: 'simple-app',
+      projectType: 'app-simple',
       projectName: 'My Project',
       projectNamespace: 'io.ui5lab.nl.myProject',
       projectDescription: 'A simple ui5 application.',

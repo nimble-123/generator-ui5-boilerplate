@@ -25,16 +25,20 @@ module.exports = class extends Generator {
         message: 'Which type of UI5 application do you want to create?',
         choices: [
           {
-            name: 'Simple App',
-            value: 'simple-app'
+            name: 'App: Simple',
+            value: 'app-simple'
           },
           {
-            name: 'Master/Detail App',
-            value: 'master-detail-app'
+            name: 'App: Master/Detail',
+            value: 'app-master-detail'
           },
           {
-            name: 'Flexible Column Layout App',
-            value: 'flexible-column-layout-app'
+            name: 'App: Flexible Column Layout',
+            value: 'app-flexible-column-layout'
+          },
+          {
+            name: 'Lib: Control',
+            value: 'lib-control'
           }
         ]
       },
@@ -1370,22 +1374,22 @@ module.exports = class extends Generator {
 
     // Generate project boilerplate
     switch (oProps.projectType) {
-      case 'simple-app':
+      case 'app-simple':
         // Create simple app template
         this._createTemplateSimpleApp(oProps);
         this._createTemplateAppDocs(oProps);
         break;
-      case 'master-detail-app':
+      case 'app-master-detail':
         // Create master/detail app template
         this._createTemplateMasterDetailApp(oProps);
         this._createTemplateAppDocs(oProps);
         break;
-      case 'flexible-column-layout-app':
+      case 'app-flexible-column-layout':
         // Create master/detail app template
         this._createTemplateFlexibleColumnLayoutApp(oProps);
         this._createTemplateAppDocs(oProps);
         break;
-      case 'control-lib':
+      case 'lib-control':
         // Create master/detail app template
         this._createTemplateControlLib(oProps);
         this._createTemplateLibDocs(oProps);
@@ -1407,7 +1411,7 @@ module.exports = class extends Generator {
    */
   _createTemplateSettings(oProps) {
     this.fs.copyTpl(
-      this.templatePath('settings/**/*'),
+      this.templatePath('app-settings/**/*'),
       this.destinationPath(`${oProps.projectPath}/`),
       oProps,
       {},
@@ -1439,7 +1443,7 @@ module.exports = class extends Generator {
    */
   _createTemplateSimpleApp(oProps) {
     this.fs.copyTpl(
-      this.templatePath('simple-app/**/*'),
+      this.templatePath('app-simple/**/*'),
       this.destinationPath(`${oProps.projectPath}/`),
       oProps,
       {},
@@ -1453,7 +1457,7 @@ module.exports = class extends Generator {
    */
   _createTemplateMasterDetailApp(oProps) {
     this.fs.copyTpl(
-      this.templatePath('master-detail-app/**/*'),
+      this.templatePath('app-master-detail/**/*'),
       this.destinationPath(`${oProps.projectPath}/`),
       oProps,
       {},
@@ -1467,7 +1471,7 @@ module.exports = class extends Generator {
    */
   _createTemplateFlexibleColumnLayoutApp(oProps) {
     this.fs.copyTpl(
-      this.templatePath('flexible-column-layout-app/**/*'),
+      this.templatePath('app-flexible-column-layout/**/*'),
       this.destinationPath(`${oProps.projectPath}/`),
       oProps,
       {},
@@ -1481,7 +1485,7 @@ module.exports = class extends Generator {
    */
   _createTemplateControlLib(oProps) {
     this.fs.copyTpl(
-      this.templatePath('control-lib/**/*'),
+      this.templatePath('lib-control/**/*'),
       this.destinationPath(`${oProps.projectPath}/`),
       oProps,
       {},
