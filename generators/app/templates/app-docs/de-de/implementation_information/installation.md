@@ -6,18 +6,18 @@ The app consists of front-end components (such as the user interfaces) and back-
 
 | Key                               | Value                         |
 |:----------------------------------|:------------------------------|
-| **Product Version**               | <%= frontendProductVersion %> |
-| **Support Package Stack**         | <%= frontendSPS %>            |
-| **Software Component Version**    | <%= frontendSCV %>            |
+| **Product Version**               | <%= docsFrontendProductVersion %> |
+| **Support Package Stack**         | <%= docsFrontendSPS %>            |
+| **Software Component Version**    | <%= docsFrontendSCV %>            |
 | **Prerequisite for installation** |                               |
 
 ## Back-End Components (ABAP)
 
 | Key                               | Value                         |
 |:----------------------------------|:------------------------------|
-| **Product Version**               | <%= backendProductVersion %>  |
-| **Support Package Stack**         | <%= backendSPS %>             |
-| **Software Component Version**    | <%= backendSCV %>             |
+| **Product Version**               | <%= docsBackendProductVersion %>  |
+| **Support Package Stack**         | <%= docsBackendSPS %>             |
+| **Software Component Version**    | <%= docsBackendSCV %>             |
 | **Prerequisite for installation** |                               |
 
 Use [Maintenance Planner](http://bit.ly/2rhNMaz "Maintenance Planner") to plan and analyze required changes to your system landscape (requires login to SAP Service Marketplace). For more information, watch [this video](http://bit.ly/2HSnmlR "Simplified Fiori Software Provisioning with the Maintenance Planner") or see [Simplified installation of SAP Fiori Apps with Maintenance Planner](http://bit.ly/2HQK1Df "Simplified Installation of SAP Fiori Apps with Maintenance Planner | SAP Blogs").

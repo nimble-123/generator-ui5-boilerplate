@@ -6,5 +6,5 @@ Find out [how to extend a SAP Fiori app](http://bit.ly/2Ifw5lD "Guided Answers")
 
 | Component                         | Technical Name      |
 |:----------------------------------|:--------------------|
-| BSP containing SAPUI5 Application | <%= bspContainer %> |
+| BSP containing SAPUI5 Application | <%= deploymentBspContainer %> |
 

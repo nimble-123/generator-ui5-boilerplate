@@ -31,8 +31,9 @@ After everything is set up navigate into the newly created project directory. Yo
  * Add unit and integration tests for template
  * Add Master/Detail app template
  * Add Flexible Column Layout app template
- * Add sub generators for views/controllers
  * Add Library template
+ * Add sub generators for views/controllers
+ * Add sub generator for control
  * Add option to read metadata file from provided OData-Service
  * Add further tests for right file content
  * Add select questions for documentation purposes (All SAP Roles, ...)

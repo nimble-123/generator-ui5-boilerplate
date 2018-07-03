@@ -31,19 +31,23 @@ module.exports = class extends Generator {
           {
             name: 'Master/Detail App',
             value: 'master-detail-app'
+          },
+          {
+            name: 'Flexible Column Layout App',
+            value: 'flexible-column-layout-app'
           }
         ]
       },
       {
         type: 'input',
         name: 'projectName',
-        message: 'What is the name of your project?(eg. reverse-DNS format)',
-        default: 'io.ui5lab.nl.myProject'
+        message: 'What is the name of your project?',
+        default: 'My Project'
       },
       {
         type: 'input',
         name: 'projectNamespace',
-        message: 'What is the namespace of your project?',
+        message: 'What is the namespace of your project? (eg. reverse-DNS format)',
         default: 'io.ui5lab.nl.myProject'
       },
       {
@@ -79,7 +83,7 @@ module.exports = class extends Generator {
       {
         type: 'list',
         pageSize: 20,
-        name: 'minimumUI5Version',
+        name: 'projectMinimumUI5Version',
         message: 'Select the minimum UI5 version.',
         choices: [
           { name: '1.32', value: '1.32' },
@@ -102,7 +106,7 @@ module.exports = class extends Generator {
       },
       {
         type: 'list',
-        name: 'libSource',
+        name: 'projectUI5LibSource',
         message: 'Which UI5 CDN do you want to use?',
         choices: [
           {
@@ -119,7 +123,7 @@ module.exports = class extends Generator {
       {
         type: 'checkbox',
         pageSize: 25,
-        name: 'libsUsed',
+        name: 'projectUI5LibsUsed',
         message: 'Which UI5 libs do you want to use?',
         choices: [
           {
@@ -237,6 +241,7 @@ module.exports = class extends Generator {
         ]
       }
     ];
+
     const aDeploymentQuestions = [
       {
         type: 'confirm',
@@ -249,52 +254,52 @@ module.exports = class extends Generator {
           return answers.deploymentInformations === true;
         },
         type: 'input',
-        name: 'devPackage',
+        name: 'deploymentDevPackage',
         message: 'What is target development package?',
-        default: 'ZIO_UI5LAB_NL'
+        default: '(/NAMESPACE/)ZZ_UI5_NL'
       },
       {
         when: function(answers) {
           return answers.deploymentInformations === true;
         },
         type: 'input',
-        name: 'bspContainer',
+        name: 'deploymentBspContainer',
         message: 'What is target BSP container name?',
-        default: 'ZIO_UI5LAB_NL_MYPROJECT'
+        default: '(/NAMESPACE/)ZZ_UI5_NL_MYPROJECT'
       },
       {
         when: function(answers) {
           return answers.deploymentInformations === true;
         },
         type: 'input',
-        name: 'bspContainerText',
+        name: 'deploymentBspContainerText',
         message: 'What is target BSP container description?',
-        default: 'UI Application io.ui5lab.nl.myProject'
+        default: 'UI Application (ProjectName)'
       },
       {
         when: function(answers) {
           return answers.deploymentInformations === true;
         },
         type: 'input',
-        name: 'transportNo',
+        name: 'deploymentTransportNo',
         message: 'What is the transport no. of BSP container?',
-        default: 'NPL9000123'
+        default: 'DEVK900123'
       },
       {
         when: function(answers) {
           return answers.deploymentInformations === true;
         },
         type: 'input',
-        name: 'nwSys',
+        name: 'deploymentNwSys',
         message: 'What is deployment system?',
-        default: 'http://localhost:8000'
+        default: 'http://localhost:50000'
       },
       {
         when: function(answers) {
           return answers.deploymentInformations === true;
         },
         type: 'input',
-        name: 'nwSysUser',
+        name: 'deploymentNwSysUser',
         message: 'What is deployment user for netweaver system?',
         default: 'developer'
       },
@@ -303,188 +308,884 @@ module.exports = class extends Generator {
           return answers.deploymentInformations === true;
         },
         type: 'input',
-        name: 'nwSysPassword',
+        name: 'deploymentNwSysPassword',
         message: 'What is the password for the deployment user?',
         default: 'Appl1ance'
       }
     ];
-    const aDocumentationQuestions = [
+
+    const aProductFeaturesGeneralData = [
       {
         type: 'confirm',
-        name: 'businessInformations',
-        message: 'Do you want to add business/documentation information?',
+        name: 'docsProductGeneralData',
+        message: 'Do you want to add general data information?',
         default: false
       },
       {
         when: function(answers) {
-          return answers.businessInformations === true;
+          return answers.docsProductGeneralData === true;
+        },
+        type: 'checkbox',
+        pageSize: 25,
+        name: 'docsProductGeneralDataRoles',
+        message: 'Which roles will use this app?',
+        choices: [
+          {
+            name: 'Mobile',
+            value: 'sap.m',
+            checked: true
+          }
+        ]
+      },
+      {
+        when: function(answers) {
+          return answers.docsProductGeneralData === true;
+        },
+        type: 'checkbox',
+        pageSize: 25,
+        name: 'docsProductGeneralDataProductSuite',
+        message: 'Product Suite?',
+        choices: [
+          {
+            name: 'Mobile',
+            value: 'sap.m',
+            checked: true
+          }
+        ]
+      },
+      {
+        when: function(answers) {
+          return answers.docsProductGeneralData === true;
+        },
+        type: 'checkbox',
+        pageSize: 25,
+        name: 'docsProductGeneralDataProductVersion',
+        message: 'Product Version?',
+        choices: [
+          {
+            name: 'Mobile',
+            value: 'sap.m',
+            checked: true
+          }
+        ]
+      },
+      {
+        when: function(answers) {
+          return answers.docsProductGeneralData === true;
+        },
+        type: 'checkbox',
+        pageSize: 25,
+        name: 'docsProductGeneralDataLineOfBusiness',
+        message: 'Line of Business?',
+        choices: [
+          {
+            name: 'Mobile',
+            value: 'sap.m',
+            checked: true
+          }
+        ]
+      },
+      {
+        when: function(answers) {
+          return answers.docsProductGeneralData === true;
+        },
+        type: 'checkbox',
+        pageSize: 25,
+        name: 'docsProductGeneralDataIndustry',
+        message: 'Industry?',
+        choices: [
+          {
+            name: 'Mobile',
+            value: 'sap.m',
+            checked: true
+          }
+        ]
+      },
+      {
+        when: function(answers) {
+          return answers.docsProductGeneralData === true;
+        },
+        type: 'checkbox',
+        pageSize: 25,
+        name: 'docsProductGeneralDataSolutionCapabilityS4HanaCloud',
+        message: 'Solution Capability - S/4 HANA (Cloud)?',
+        choices: [
+          {
+            name: 'Mobile',
+            value: 'sap.m',
+            checked: true
+          }
+        ]
+      },
+      {
+        when: function(answers) {
+          return answers.docsProductGeneralData === true;
+        },
+        type: 'checkbox',
+        pageSize: 25,
+        name: 'docsProductGeneralDataSolutionCapabilityS4HanaOnPrem',
+        message: 'Solution Capability - S/4 HANA (On-Premise)?',
+        choices: [
+          {
+            name: 'Mobile',
+            value: 'sap.m',
+            checked: true
+          }
+        ]
+      },
+      {
+        when: function(answers) {
+          return answers.docsProductGeneralData === true;
+        },
+        type: 'checkbox',
+        pageSize: 25,
+        name: 'docsProductGeneralDataSolutionCapabilityLumira',
+        message: 'Solution Capability - Lumira?',
+        choices: [
+          {
+            name: 'Mobile',
+            value: 'sap.m',
+            checked: true
+          }
+        ]
+      },
+      {
+        when: function(answers) {
+          return answers.docsProductGeneralData === true;
+        },
+        type: 'checkbox',
+        pageSize: 25,
+        name: 'docsProductGeneralDataSolutionCapabilityMII',
+        message: 'Solution Capability - MII?',
+        choices: [
+          {
+            name: 'Mobile',
+            value: 'sap.m',
+            checked: true
+          }
+        ]
+      },
+      {
+        when: function(answers) {
+          return answers.docsProductGeneralData === true;
+        },
+        type: 'checkbox',
+        pageSize: 25,
+        name: 'docsProductGeneralDataSolutionCapabilityAriba',
+        message: 'Solution Capability - Ariba?',
+        choices: [
+          {
+            name: 'Mobile',
+            value: 'sap.m',
+            checked: true
+          }
+        ]
+      },
+      {
+        when: function(answers) {
+          return answers.docsProductGeneralData === true;
+        },
+        type: 'checkbox',
+        pageSize: 25,
+        name: 'docsProductGeneralDataSolutionCapabilityHybris',
+        message: 'Solution Capability - Hybris?',
+        choices: [
+          {
+            name: 'Mobile',
+            value: 'sap.m',
+            checked: true
+          }
+        ]
+      },
+      {
+        when: function(answers) {
+          return answers.docsProductGeneralData === true;
+        },
+        type: 'checkbox',
+        pageSize: 25,
+        name: 'docsProductGeneralDataSolutionCapabilityERP',
+        message: 'Solution Capability - ERP?',
+        choices: [
+          {
+            name: 'Mobile',
+            value: 'sap.m',
+            checked: true
+          }
+        ]
+      },
+      {
+        when: function(answers) {
+          return answers.docsProductGeneralData === true;
+        },
+        type: 'checkbox',
+        pageSize: 25,
+        name: 'docsProductGeneralDataSolutionCapabilityEWM',
+        message: 'Solution Capability - EWM?',
+        choices: [
+          {
+            name: 'Mobile',
+            value: 'sap.m',
+            checked: true
+          }
+        ]
+      },
+      {
+        when: function(answers) {
+          return answers.docsProductGeneralData === true;
+        },
+        type: 'checkbox',
+        pageSize: 25,
+        name: 'docsProductGeneralDataSolutionCapabilityCRM',
+        message: 'Solution Capability - CRM?',
+        choices: [
+          {
+            name: 'Mobile',
+            value: 'sap.m',
+            checked: true
+          }
+        ]
+      },
+      {
+        when: function(answers) {
+          return answers.docsProductGeneralData === true;
+        },
+        type: 'checkbox',
+        pageSize: 25,
+        name: 'docsProductGeneralDataSolutionCapabilitySRM',
+        message: 'Solution Capability - SRM?',
+        choices: [
+          {
+            name: 'Mobile',
+            value: 'sap.m',
+            checked: true
+          }
+        ]
+      },
+      {
+        when: function(answers) {
+          return answers.docsProductGeneralData === true;
+        },
+        type: 'checkbox',
+        pageSize: 25,
+        name: 'docsProductGeneralDataSolutionCapabilityCARAB',
+        message: 'Solution Capability - CARAB?',
+        choices: [
+          {
+            name: 'Mobile',
+            value: 'sap.m',
+            checked: true
+          }
+        ]
+      },
+      {
+        when: function(answers) {
+          return answers.docsProductGeneralData === true;
+        },
+        type: 'checkbox',
+        pageSize: 25,
+        name: 'docsProductGeneralDataSolutionCapabilityIBP',
+        message: 'Solution Capability - IBP?',
+        choices: [
+          {
+            name: 'Mobile',
+            value: 'sap.m',
+            checked: true
+          }
+        ]
+      },
+      {
+        when: function(answers) {
+          return answers.docsProductGeneralData === true;
+        },
+        type: 'checkbox',
+        pageSize: 25,
+        name: 'docsProductGeneralDataSolutionCapabilityCrystalReports',
+        message: 'Solution Capability - Crystal Reports?',
+        choices: [
+          {
+            name: 'Mobile',
+            value: 'sap.m',
+            checked: true
+          }
+        ]
+      },
+      {
+        when: function(answers) {
+          return answers.docsProductGeneralData === true;
+        },
+        type: 'checkbox',
+        pageSize: 25,
+        name: 'docsProductGeneralDataSolutionCapabilityC4C',
+        message: 'Solution Capability - Cloud for Customer?',
+        choices: [
+          {
+            name: 'Mobile',
+            value: 'sap.m',
+            checked: true
+          }
+        ]
+      },
+      {
+        when: function(answers) {
+          return answers.docsProductGeneralData === true;
+        },
+        type: 'checkbox',
+        pageSize: 25,
+        name: 'docsProductGeneralDataSolutionCapabilityGTS',
+        message: 'Solution Capability - GTS?',
+        choices: [
+          {
+            name: 'Mobile',
+            value: 'sap.m',
+            checked: true
+          }
+        ]
+      },
+      {
+        when: function(answers) {
+          return answers.docsProductGeneralData === true;
+        },
+        type: 'checkbox',
+        pageSize: 25,
+        name: 'docsProductGeneralDataSolutionCapabilityPCM',
+        message: 'Solution Capability - PCM?',
+        choices: [
+          {
+            name: 'Mobile',
+            value: 'sap.m',
+            checked: true
+          }
+        ]
+      },
+      {
+        when: function(answers) {
+          return answers.docsProductGeneralData === true;
+        },
+        type: 'checkbox',
+        pageSize: 25,
+        name: 'docsProductGeneralDataSolutionCapabilitySBOP',
+        message: 'Solution Capability - SBOP?',
+        choices: [
+          {
+            name: 'Mobile',
+            value: 'sap.m',
+            checked: true
+          }
+        ]
+      },
+      {
+        when: function(answers) {
+          return answers.docsProductGeneralData === true;
+        },
+        type: 'checkbox',
+        pageSize: 25,
+        name: 'docsProductGeneralDataSolutionCapabilityAnalyticsCloud',
+        message: 'Solution Capability - Analytics Cloud?',
+        choices: [
+          {
+            name: 'Mobile',
+            value: 'sap.m',
+            checked: true
+          }
+        ]
+      },
+      {
+        when: function(answers) {
+          return answers.docsProductGeneralData === true;
+        },
+        type: 'checkbox',
+        pageSize: 25,
+        name: 'docsProductGeneralDataSolutionCapabilityUnrelated',
+        message: 'Solution Capability - Unrelated?',
+        choices: [
+          {
+            name: 'Mobile',
+            value: 'sap.m',
+            checked: true
+          }
+        ]
+      },
+      {
+        when: function(answers) {
+          return answers.docsProductGeneralData === true;
+        },
+        type: 'checkbox',
+        pageSize: 25,
+        name: 'docsProductGeneralDataRequiredBackEndProduct',
+        message: 'Required Back-End Product?',
+        choices: [
+          {
+            name: 'Mobile',
+            value: 'sap.m',
+            checked: true
+          }
+        ]
+      },
+      {
+        when: function(answers) {
+          return answers.docsProductGeneralData === true;
+        },
+        type: 'checkbox',
+        pageSize: 25,
+        name: 'docsProductGeneralDataApplicationType',
+        message: 'Application Type?',
+        choices: [
+          {
+            name: 'Fiori Transactional (SAP Fiori: Generic Job Scheduling Framework)',
+            value: 'fiori-transactional',
+            checked: true
+          },
+          {
+            name: 'Fiori Object page / Fact sheet',
+            value: 'fiori-object-page',
+            checked: true
+          },
+          {
+            name: 'Fiori - Analytical',
+            value: 'fiori-analytical',
+            checked: true
+          },
+          {
+            name: 'Fiori - Reuse Component',
+            value: 'fiori-reuse-component',
+            checked: true
+          },
+          {
+            name: 'Design Studio',
+            value: 'design-studio',
+            checked: true
+          },
+          {
+            name: 'Web Dynpro',
+            value: 'web-dynpro',
+            checked: true
+          },
+          {
+            name: 'SAP GUI',
+            value: 'sap-gui',
+            checked: true
+          }
+        ]
+      },
+      {
+        when: function(answers) {
+          return answers.docsProductGeneralData === true;
+        },
+        type: 'checkbox',
+        pageSize: 25,
+        name: 'docsProductGeneralDataUserInterfaceTechnology',
+        message: 'User Interface Technology?',
+        choices: [
+          {
+            name: 'Design Studio (Planning)',
+            value: 'design-studio-planning',
+            checked: true
+          },
+          {
+            name: 'Design Studio (Reporting)',
+            value: 'design-studio-reporting',
+            checked: true
+          },
+          {
+            name: 'SAP Fiori (SAPUI5)',
+            value: 'sap-fiori',
+            checked: true
+          },
+          {
+            name: 'SAP Fiori Elements',
+            value: 'sap-fiori-elements',
+            checked: true
+          },
+          {
+            name: 'SAP Fiori Elements for CoPilot',
+            value: 'sap-fiori-elements-copilot',
+            checked: true
+          },
+          {
+            name: 'SAP Fiori: Analysis Path Framework (APF)',
+            value: 'sap-fiori-analysis-path-framework',
+            checked: true
+          },
+          {
+            name: 'SAP Fiori: Design Studio',
+            value: 'sap-fiori-design-studio',
+            checked: true
+          },
+          {
+            name: 'SAP Fiori: Generic Application Log Framework',
+            value: 'sap-fiori-generic-application-log-framework',
+            checked: true
+          },
+          {
+            name: 'SAP Fiori: Generic Configuration Framework',
+            value: 'sap-fiori-generic-configuration-framework',
+            checked: true
+          },
+          {
+            name: 'SAP Fiori: Generic Job Scheduling Framework',
+            value: 'sap-fiori-generic-job-scheduling-framework',
+            checked: true
+          },
+          {
+            name: 'SAP Fiori: Manage Workflow',
+            value: 'sap-fiori-manage-workflow',
+            checked: true
+          },
+          {
+            name: 'SAP Fiori: My Inbox',
+            value: 'sap-fiori-my-inbox',
+            checked: true
+          },
+          {
+            name: 'SAP Fiori: SAP Smart Business generic drill down app',
+            value: 'sap-fiori-smart-business-generic',
+            checked: true
+          },
+          {
+            name: 'SAP Fiori: SAP Smart Business tile & custom drill down app',
+            value: 'sap-fiori-smart-business-custom',
+            checked: true
+          },
+          {
+            name: 'SAP GUI',
+            value: 'sap-gui',
+            checked: true
+          },
+          {
+            name: 'SAPUI5',
+            value: 'sapui5',
+            checked: true
+          },
+          {
+            name: 'Web Dynpro',
+            value: 'web-dynpro',
+            checked: true
+          }
+        ]
+      },
+      {
+        when: function(answers) {
+          return answers.docsProductGeneralData === true;
+        },
+        type: 'checkbox',
+        pageSize: 25,
+        name: 'docsProductGeneralDataDatabase',
+        message: 'Database?',
+        choices: [
+          {
+            name: 'Any DB',
+            value: 'any',
+            checked: true
+          },
+          {
+            name: 'HANA DB',
+            value: 'hana',
+            checked: true
+          },
+          {
+            name: 'HANA DB exclusive',
+            value: 'hana-excl',
+            checked: true
+          }
+        ]
+      },
+      {
+        when: function(answers) {
+          return answers.docsProductGeneralData === true;
+        },
+        type: 'checkbox',
+        pageSize: 25,
+        name: 'docsProductGeneralDataFormFactor',
+        message: 'Form Factor?',
+        choices: [
+          {
+            name: 'Desktop',
+            value: 'desktop',
+            checked: true
+          },
+          {
+            name: 'Tablet',
+            value: 'tablet',
+            checked: true
+          },
+          {
+            name: 'Phone',
+            value: 'phone',
+            checked: true
+          }
+        ]
+      },
+      {
+        when: function(answers) {
+          return answers.docsProductGeneralData === true;
         },
         type: 'input',
-        name: 'businessRole',
+        name: 'docsProductGeneralDataAppId',
+        message: 'App ID?',
+        default: '0001'
+      }
+    ];
+
+    const aProductFeaturesKeyFeatures = [
+      {
+        type: 'confirm',
+        name: 'docsProductKeyFeatures',
+        message: 'Do you want to add key features information?',
+        default: false
+      },
+      {
+        when: function(answers) {
+          return answers.docsProductKeyFeatures === true;
+        },
+        type: 'checkbox',
+        pageSize: 25,
+        name: 'docsProductKeyFeaturesCRUDOperations',
+        message: 'Which transactional operations are supported?',
+        choices: [
+          {
+            name: 'Create',
+            value: 'create',
+            checked: false
+          },
+          {
+            name: 'Read',
+            value: 'read',
+            checked: true
+          },
+          {
+            name: 'Update',
+            value: 'update',
+            checked: false
+          },
+          {
+            name: 'Delete',
+            value: 'delete',
+            checked: false
+          },
+          {
+            name: 'Query',
+            value: 'query',
+            checked: true
+          },
+          {
+            name: 'Additional',
+            value: 'additional',
+            checked: false
+          }
+        ]
+      }
+    ];
+
+    const aImplementationInformationInstallation = [
+      {
+        type: 'confirm',
+        name: 'docsImplementationInstallation',
+        message: 'Do you want to add installation information?',
+        default: false
+      },
+      {
+        when: function(answers) {
+          return answers.docsImplementationInstallation === true;
+        },
+        type: 'input',
+        name: 'docsFrontendProductVersion',
+        message: 'Which frontend product version is required?',
+        default: '(io.name.space.)apps.bundle'
+      },
+      {
+        when: function(answers) {
+          return answers.docsImplementationInstallation === true;
+        },
+        type: 'input',
+        name: 'docsFrontendSPS',
+        message: 'Which frontend support package stack is required?',
+        default: '00'
+      },
+      {
+        when: function(answers) {
+          return answers.docsImplementationInstallation === true;
+        },
+        type: 'input',
+        name: 'docsFrontendSCV',
+        message: 'Which frontend software component version is required?',
+        default: '00'
+      },
+      {
+        when: function(answers) {
+          return answers.docsImplementationInstallation === true;
+        },
+        type: 'input',
+        name: 'docsBackendProductVersion',
+        message: 'Which backend product version is required?',
+        default: '(io.name.space.)apps.bundle'
+      },
+      {
+        when: function(answers) {
+          return answers.docsImplementationInstallation === true;
+        },
+        type: 'input',
+        name: 'docsBackendSPS',
+        message: 'Which backend support package stack is required?',
+        default: '00'
+      },
+      {
+        when: function(answers) {
+          return answers.docsImplementationInstallation === true;
+        },
+        type: 'input',
+        name: 'docsBackendSCV',
+        message: 'Which backend software component version is required?',
+        default: '00'
+      }
+    ];
+
+    const aImplementationInformationConfiguration = [
+      {
+        type: 'confirm',
+        name: 'docsImplementationConfiguration',
+        message: 'Do you want to add configuration information?',
+        default: false
+      },
+      {
+        when: function(answers) {
+          return answers.docsImplementationConfiguration === true;
+        },
+        type: 'input',
+        name: 'docsBusinessRole',
         message: 'Which business role will be using this application? (Technical name)',
-        default: 'Appl1ance'
+        default: '(/NAMESPACE/)BUS_ROLE'
       },
       {
         when: function(answers) {
-          return answers.businessInformations === true;
+          return answers.docsImplementationConfiguration === true;
         },
         type: 'input',
-        name: 'businessRoleText',
+        name: 'docsBusinessRoleText',
         message: 'What is the description of this business role?',
-        default: 'Appl1ance'
+        default: 'Business Role Description'
       },
       {
         when: function(answers) {
-          return answers.businessInformations === true;
+          return answers.docsImplementationConfiguration === true;
         },
         type: 'input',
-        name: 'businessGroup',
+        name: 'docsBusinessGroup',
         message: 'Which business group will this application belong to? (Technical name)',
-        default: 'Appl1ance'
+        default: '(/NAMESPACE/)BUS_GRP'
       },
       {
         when: function(answers) {
-          return answers.businessInformations === true;
+          return answers.docsImplementationConfiguration === true;
         },
         type: 'input',
-        name: 'businessGroupText',
+        name: 'docsBusinessGroupText',
         message: 'What is the description of this business group?',
-        default: 'Appl1ance'
+        default: 'Business Group Descripton'
       },
       {
         when: function(answers) {
-          return answers.businessInformations === true;
+          return answers.docsImplementationConfiguration === true;
         },
         type: 'input',
-        name: 'businessCatalog',
+        name: 'docsBusinessCatalog',
         message:
           'Which business catalog will this application belong to? (Technical name)',
-        default: 'Appl1ance'
+        default: '(/NAMESPACE/)BUS_CAT'
       },
       {
         when: function(answers) {
-          return answers.businessInformations === true;
+          return answers.docsImplementationConfiguration === true;
         },
         type: 'input',
-        name: 'businessCatalogText',
+        name: 'docsBusinessCatalogText',
         message: 'What is the description of this business catalog?',
-        default: 'Appl1ance'
+        default: 'Business Catalog Description'
       },
       {
         when: function(answers) {
-          return answers.businessInformations === true;
+          return answers.docsImplementationConfiguration === true;
         },
         type: 'input',
-        name: 'semanticObject',
+        name: 'docsSemanticObject',
         message: 'Which semantic object is used for intent navigation? (Technical name)',
-        default: 'Appl1ance'
+        default: '(/NAMESPACE/)SEM_OBJ'
       },
       {
         when: function(answers) {
-          return answers.businessInformations === true;
+          return answers.docsImplementationConfiguration === true;
         },
         type: 'input',
-        name: 'semanticObjectAction',
+        name: 'docsSemanticObjectAction',
         message: 'Which action of the semantic object is used?',
-        default: 'Appl1ance'
+        default: 'display'
       },
       {
         when: function(answers) {
-          return answers.businessInformations === true;
+          return answers.docsImplementationConfiguration === true;
         },
         type: 'input',
-        name: 'oDataService',
+        name: 'docsODataService',
         message: 'Which OData service is used by this application? (Technical name)',
-        default: 'Appl1ance'
+        default: '(/NAMESPACE/)ODATA_SRV'
       },
       {
         when: function(answers) {
-          return answers.businessInformations === true;
+          return answers.docsImplementationConfiguration === true;
         },
         type: 'input',
-        name: 'pfcgRole',
+        name: 'docsPfcgRole',
         message:
           'Which PFCG role is needed to access the OData service? (Technical name)',
-        default: 'Appl1ance'
+        default: '(/NAMESPACE/)ODATA_ROLE'
+      }
+    ];
+
+    const aImplementationInformationSupport = [
+      {
+        type: 'confirm',
+        name: 'docsImplementationSupport',
+        message: 'Do you want to add support information?',
+        default: false
       },
       {
         when: function(answers) {
-          return answers.businessInformations === true;
+          return answers.docsImplementationSupport === true;
         },
         type: 'input',
-        name: 'frontendProductVersion',
-        message: 'Which frontend product version is required?',
-        default: 'Appl1ance'
-      },
-      {
-        when: function(answers) {
-          return answers.businessInformations === true;
-        },
-        type: 'input',
-        name: 'frontendSPS',
-        message: 'Which frontend support package stack is required?',
-        default: 'Appl1ance'
-      },
-      {
-        when: function(answers) {
-          return answers.businessInformations === true;
-        },
-        type: 'input',
-        name: 'frontendSCV',
-        message: 'Which frontend software component version is required?',
-        default: 'Appl1ance'
-      },
-      {
-        when: function(answers) {
-          return answers.businessInformations === true;
-        },
-        type: 'input',
-        name: 'backendProductVersion',
-        message: 'Which backend product version is required?',
-        default: 'Appl1ance'
-      },
-      {
-        when: function(answers) {
-          return answers.businessInformations === true;
-        },
-        type: 'input',
-        name: 'backendSPS',
-        message: 'Which backend support package stack is required?',
-        default: 'Appl1ance'
-      },
-      {
-        when: function(answers) {
-          return answers.businessInformations === true;
-        },
-        type: 'input',
-        name: 'backendSCV',
-        message: 'Which backend software component version is required?',
-        default: 'Appl1ance'
-      },
-      {
-        when: function(answers) {
-          return answers.businessInformations === true;
-        },
-        type: 'input',
-        name: 'applicationComponent',
+        name: 'docsApplicationComponent',
         message:
           'Which application component is used by this application? (Technical name)',
-        default: 'Appl1ance'
+        default: 'BA-FIO-'
       },
       {
         when: function(answers) {
-          return answers.businessInformations === true;
+          return answers.docsImplementationSupport === true;
         },
         type: 'input',
-        name: 'applicationComponentText',
+        name: 'docsApplicationComponentText',
         message: 'What is the description of this application component?',
-        default: 'Appl1ance'
+        default: 'Basic Apps Fiori'
+      }
+    ];
+
+    const aImplementationInformationRelatedApps = [
+      {
+        type: 'confirm',
+        name: 'docsImplementationRelatedApps',
+        message: 'Do you want to add related apps information?',
+        default: false
       }
     ];
 
     const aQuestions = aProjectQuestions
       .concat(aDeploymentQuestions)
-      .concat(aDocumentationQuestions);
+      .concat(aProductFeaturesGeneralData)
+      .concat(aProductFeaturesKeyFeatures)
+      .concat(aImplementationInformationInstallation)
+      .concat(aImplementationInformationConfiguration)
+      .concat(aImplementationInformationSupport)
+      .concat(aImplementationInformationRelatedApps);
+
     return this.prompt(aQuestions).then(answers => {
       // To access props later use this.answers.someAnswer;
       this.answers = answers;
@@ -497,41 +1198,99 @@ module.exports = class extends Generator {
     const sProjectNamespace = this.answers.projectNamespace;
     const sProjectNamespaceAMD = sProjectNamespace.split('.').join('/');
     const sProjectDescription = this.answers.projectDescription;
-    const sMinimumUI5Version = this.answers.minimumUI5Version;
+    const sProjectMinimumUI5Version = this.answers.projectMinimumUI5Version;
     const sProjectRepository = this.answers.projectRepository;
     const sProjectOwner = this.answers.projectOwner;
     const sGitRepository =
       'https://github.com/' + sProjectOwner + '/' + sProjectRepository;
     const sProjectAuthor = this.answers.projectAuthor;
     const sProjectAuthorEmail = this.answers.projectAuthorEmail;
-    const sProjectPath = sProjectName.split('.').join('-');
-    const sLibSource = this.answers.libSource;
-    const aLibsUsed = this.answers.libsUsed;
-    const sDevPackage = this.answers.devPackage;
-    const sBspContainer = this.answers.bspContainer;
-    const sBspContainerText = this.answers.bspContainerText;
-    const sTransportNo = this.answers.transportNo;
-    const sNwSys = this.answers.nwSys;
-    const sNwSysUser = this.answers.nwSysUser;
-    const sNwSysPassword = this.answers.nwSysPassword;
-    const sBusinessRole = this.answers.businessRole;
-    const sBusinessRoleText = this.answers.businessRoleText;
-    const sBusinessGroup = this.answers.businessGroup;
-    const sBusinessGroupText = this.answers.businessGroupText;
-    const sBusinessCatalog = this.answers.businessCatalog;
-    const sBusinessCatalogText = this.answers.businessCatalogText;
-    const sSemanticObject = this.answers.semanticObject;
-    const sSemanticObjectAction = this.answers.semanticObjectAction;
-    const sODataService = this.answers.oDataService;
-    const sPFCGRole = this.answers.pfcgRole;
-    const sFrontendProductVersion = this.answers.frontendProductVersion;
-    const sFrontendSPS = this.answers.frontendSPS;
-    const sFrontendSCV = this.answers.frontendSCV;
-    const sBackendProductVersion = this.answers.backendProductVersion;
-    const sBackendSPS = this.answers.backendSPS;
-    const sBackendSCV = this.answers.backendSCV;
-    const sApplicationComponent = this.answers.applicationComponent;
-    const sApplicationComponentText = this.answers.applicationComponentText;
+    const sProjectPath = sProjectNamespace.split('.').join('-');
+    const sLibSource = this.answers.projectUI5LibSource;
+    const aLibsUsed = this.answers.projectUI5LibsUsed;
+    const sDevPackage = this.answers.deploymentDevPackage;
+    const sBspContainer = this.answers.deploymentBspContainer;
+    const sBspContainerText = this.answers.deploymentBspContainerText;
+    const sTransportNo = this.answers.deploymentTransportNo;
+    const sNwSys = this.answers.deploymentNwSys;
+    const sNwSysUser = this.answers.deploymentNwSysUser;
+    const sNwSysPassword = this.answers.deploymentNwSysPassword;
+    const aDocsProductGeneralDataRoles = this.answers.docsProductGeneralDataRoles;
+    const aDocsProductGeneralDataProductSuite = this.answers
+      .docsProductGeneralDataProductSuite;
+    const aDocsProductGeneralDataProductVersion = this.answers
+      .docsProductGeneralDataProductVersion;
+    const aDocsProductGeneralDataLineOfBusiness = this.answers
+      .docsProductGeneralDataLineOfBusiness;
+    const aDocsProductGeneralDataIndustry = this.answers.docsProductGeneralDataIndustry;
+    const aDocsProductGeneralDataSolutionCapabilityS4HanaCloud = this.answers
+      .docsProductGeneralDataSolutionCapabilityS4HanaCloud;
+    const aDocsProductGeneralDataSolutionCapabilityS4HanaOnPrem = this.answers
+      .docsProductGeneralDataSolutionCapabilityS4HanaOnPrem;
+    const aDocsProductGeneralDataSolutionCapabilityLumira = this.answers
+      .docsProductGeneralDataSolutionCapabilityLumira;
+    const aDocsProductGeneralDataSolutionCapabilityMII = this.answers
+      .docsProductGeneralDataSolutionCapabilityMII;
+    const aDocsProductGeneralDataSolutionCapabilityAriba = this.answers
+      .docsProductGeneralDataSolutionCapabilityAriba;
+    const aDocsProductGeneralDataSolutionCapabilityHybris = this.answers
+      .docsProductGeneralDataSolutionCapabilityHybris;
+    const aDocsProductGeneralDataSolutionCapabilityERP = this.answers
+      .docsProductGeneralDataSolutionCapabilityERP;
+    const aDocsProductGeneralDataSolutionCapabilityEWM = this.answers
+      .docsProductGeneralDataSolutionCapabilityEWM;
+    const aDocsProductGeneralDataSolutionCapabilityCRM = this.answers
+      .docsProductGeneralDataSolutionCapabilityCRM;
+    const aDocsProductGeneralDataSolutionCapabilitySRM = this.answers
+      .docsProductGeneralDataSolutionCapabilitySRM;
+    const aDocsProductGeneralDataSolutionCapabilityCARAB = this.answers
+      .docsProductGeneralDataSolutionCapabilityCARAB;
+    const aDocsProductGeneralDataSolutionCapabilityIBP = this.answers
+      .docsProductGeneralDataSolutionCapabilityIBP;
+    const aDocsProductGeneralDataSolutionCapabilityCrystalReports = this.answers
+      .docsProductGeneralDataSolutionCapabilityCrystalReports;
+    const aDocsProductGeneralDataSolutionCapabilityC4C = this.answers
+      .docsProductGeneralDataSolutionCapabilityC4C;
+    const aDocsProductGeneralDataSolutionCapabilityGTS = this.answers
+      .docsProductGeneralDataSolutionCapabilityGTS;
+    const aDocsProductGeneralDataSolutionCapabilityPCM = this.answers
+      .docsProductGeneralDataSolutionCapabilityPCM;
+    const aDocsProductGeneralDataSolutionCapabilitySBOP = this.answers
+      .docsProductGeneralDataSolutionCapabilitySBOP;
+    const aDocsProductGeneralDataSolutionCapabilityAnalyticsCloud = this.answers
+      .docsProductGeneralDataSolutionCapabilityAnalyticsCloud;
+    const aDocsProductGeneralDataSolutionCapabilityUnrelated = this.answers
+      .docsProductGeneralDataSolutionCapabilityUnrelated;
+    const aDocsProductGeneralDataRequiredBackEndProduct = this.answers
+      .docsProductGeneralDataRequiredBackEndProduct;
+    const sDocsProductGeneralDataApplicationType = this.answers
+      .docsProductGeneralDataApplicationType;
+    const sDocsProductGeneralDataUserInterfaceTechnology = this.answers
+      .docsProductGeneralDataUserInterfaceTechnology;
+    const aDocsProductGeneralDataDatabase = this.answers.docsProductGeneralDataDatabase;
+    const aDocsProductGeneralDataFormFactor = this.answers
+      .docsProductGeneralDataFormFactor;
+    const sDocsProductGeneralDataAppId = this.answers.docsProductGeneralDataAppId;
+    const aDocsProductKeyFeaturesCRUDOperations = this.answers
+      .docsProductKeyFeaturesCRUDOperations;
+    const sDocsFrontendProductVersion = this.answers.docsFrontendProductVersion;
+    const sDocsFrontendSPS = this.answers.docsFrontendSPS;
+    const sDocsFrontendSCV = this.answers.docsFrontendSCV;
+    const sDocsBackendProductVersion = this.answers.docsBackendProductVersion;
+    const sDocsBackendSPS = this.answers.docsBackendSPS;
+    const sDocsBackendSCV = this.answers.docsBackendSCV;
+    const aDocsBusinessRole = this.answers.docsBusinessRole;
+    const aDocsBusinessRoleText = this.answers.docsBusinessRoleText;
+    const aDocsBusinessGroup = this.answers.docsBusinessGroup;
+    const aDocsBusinessGroupText = this.answers.docsBusinessGroupText;
+    const aDocsBusinessCatalog = this.answers.docsBusinessCatalog;
+    const aDocsBusinessCatalogText = this.answers.docsBusinessCatalogText;
+    const sDocsSemanticObject = this.answers.docsSemanticObject;
+    const sDocsSemanticObjectAction = this.answers.docsSemanticObjectAction;
+    const sDocsODataService = this.answers.docsODataService;
+    const sDocsPfcgRole = this.answers.docsPfcgRole;
+    const sDocsApplicationComponent = this.answers.docsApplicationComponent;
+    const sDocsApplicationComponentText = this.answers.docsApplicationComponentText;
 
     const oProps = {
       projectType: sProjectType,
@@ -539,40 +1298,71 @@ module.exports = class extends Generator {
       projectNamespace: sProjectNamespace,
       projectNamespaceAMD: sProjectNamespaceAMD,
       projectDescription: sProjectDescription,
-      minimumUI5Version: sMinimumUI5Version,
+      projectMinimumUI5Version: sProjectMinimumUI5Version,
       projectRepository: sProjectRepository,
       projectOwner: sProjectOwner,
       gitRepository: sGitRepository,
       projectAuthor: sProjectAuthor,
       projectAuthorEmail: sProjectAuthorEmail,
       projectPath: sProjectPath,
-      libSource: sLibSource,
-      libsUsed: aLibsUsed,
-      devPackage: sDevPackage,
-      bspContainer: sBspContainer,
-      bspContainerText: sBspContainerText,
-      transportNo: sTransportNo,
-      nwSys: sNwSys,
-      nwSysUser: sNwSysUser,
-      nwSysPassword: sNwSysPassword,
-      businessRole: sBusinessRole,
-      businessRoleText: sBusinessRoleText,
-      businessGroup: sBusinessGroup,
-      businessGroupText: sBusinessGroupText,
-      businessCatalog: sBusinessCatalog,
-      businessCatalogText: sBusinessCatalogText,
-      semanticObject: sSemanticObject,
-      semanticObjectAction: sSemanticObjectAction,
-      oDataService: sODataService,
-      pfcgRole: sPFCGRole,
-      frontendProductVersion: sFrontendProductVersion,
-      frontendSPS: sFrontendSPS,
-      frontendSCV: sFrontendSCV,
-      backendProductVersion: sBackendProductVersion,
-      backendSPS: sBackendSPS,
-      backendSCV: sBackendSCV,
-      applicationComponent: sApplicationComponent,
-      applicationComponentText: sApplicationComponentText
+      projectUI5LibSource: sLibSource,
+      projectUI5LibsUsed: aLibsUsed,
+      deploymentDevPackage: sDevPackage,
+      deploymentBspContainer: sBspContainer,
+      deploymentBspContainerText: sBspContainerText,
+      deploymentTransportNo: sTransportNo,
+      deploymentNwSys: sNwSys,
+      deploymentNwSysUser: sNwSysUser,
+      deploymentNwSysPassword: sNwSysPassword,
+      docsProductGeneralDataRoles: aDocsProductGeneralDataRoles,
+      docsProductGeneralDataProductSuite: aDocsProductGeneralDataProductSuite,
+      docsProductGeneralDataProductVersion: aDocsProductGeneralDataProductVersion,
+      docsProductGeneralDataLineOfBusiness: aDocsProductGeneralDataLineOfBusiness,
+      docsProductGeneralDataIndustry: aDocsProductGeneralDataIndustry,
+      docsProductGeneralDataSolutionCapabilityS4HanaCloud: aDocsProductGeneralDataSolutionCapabilityS4HanaCloud,
+      docsProductGeneralDataSolutionCapabilityS4HanaOnPrem: aDocsProductGeneralDataSolutionCapabilityS4HanaOnPrem,
+      docsProductGeneralDataSolutionCapabilityLumira: aDocsProductGeneralDataSolutionCapabilityLumira,
+      docsProductGeneralDataSolutionCapabilityMII: aDocsProductGeneralDataSolutionCapabilityMII,
+      docsProductGeneralDataSolutionCapabilityAriba: aDocsProductGeneralDataSolutionCapabilityAriba,
+      docsProductGeneralDataSolutionCapabilityHybris: aDocsProductGeneralDataSolutionCapabilityHybris,
+      docsProductGeneralDataSolutionCapabilityERP: aDocsProductGeneralDataSolutionCapabilityERP,
+      docsProductGeneralDataSolutionCapabilityEWM: aDocsProductGeneralDataSolutionCapabilityEWM,
+      docsProductGeneralDataSolutionCapabilityCRM: aDocsProductGeneralDataSolutionCapabilityCRM,
+      docsProductGeneralDataSolutionCapabilitySRM: aDocsProductGeneralDataSolutionCapabilitySRM,
+      docsProductGeneralDataSolutionCapabilityCARAB: aDocsProductGeneralDataSolutionCapabilityCARAB,
+      docsProductGeneralDataSolutionCapabilityIBP: aDocsProductGeneralDataSolutionCapabilityIBP,
+      docsProductGeneralDataSolutionCapabilityCrystalReports: aDocsProductGeneralDataSolutionCapabilityCrystalReports,
+      docsProductGeneralDataSolutionCapabilityC4C: aDocsProductGeneralDataSolutionCapabilityC4C,
+      docsProductGeneralDataSolutionCapabilityGTS: aDocsProductGeneralDataSolutionCapabilityGTS,
+      docsProductGeneralDataSolutionCapabilityPCM: aDocsProductGeneralDataSolutionCapabilityPCM,
+      docsProductGeneralDataSolutionCapabilitySBOP: aDocsProductGeneralDataSolutionCapabilitySBOP,
+      docsProductGeneralDataSolutionCapabilityAnalyticsCloud: aDocsProductGeneralDataSolutionCapabilityAnalyticsCloud,
+      docsProductGeneralDataSolutionCapabilityUnrelated: aDocsProductGeneralDataSolutionCapabilityUnrelated,
+      docsProductGeneralDataRequiredBackEndProduct: aDocsProductGeneralDataRequiredBackEndProduct,
+      docsProductGeneralDataApplicationType: sDocsProductGeneralDataApplicationType,
+      docsProductGeneralDataUserInterfaceTechnology: sDocsProductGeneralDataUserInterfaceTechnology,
+      docsProductGeneralDataDatabase: aDocsProductGeneralDataDatabase,
+      docsProductGeneralDataFormFactor: aDocsProductGeneralDataFormFactor,
+      docsProductGeneralDataAppId: sDocsProductGeneralDataAppId,
+      docsProductKeyFeaturesCRUDOperations: aDocsProductKeyFeaturesCRUDOperations,
+      docsFrontendProductVersion: sDocsFrontendProductVersion,
+      docsFrontendSPS: sDocsFrontendSPS,
+      docsFrontendSCV: sDocsFrontendSCV,
+      docsBackendProductVersion: sDocsBackendProductVersion,
+      docsBackendSPS: sDocsBackendSPS,
+      docsBackendSCV: sDocsBackendSCV,
+      docsBusinessRole: aDocsBusinessRole,
+      docsBusinessRoleText: aDocsBusinessRoleText,
+      docsBusinessGroup: aDocsBusinessGroup,
+      docsBusinessGroupText: aDocsBusinessGroupText,
+      docsBusinessCatalog: aDocsBusinessCatalog,
+      docsBusinessCatalogText: aDocsBusinessCatalogText,
+      docsSemanticObject: sDocsSemanticObject,
+      docsSemanticObjectAction: sDocsSemanticObjectAction,
+      docsODataService: sDocsODataService,
+      docsPfcgRole: sDocsPfcgRole,
+      docsApplicationComponent: sDocsApplicationComponent,
+      docsApplicationComponentText: sDocsApplicationComponentText
     };
 
     // Generate project settings boilerplate
@@ -583,14 +1373,23 @@ module.exports = class extends Generator {
       case 'simple-app':
         // Create simple app template
         this._createTemplateSimpleApp(oProps);
-        this._createTemplateDocs(oProps);
+        this._createTemplateAppDocs(oProps);
         break;
       case 'master-detail-app':
         // Create master/detail app template
         this._createTemplateMasterDetailApp(oProps);
-        this._createTemplateDocs(oProps);
+        this._createTemplateAppDocs(oProps);
         break;
-
+      case 'flexible-column-layout-app':
+        // Create master/detail app template
+        this._createTemplateFlexibleColumnLayoutApp(oProps);
+        this._createTemplateAppDocs(oProps);
+        break;
+      case 'control-lib':
+        // Create master/detail app template
+        this._createTemplateControlLib(oProps);
+        this._createTemplateLibDocs(oProps);
+        break;
       default:
         break;
     }
@@ -625,8 +1424,8 @@ module.exports = class extends Generator {
       devDependencies: {},
       dependencies: {}
     };
-    oProps.libsUsed.forEach(lib => {
-      pkgJson.dependencies['@openui5/' + lib] = oProps.minimumUI5Version;
+    oProps.projectUI5LibsUsed.forEach(lib => {
+      pkgJson.dependencies['@openui5/' + lib] = oProps.projectMinimumUI5Version;
     });
     this.fs.extendJSON(
       this.destinationPath(`${oProps.projectPath}/package.json`),
@@ -663,12 +1462,54 @@ module.exports = class extends Generator {
   }
 
   /**
+   * Copies relevant artifacts for master/detail app
+   * @param  {Object} oProps properties used in template
+   */
+  _createTemplateFlexibleColumnLayoutApp(oProps) {
+    this.fs.copyTpl(
+      this.templatePath('flexible-column-layout-app/**/*'),
+      this.destinationPath(`${oProps.projectPath}/`),
+      oProps,
+      {},
+      { globOptions: { dot: true } }
+    );
+  }
+
+  /**
+   * Copies relevant artifacts for master/detail app
+   * @param  {Object} oProps properties used in template
+   */
+  _createTemplateControlLib(oProps) {
+    this.fs.copyTpl(
+      this.templatePath('control-lib/**/*'),
+      this.destinationPath(`${oProps.projectPath}/`),
+      oProps,
+      {},
+      { globOptions: { dot: true } }
+    );
+  }
+
+  /**
    * Copies relevant artifacts for documentation
    * @param  {Object} oProps properties used in template
    */
-  _createTemplateDocs(oProps) {
+  _createTemplateAppDocs(oProps) {
     this.fs.copyTpl(
-      this.templatePath('docs/**/*'),
+      this.templatePath('app-docs/**/*'),
+      this.destinationPath(`${oProps.projectPath}/docs/`),
+      oProps,
+      {},
+      { globOptions: { dot: true } }
+    );
+  }
+
+  /**
+   * Copies relevant artifacts for documentation
+   * @param  {Object} oProps properties used in template
+   */
+  _createTemplateLibDocs(oProps) {
+    this.fs.copyTpl(
+      this.templatePath('lib-docs/**/*'),
       this.destinationPath(`${oProps.projectPath}/docs/`),
       oProps,
       {},
@@ -687,6 +1528,7 @@ module.exports = class extends Generator {
   /**
    * Success message
    * @param  {Object} oProps properties used in template
+   * @returns {Object} this generator instance
    */
   end() {
     this.log(

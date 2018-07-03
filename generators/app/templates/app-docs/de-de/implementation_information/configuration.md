@@ -8,7 +8,7 @@ The ICF nodes for the following SAPUI5 application must be activated on the fron
 
 | Component           | Technical Name      | Path to ICF Node                        | SAP UI5 Component            |
 |:--------------------|:--------------------|:----------------------------------------|:-----------------------------|
-| SAP UI5 Application | <%= bspContainer %> | /sap/bc/ui5_ui5/sap/<%= bspContainer %> | <%= projectNamespace %>      |
+| SAP UI5 Application | <%= deploymentBspContainer %> | /sap/bc/ui5_ui5/sap/<%= deploymentBspContainer %> | <%= projectNamespace %>      |
 
 ## OData Service(s)
 
@@ -16,7 +16,7 @@ The following OData services must be activated on the front-end server. Users re
 
 | OData Service                  | Version | Back-End Authorization Role (PFCG) |
 |:-------------------------------|:--------|:-----------------------------------|
-| <%= oDataService %>            | 0001    | <%= pfcgRole %>                    |
+| <%= docsODataService %>            | 0001    | <%= docsPfcgRole %>                    |
 
 ## SAP Fiori Launchpad
 
@@ -26,32 +26,32 @@ You require the following data to give users access to the app in the SAP Fiori 
 
 | Key                        | Value                        |
 |:---------------------------|:-----------------------------|
-| **Technical Catalog**      | <%= businessCatalog %>       |
-| **SAPUI5 Application**     | <%= bspContainer %>          |
+| **Technical Catalog**      | <%= docsBusinessCatalog %>       |
+| **SAPUI5 Application**     | <%= deploymentBspContainer %>          |
 
 ### Target Mapping(s)
 
 | Semantic Object            | Semantic Action              | Parameter Key | Parameter Value |
 |:---------------------------|:-----------------------------|:--------------|:----------------|
-| <%= semanticObject %>      | <%= semanticObjectAction %>  |               |                 |
+| <%= docsSemanticObject %>      | <%= docsSemanticObjectAction %>  |               |                 |
 
 ### Business Catalog(s)
 
 | Catalog Name                        | Catalog Description                  |
 |:------------------------------------|:-------------------------------------|
-| <%= businessCatalog %>              | <%= businessCatalogText %>           |
+| <%= docsBusinessCatalog %>              | <%= docsBusinessCatalog %>           |
 
 ### Business Group(s)
 
 | Business Group                      | Group Description                    |
 |:------------------------------------|:-------------------------------------|
-| <%= businessGroup %>                | <%= businessGroupText %>             |
+| <%= docsBusinessGroup %>                | <%= docsBusinessGroupText %>             |
 
 ### Business Role(s)
 
 | Role Name                           | Role Description                     |
 |:------------------------------------|:-------------------------------------|
-| <%= businessRole %>                 | <%= businessRoleText %>              |
+| <%= docsBusinessRole %>                 | <%= docsBusinessRoleText %>              |
 
 ### Search Connector
 

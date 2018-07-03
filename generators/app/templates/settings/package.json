@@ -1,5 +1,5 @@
 {
-  "name": "<%= projectName %>",
+  "name": "<%= projectNamespace %>",
   "version": "0.0.1",
   "description": "<%= projectDescription %>",
   "private": true,
