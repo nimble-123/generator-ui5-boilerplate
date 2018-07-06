@@ -151,8 +151,8 @@ describe('generator-ui5-boilerplate:app', () => {
     assert.file(['io-ui5lab-nl-myProject/webapp/controller/BaseController.js']);
   });
 
-  it('creates Home.controller.js', () => {
-    assert.file(['io-ui5lab-nl-myProject/webapp/controller/Home.controller.js']);
+  it('creates App.controller.js', () => {
+    assert.file(['io-ui5lab-nl-myProject/webapp/controller/App.controller.js']);
   });
 
   it('creates style.css', () => {
@@ -171,8 +171,8 @@ describe('generator-ui5-boilerplate:app', () => {
     assert.file(['io-ui5lab-nl-myProject/webapp/model/models.js']);
   });
 
-  it('creates Home.view.xml', () => {
-    assert.file(['io-ui5lab-nl-myProject/webapp/view/Home.view.xml']);
+  it('creates App.view.xml', () => {
+    assert.file(['io-ui5lab-nl-myProject/webapp/view/App.view.xml']);
   });
 
   it('creates git placeholder for dialogs folder', () => {
