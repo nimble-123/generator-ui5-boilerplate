@@ -32,7 +32,7 @@ sap.ui.define([
 				// Makes sure that master view is hidden in split app
 				// after a new list entry has been selected.
 				oListSelector.attachListSelectionChange(function () {
-					this.byId("idAppControl").hideMaster();
+					this.byId("appView").hideMaster();
 				}, this);
 
 				// apply content density mode to root view

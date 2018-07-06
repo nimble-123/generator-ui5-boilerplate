@@ -73,7 +73,7 @@
         "routerClass": "sap.m.routing.Router",
         "viewType": "XML",
         "viewPath": "<%= projectNamespace %>.view",
-        "controlId": "idAppControl",
+        "controlId": "appView",
         "controlAggregation": "detailPages",
         "bypassed": {
           "target": ["master", "notFound"]

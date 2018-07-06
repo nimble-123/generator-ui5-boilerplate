@@ -58,7 +58,7 @@ sap.ui.define([
 			if (sPreviousHash !== undefined || !oCrossAppNavigator.isInitialNavigation()) {
 				history.go(-1);
 			} else {
-				this.getRouter().navTo("home", {}, true);
+				this.getRouter().navTo("RouteApp", {}, true);
 			}
 		}
 	});

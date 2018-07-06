@@ -33,19 +33,21 @@ After everything is set up navigate into the newly created project directory. Yo
 
 ## TODO
 
- * Add unit and integration tests for template
+ * ~~Add unit and integration tests for Simple App template~~
  * Add Master/Detail app template
  * Add Flexible Column Layout app template
  * Add Library template
  * Add sub generators for views/controllers
  * Add sub generator for control
  * Add option to read metadata file from provided OData-Service
+   * and output entities etc.
+   * save metadata.xml file for mockserver use
  * Add further tests for right file content
- * Add select questions for documentation purposes (All SAP Roles, ...)
+ * ~~Add select questions for docum~~entation purposes (All SAP Roles, ...)
 
 ## License
 
-MIT © [Nils Lutz](nilslutz.de)
+MIT © [Nils Lutz](http://bit.ly/2zl4DQn)
 
 
 [npm-image]: https://badge.fury.io/js/generator-ui5-boilerplate.svg

@@ -66,8 +66,8 @@
       }
     },
     "rootView": {
-      "viewName": "<%= projectNamespace %>.view.Home",
-      "id": "idAppControl",
+      "viewName": "<%= projectNamespace %>.view.App",
+      "id": "appView",
       "type": "XML",
       "async": true,
       "height": "100%"
@@ -78,23 +78,23 @@
         "viewType": "XML",
         "async": true,
         "viewPath": "<%= projectNamespace %>.view",
+        "controlId": "appView",
         "controlAggregation": "pages",
-        "controlId": "idAppControl",
         "clearControlAggregation": false
       },
       "routes": [
         {
-          "name": "home",
+          "name": "RouteApp",
           "pattern": "",
-          "target": ["home"]
+          "target": ["TargetApp"]
         }
       ],
       "targets": {
-        "home": {
+        "TargetApp": {
+          "viewName": "App",
           "viewType": "XML",
           "transition": "slide",
-          "clearControlAggregation": false,
-          "viewName": "Home"
+          "clearControlAggregation": false
         }
       }
     },
@@ -102,9 +102,7 @@
       "minUI5Version": "<%= projectMinimumUI5Version %>",
       "libs": {
         "sap.ui.core": {},
-        "sap.m": {},
-        "sap.ushell": {},
-        "sap.collaboration": {}
+        "sap.m": {}
       }
     },
     "resources": {

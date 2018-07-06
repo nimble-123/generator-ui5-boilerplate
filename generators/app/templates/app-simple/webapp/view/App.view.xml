@@ -1,0 +1,21 @@
+<mvc:View controllerName="<%= projectNamespace %>.controller.App" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<App id="appView">
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+          <HBox width="100%" id="hbox0" alignItems="Center">
+				        <items>
+				            <VBox width="100%" direction="Column" id="vbox0" alignItems="Center">
+				                <items>
+				                    <Input id="input" width="200px" editable="false" value="Here comes the text..."/>
+				                    <Button id="button" width="100px" text="Button" press="handleButtonPress"/>
+				                </items>
+				            </VBox>
+				        </items>
+				    </HBox>
+        </content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

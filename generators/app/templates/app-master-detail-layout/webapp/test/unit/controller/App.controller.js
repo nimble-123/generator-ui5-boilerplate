@@ -41,7 +41,7 @@ sap.ui.define([
 		// System under Test
 		var oAppController = new AppController();
 
-		this.stub(oAppController, "byId").withArgs("idAppControl").returns(oSplitApp);
+		this.stub(oAppController, "byId").withArgs("appView").returns(oSplitApp);
 		this.stub(oAppController, "getView").returns(oViewStub);
 		this.stub(oAppController, "getOwnerComponent").returns(oComponentStub);
 

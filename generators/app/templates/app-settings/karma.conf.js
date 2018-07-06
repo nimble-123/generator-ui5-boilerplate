@@ -1,5 +1,6 @@
 // Karma configuration
 // Generated on Wed Jun 13 2018 14:38:44 GMT+0200 (CEST)
+var path = require('path');
 
 module.exports = function(config) {
 	config.set({
@@ -60,7 +61,15 @@ module.exports = function(config) {
 
 		// start these browsers
 		// available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-		browsers: ['Chrome'],
+		browsers: ['Chrome_with_debugging'],
+		browsersDisconnectTimeout: 10000,
+		browserNoActivityTimeout: 10000,
+		customLaunchers: {
+			Chrome_with_debugging: {
+				base: 'Chrome',
+				chromeDataDir: path.resolve(__dirname, '.chrome')
+			}
+		},
 
 		// Continuous Integration mode
 		// if true, Karma captures browsers, runs the tests and exits
