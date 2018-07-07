@@ -9,7 +9,7 @@ sap.ui.define([
 
 	var sNotFoundPageId = "page",
 		sNotFoundView = "NotFound",
-		sDetailNotFoundView = "DetailObjectNotFound";
+		sDetailNotFoundView = "TargetDetailObjectNotFound";
 
 	Opa5.createPageObjects({
 		onTheNotFoundPage : {

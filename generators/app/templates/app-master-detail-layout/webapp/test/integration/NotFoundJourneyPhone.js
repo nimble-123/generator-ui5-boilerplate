@@ -42,7 +42,7 @@ sap.ui.define([
 
 	opaTest("Should end up on the master list, if the back button is pressed", function (Given, When, Then) {
 		// Actions
-		When.onTheNotFoundPage.iPressTheBackButton("DetailObjectNotFound");
+		When.onTheNotFoundPage.iPressTheBackButton("TargetDetailObjectNotFound");
 
 		// Assertions
 		Then.onTheMasterPage.iShouldSeeTheList().

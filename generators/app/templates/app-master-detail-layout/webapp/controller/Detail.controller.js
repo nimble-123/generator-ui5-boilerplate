@@ -24,7 +24,7 @@ sap.ui.define([
 					lineItemListTitle : this.getResourceBundle().getText("detailLineItemTableHeading")
 				});
 
-				this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
+				this.getRouter().getRoute("RouteDetail").attachPatternMatched(this._onObjectMatched, this);
 
 				this.setModel(oViewModel, "detailView");
 
@@ -144,7 +144,7 @@ sap.ui.define([
 
 				// No data for the binding
 				if (!oElementBinding.getBoundContext()) {
-					this.getRouter().getTargets().display("detailObjectNotFound");
+					this.getRouter().getTargets().display("TargetDetailObjectNotFound");
 					// if object could not be found, the selection in the master list
 					// does not make sense anymore.
 					this.getOwnerComponent().oListSelector.clearMasterListSelection();

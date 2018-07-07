@@ -58,7 +58,7 @@ sap.ui.define([
 					}.bind(this)
 				});
 
-				this.getRouter().getRoute("master").attachPatternMatched(this._onMasterMatched, this);
+				this.getRouter().getRoute("RouteMaster").attachPatternMatched(this._onMasterMatched, this);
 				this.getRouter().attachBypassed(this.onBypassed, this);
 			},
 
@@ -151,7 +151,7 @@ sap.ui.define([
 			 */
 			onOpenViewSettings : function () {
 				if (!this._oViewSettingsDialog) {
-					this._oViewSettingsDialog = sap.ui.xmlfragment("<%= projectNamespace %>.view.ViewSettingsDialog", this);
+					this._oViewSettingsDialog = sap.ui.xmlfragment(this.getView().getId(), "<%= projectNamespace %>.view.dialogs.ViewSettingsDialog", this);
 					this.getView().addDependent(this._oViewSettingsDialog);
 					// forward compact/cozy style into Dialog
 					this._oViewSettingsDialog.addStyleClass(this.getOwnerComponent().getContentDensityClass());
@@ -277,13 +277,13 @@ sap.ui.define([
 							return;
 						}
 						var sObjectId = mParams.firstListitem.getBindingContext().getProperty("ProductID");
-						this.getRouter().navTo("object", {objectId : sObjectId}, true);
+						this.getRouter().navTo("RouteDetail", {objectId : sObjectId}, true);
 					}.bind(this),
 					function (mParams) {
 						if (mParams.error) {
 							return;
 						}
-						this.getRouter().getTargets().display("detailNoObjectsAvailable");
+						this.getRouter().getTargets().display("TargetDetailNoObjectsAvailable");
 					}.bind(this)
 				);
 			},
@@ -296,7 +296,7 @@ sap.ui.define([
 			 */
 			_showDetail : function (oItem) {
 				var bReplace = !Device.system.phone;
-				this.getRouter().navTo("object", {
+				this.getRouter().navTo("RouteDetail", {
 					objectId : oItem.getBindingContext().getProperty("ProductID")
 				}, bReplace);
 			},

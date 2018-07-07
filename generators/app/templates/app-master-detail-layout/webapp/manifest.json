@@ -79,45 +79,45 @@
         "controlId": "appView",
         "controlAggregation": "detailPages",
         "bypassed": {
-          "target": ["master", "notFound"]
+          "target": ["TargetMaster", "TargetNotFound"]
         },
         "async": true
       },
       "routes": [
         {
+          "name": "RouteMaster",
           "pattern": "",
-          "name": "master",
-          "target": ["object", "master"]
+          "target": ["TargetDetail", "TargetMaster"]
         },
         {
+          "name": "RouteDetail",
           "pattern": "Products/{objectId}",
-          "name": "object",
-          "target": ["master", "object"]
+          "target": ["TargetMaster", "TargetDetail"]
         }
       ],
       "targets": {
-        "master": {
+        "TargetMaster": {
+          "viewId": "master",
           "viewName": "Master",
           "viewLevel": 1,
-          "viewId": "master",
           "controlAggregation": "masterPages"
         },
-        "object": {
-          "viewName": "Detail",
+        "TargetDetail": {
           "viewId": "detail",
+          "viewName": "Detail",
           "viewLevel": 2
         },
-        "detailObjectNotFound": {
-          "viewName": "DetailObjectNotFound",
-          "viewId": "detailObjectNotFound"
+        "TargetDetailObjectNotFound": {
+          "viewId": "detailObjectNotFound",
+          "viewName": "DetailObjectNotFound"
         },
-        "detailNoObjectsAvailable": {
-          "viewName": "DetailNoObjectsAvailable",
-          "viewId": "detailNoObjectsAvailable"
+        "TargetDetailNoObjectsAvailable": {
+          "viewId": "detailNoObjectsAvailable",
+          "viewName": "DetailNoObjectsAvailable"
         },
-        "notFound": {
-          "viewName": "NotFound",
-          "viewId": "notFound"
+        "TargetNotFound": {
+          "viewId": "notFound",
+          "viewName": "NotFound"
         }
       }
     },
@@ -125,9 +125,7 @@
       "minUI5Version": "<%= projectMinimumUI5Version %>",
       "libs": {
         "sap.ui.core": {},
-        "sap.m": {},
-        "sap.ushell": {},
-        "sap.collaboration": {}
+        "sap.m": {}
       }
     },
     "resources": {
