@@ -48,6 +48,9 @@
     }
   },
   "sap.ui5": {
+    "config": {
+      "fullWidth": true
+    },
     "handleValidation": true,
     "models": {
       "i18n": {
