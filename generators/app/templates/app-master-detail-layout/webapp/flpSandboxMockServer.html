@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title><%= projectName %></title>
 
+
 		<!-- Bootstrap the unified shell in sandbox mode for standalone usage.
 
 			The renderer is specified in the global Unified Shell configuration object "sap-ushell-config".
@@ -45,22 +46,31 @@
 			};
 		</script>
 
-		<script src="../test-resources/sap/ushell/bootstrap/sandbox.js" id="sap-ushell-bootstrap"></script>
+		<script src="<%= projectUI5LibSource %>/test-resources/sap/ushell/bootstrap/sandbox.js" id="sap-ushell-bootstrap"></script>
 
 		<!-- Bootstrap the UI5 core library -->
 		<script id="sap-ui-bootstrap"
-				src="../resources/sap-ui-core.js"
+				src="<%= projectUI5LibSource %>/resources/sap-ui-core.js"
 				data-sap-ui-libs="sap.ushell, sap.collaboration, sap.m, sap.ui.layout"
 				data-sap-ui-theme="sap_belize"
 				data-sap-ui-preload="async"
 				data-sap-ui-compatVersion="edge"
+				data-sap-ui-resourceroots='{"<%= projectNamespace %>": "../"}'
 				data-sap-ui-frameOptions='allow'> // NON-SECURE setting for testing environment
 		</script>
 
 		<script>
 			sap.ui.getCore().attachInit(function() {
-				// initialize the ushell sandbox component
-				sap.ushell.Container.createRenderer().placeAt("content");
+
+				sap.ui.require([
+					"<%= projectNamespaceAMD %>/localService/mockserver"
+				], function (mockserver) {
+					// set up test service for local testing
+					mockserver.init();
+
+					// initialize the ushell sandbox component
+					sap.ushell.Container.createRenderer().placeAt("content");
+				});
 			});
 		</script>
 

@@ -6,17 +6,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title><%= projectName %></title>
 
-
 		<!-- Bootstrap the unified shell in sandbox mode for standalone usage.
-
 			The renderer is specified in the global Unified Shell configuration object "sap-ushell-config".
-
 			The fiori2 renderer will render the shell header allowing, for instance,
 			testing of additional application setting buttons.
-
 			The navigation target resolution service is configured in a way that the empty URL hash is
 			resolved to our own application.
-
 			This example uses relative path references for the SAPUI5 resources and test-resources;
 			it might be necessary to adapt them depending on the target runtime platform.
 			The sandbox platform is restricted to development or demo use cases and must NOT be used
@@ -46,11 +41,11 @@
 			};
 		</script>
 
-		<script src="../test-resources/sap/ushell/bootstrap/sandbox.js" id="sap-ushell-bootstrap"></script>
+		<script src="<%= projectUI5LibSource %>/test-resources/sap/ushell/bootstrap/sandbox.js" id="sap-ushell-bootstrap"></script>
 
 		<!-- Bootstrap the UI5 core library -->
 		<script id="sap-ui-bootstrap"
-				src="../resources/sap-ui-core.js"
+				src="<%= projectUI5LibSource %>/resources/sap-ui-core.js"
 				data-sap-ui-libs="sap.ushell, sap.collaboration, sap.m, sap.ui.layout"
 				data-sap-ui-theme="sap_belize"
 				data-sap-ui-preload="async"
@@ -61,13 +56,11 @@
 
 		<script>
 			sap.ui.getCore().attachInit(function() {
-
 				sap.ui.require([
 					"<%= projectNamespaceAMD %>/localService/mockserver"
 				], function (mockserver) {
 					// set up test service for local testing
 					mockserver.init();
-
 					// initialize the ushell sandbox component
 					sap.ushell.Container.createRenderer().placeAt("content");
 				});
