@@ -16,6 +16,11 @@ module.exports = class extends Generator {
     this.log(
       yosay(`Welcome to the priceless ${chalk.red('UI5 Boilerplate Generator ' + pkg.version)}!`)
     );
+    this.log(
+      yosay(
+        'I will ask you a bunch of questions (default values in brackets). After answering them i will try to generate a comprehensive project boilerplate for you Sir!'
+      )
+    );
   }
 
   prompting() {
@@ -23,13 +28,13 @@ module.exports = class extends Generator {
       {
         type: 'confirm',
         name: 'deploymentInformations',
-        message: 'Do you want to add deployment informations?',
+        message: 'Do you want to add deployment informations?\n',
         default: false
       },
       {
         type: 'confirm',
         name: 'projectDocs',
-        message: 'Do you want to add documentation?',
+        message: 'Do you want to add documentation?\n',
         default: false
       },
       {
@@ -38,7 +43,7 @@ module.exports = class extends Generator {
         },
         type: 'confirm',
         name: 'docsProductGeneralData',
-        message: 'Do you want to add general data information?',
+        message: 'Do you want to add general data information?\n',
         default: false
       },
       {
@@ -47,7 +52,7 @@ module.exports = class extends Generator {
         },
         type: 'confirm',
         name: 'docsProductKeyFeatures',
-        message: 'Do you want to add key features information?',
+        message: 'Do you want to add key features information?\n',
         default: false
       },
       {
@@ -56,7 +61,7 @@ module.exports = class extends Generator {
         },
         type: 'confirm',
         name: 'docsImplementationInstallation',
-        message: 'Do you want to add installation information?',
+        message: 'Do you want to add installation information?\n',
         default: false
       },
       {
@@ -65,7 +70,7 @@ module.exports = class extends Generator {
         },
         type: 'confirm',
         name: 'docsImplementationConfiguration',
-        message: 'Do you want to add configuration information?',
+        message: 'Do you want to add configuration information?\n',
         default: false
       },
       {
@@ -74,7 +79,7 @@ module.exports = class extends Generator {
         },
         type: 'confirm',
         name: 'docsImplementationSupport',
-        message: 'Do you want to add support information?',
+        message: 'Do you want to add support information?\n',
         default: false
       },
       {
@@ -83,13 +88,13 @@ module.exports = class extends Generator {
         },
         type: 'confirm',
         name: 'docsImplementationRelatedApps',
-        message: 'Do you want to add related apps information?',
+        message: 'Do you want to add related apps information?\n',
         default: false
       },
       {
         type: 'list',
         name: 'projectType',
-        message: 'Which type of UI5 application do you want to create?',
+        message: 'Which type of UI5 application do you want to create?\n',
         choices: [
           {
             name: '🖥 App: Simple',
@@ -116,50 +121,50 @@ module.exports = class extends Generator {
       {
         type: 'input',
         name: 'projectName',
-        message: 'What is the name of your project?',
+        message: 'What is the name of your project?\n',
         default: 'My Project'
       },
       {
         type: 'input',
         name: 'projectNamespace',
-        message: 'What is the namespace of your project? (eg. reverse-DNS format)',
+        message: 'What is the namespace of your project? (eg. reverse-DNS format)\n',
         default: 'io.ui5lab.nl.myProject'
       },
       {
         type: 'input',
         name: 'projectDescription',
-        message: 'What is the description of your project?',
+        message: 'What is the description of your project?\n',
         default: 'A simple ui5 application.'
       },
       {
         type: 'input',
         name: 'projectRepository',
-        message: 'What is the git repository name?',
+        message: 'What is the git repository name?\n',
         default: 'io.ui5lab.nl.myProject'
       },
       {
         type: 'input',
         name: 'projectOwner',
-        message: 'Who owns the git repository?',
+        message: 'Who owns the git repository?\n',
         default: 'nlsltz'
       },
       {
         type: 'input',
         name: 'projectAuthor',
-        message: 'Who is the author of this project?',
+        message: 'Who is the author of this project?\n',
         default: 'nlsltz'
       },
       {
         type: 'input',
         name: 'projectAuthorEmail',
-        message: 'What is the e-mail of the author?',
+        message: 'What is the e-mail of the author?\n',
         default: 'info@nilslutz.de'
       },
       {
         type: 'list',
         pageSize: 20,
         name: 'projectMinimumUI5Version',
-        message: 'Select the minimum UI5 version.',
+        message: 'Select the minimum UI5 version.\n',
         choices: [
           { name: '1.32', value: '1.32' },
           { name: '1.34', value: '1.34' },
@@ -182,7 +187,7 @@ module.exports = class extends Generator {
       {
         type: 'list',
         name: 'projectUI5LibSource',
-        message: 'Which UI5 CDN do you want to use?',
+        message: 'Which UI5 CDN do you want to use?\n',
         choices: [
           {
             name: 'OpenUI5',
@@ -199,7 +204,7 @@ module.exports = class extends Generator {
         type: 'checkbox',
         pageSize: 25,
         name: 'projectUI5LibsUsed',
-        message: 'Which UI5 libs do you want to use?',
+        message: 'Which UI5 libs do you want to use?\n',
         choices: [
           {
             type: 'separator',
@@ -323,7 +328,7 @@ module.exports = class extends Generator {
         },
         type: 'input',
         name: 'deploymentDevPackage',
-        message: 'What is target development package?',
+        message: 'What is target development package?\n',
         default: '(/NAMESPACE/)ZZ_UI5_NL'
       },
       {
@@ -332,7 +337,7 @@ module.exports = class extends Generator {
         },
         type: 'input',
         name: 'deploymentBspContainer',
-        message: 'What is target BSP container name?',
+        message: 'What is target BSP container name?\n',
         default: '(/NAMESPACE/)ZZ_UI5_NL_MYPROJECT'
       },
       {
@@ -341,7 +346,7 @@ module.exports = class extends Generator {
         },
         type: 'input',
         name: 'deploymentBspContainerText',
-        message: 'What is target BSP container description?',
+        message: 'What is target BSP container description?\n',
         default: 'UI Application (ProjectName)'
       },
       {
@@ -350,7 +355,7 @@ module.exports = class extends Generator {
         },
         type: 'input',
         name: 'deploymentTransportNo',
-        message: 'What is the transport no. of BSP container?',
+        message: 'What is the transport no. of BSP container?\n',
         default: 'DEVK900123'
       },
       {
@@ -359,7 +364,7 @@ module.exports = class extends Generator {
         },
         type: 'input',
         name: 'deploymentNwSys',
-        message: 'What is deployment system?',
+        message: 'What is deployment system?\n',
         default: 'http://localhost:50000'
       },
       {
@@ -368,7 +373,7 @@ module.exports = class extends Generator {
         },
         type: 'input',
         name: 'deploymentNwSysUser',
-        message: 'What is deployment user for netweaver system?',
+        message: 'What is deployment user for netweaver system?\n',
         default: 'developer'
       },
       {
@@ -377,7 +382,7 @@ module.exports = class extends Generator {
         },
         type: 'input',
         name: 'deploymentNwSysPassword',
-        message: 'What is the password for the deployment user?',
+        message: 'What is the password for the deployment user?\n',
         default: 'Appl1ance'
       }
     ];
@@ -389,7 +394,7 @@ module.exports = class extends Generator {
         type: 'checkbox',
         pageSize: 25,
         name: 'docsProductGeneralDataRoles',
-        message: 'Which roles will use this app?',
+        message: 'Which roles will use this app?\n',
         choices: [
           {
             name: 'Mobile',
@@ -405,7 +410,7 @@ module.exports = class extends Generator {
         type: 'checkbox',
         pageSize: 25,
         name: 'docsProductGeneralDataProductSuite',
-        message: 'Product Suite?',
+        message: 'Product Suite?\n',
         choices: [
           {
             name: 'Mobile',
@@ -421,7 +426,7 @@ module.exports = class extends Generator {
         type: 'checkbox',
         pageSize: 25,
         name: 'docsProductGeneralDataProductVersion',
-        message: 'Product Version?',
+        message: 'Product Version?\n',
         choices: [
           {
             name: 'Mobile',
@@ -437,7 +442,7 @@ module.exports = class extends Generator {
         type: 'checkbox',
         pageSize: 25,
         name: 'docsProductGeneralDataLineOfBusiness',
-        message: 'Line of Business?',
+        message: 'Line of Business?\n',
         choices: [
           {
             name: 'Mobile',
@@ -453,7 +458,7 @@ module.exports = class extends Generator {
         type: 'checkbox',
         pageSize: 25,
         name: 'docsProductGeneralDataIndustry',
-        message: 'Industry?',
+        message: 'Industry?\n',
         choices: [
           {
             name: 'Mobile',
@@ -469,7 +474,7 @@ module.exports = class extends Generator {
         type: 'checkbox',
         pageSize: 25,
         name: 'docsProductGeneralDataSolutionCapabilityS4HanaCloud',
-        message: 'Solution Capability - S/4 HANA (Cloud)?',
+        message: 'Solution Capability - S/4 HANA (Cloud)?\n',
         choices: [
           {
             name: 'Mobile',
@@ -485,7 +490,7 @@ module.exports = class extends Generator {
         type: 'checkbox',
         pageSize: 25,
         name: 'docsProductGeneralDataSolutionCapabilityS4HanaOnPrem',
-        message: 'Solution Capability - S/4 HANA (On-Premise)?',
+        message: 'Solution Capability - S/4 HANA (On-Premise)?\n',
         choices: [
           {
             name: 'Mobile',
@@ -501,7 +506,7 @@ module.exports = class extends Generator {
         type: 'checkbox',
         pageSize: 25,
         name: 'docsProductGeneralDataSolutionCapabilityLumira',
-        message: 'Solution Capability - Lumira?',
+        message: 'Solution Capability - Lumira?\n',
         choices: [
           {
             name: 'Mobile',
@@ -517,7 +522,7 @@ module.exports = class extends Generator {
         type: 'checkbox',
         pageSize: 25,
         name: 'docsProductGeneralDataSolutionCapabilityMII',
-        message: 'Solution Capability - MII?',
+        message: 'Solution Capability - MII?\n',
         choices: [
           {
             name: 'Mobile',
@@ -533,7 +538,7 @@ module.exports = class extends Generator {
         type: 'checkbox',
         pageSize: 25,
         name: 'docsProductGeneralDataSolutionCapabilityAriba',
-        message: 'Solution Capability - Ariba?',
+        message: 'Solution Capability - Ariba?\n',
         choices: [
           {
             name: 'Mobile',
@@ -549,7 +554,7 @@ module.exports = class extends Generator {
         type: 'checkbox',
         pageSize: 25,
         name: 'docsProductGeneralDataSolutionCapabilityHybris',
-        message: 'Solution Capability - Hybris?',
+        message: 'Solution Capability - Hybris?\n',
         choices: [
           {
             name: 'Mobile',
@@ -565,7 +570,7 @@ module.exports = class extends Generator {
         type: 'checkbox',
         pageSize: 25,
         name: 'docsProductGeneralDataSolutionCapabilityERP',
-        message: 'Solution Capability - ERP?',
+        message: 'Solution Capability - ERP?\n',
         choices: [
           {
             name: 'Mobile',
@@ -581,7 +586,7 @@ module.exports = class extends Generator {
         type: 'checkbox',
         pageSize: 25,
         name: 'docsProductGeneralDataSolutionCapabilityEWM',
-        message: 'Solution Capability - EWM?',
+        message: 'Solution Capability - EWM?\n',
         choices: [
           {
             name: 'Mobile',
@@ -597,7 +602,7 @@ module.exports = class extends Generator {
         type: 'checkbox',
         pageSize: 25,
         name: 'docsProductGeneralDataSolutionCapabilityCRM',
-        message: 'Solution Capability - CRM?',
+        message: 'Solution Capability - CRM?\n',
         choices: [
           {
             name: 'Mobile',
@@ -613,7 +618,7 @@ module.exports = class extends Generator {
         type: 'checkbox',
         pageSize: 25,
         name: 'docsProductGeneralDataSolutionCapabilitySRM',
-        message: 'Solution Capability - SRM?',
+        message: 'Solution Capability - SRM?\n',
         choices: [
           {
             name: 'Mobile',
@@ -629,7 +634,7 @@ module.exports = class extends Generator {
         type: 'checkbox',
         pageSize: 25,
         name: 'docsProductGeneralDataSolutionCapabilityCARAB',
-        message: 'Solution Capability - CARAB?',
+        message: 'Solution Capability - CARAB?\n',
         choices: [
           {
             name: 'Mobile',
@@ -645,7 +650,7 @@ module.exports = class extends Generator {
         type: 'checkbox',
         pageSize: 25,
         name: 'docsProductGeneralDataSolutionCapabilityIBP',
-        message: 'Solution Capability - IBP?',
+        message: 'Solution Capability - IBP?\n',
         choices: [
           {
             name: 'Mobile',
@@ -661,7 +666,7 @@ module.exports = class extends Generator {
         type: 'checkbox',
         pageSize: 25,
         name: 'docsProductGeneralDataSolutionCapabilityCrystalReports',
-        message: 'Solution Capability - Crystal Reports?',
+        message: 'Solution Capability - Crystal Reports?\n',
         choices: [
           {
             name: 'Mobile',
@@ -677,7 +682,7 @@ module.exports = class extends Generator {
         type: 'checkbox',
         pageSize: 25,
         name: 'docsProductGeneralDataSolutionCapabilityC4C',
-        message: 'Solution Capability - Cloud for Customer?',
+        message: 'Solution Capability - Cloud for Customer?\n',
         choices: [
           {
             name: 'Mobile',
@@ -693,7 +698,7 @@ module.exports = class extends Generator {
         type: 'checkbox',
         pageSize: 25,
         name: 'docsProductGeneralDataSolutionCapabilityGTS',
-        message: 'Solution Capability - GTS?',
+        message: 'Solution Capability - GTS?\n',
         choices: [
           {
             name: 'Mobile',
@@ -709,7 +714,7 @@ module.exports = class extends Generator {
         type: 'checkbox',
         pageSize: 25,
         name: 'docsProductGeneralDataSolutionCapabilityPCM',
-        message: 'Solution Capability - PCM?',
+        message: 'Solution Capability - PCM?\n',
         choices: [
           {
             name: 'Mobile',
@@ -725,7 +730,7 @@ module.exports = class extends Generator {
         type: 'checkbox',
         pageSize: 25,
         name: 'docsProductGeneralDataSolutionCapabilitySBOP',
-        message: 'Solution Capability - SBOP?',
+        message: 'Solution Capability - SBOP?\n',
         choices: [
           {
             name: 'Mobile',
@@ -741,7 +746,7 @@ module.exports = class extends Generator {
         type: 'checkbox',
         pageSize: 25,
         name: 'docsProductGeneralDataSolutionCapabilityAnalyticsCloud',
-        message: 'Solution Capability - Analytics Cloud?',
+        message: 'Solution Capability - Analytics Cloud?\n',
         choices: [
           {
             name: 'Mobile',
@@ -757,7 +762,7 @@ module.exports = class extends Generator {
         type: 'checkbox',
         pageSize: 25,
         name: 'docsProductGeneralDataSolutionCapabilityUnrelated',
-        message: 'Solution Capability - Unrelated?',
+        message: 'Solution Capability - Unrelated?\n',
         choices: [
           {
             name: 'Mobile',
@@ -773,7 +778,7 @@ module.exports = class extends Generator {
         type: 'checkbox',
         pageSize: 25,
         name: 'docsProductGeneralDataRequiredBackEndProduct',
-        message: 'Required Back-End Product?',
+        message: 'Required Back-End Product?\n',
         choices: [
           {
             name: 'Mobile',
@@ -789,7 +794,7 @@ module.exports = class extends Generator {
         type: 'checkbox',
         pageSize: 25,
         name: 'docsProductGeneralDataApplicationType',
-        message: 'Application Type?',
+        message: 'Application Type?\n',
         choices: [
           {
             name: 'Fiori Transactional (SAP Fiori: Generic Job Scheduling Framework)',
@@ -835,7 +840,7 @@ module.exports = class extends Generator {
         type: 'checkbox',
         pageSize: 25,
         name: 'docsProductGeneralDataUserInterfaceTechnology',
-        message: 'User Interface Technology?',
+        message: 'User Interface Technology?\n',
         choices: [
           {
             name: 'Design Studio (Planning)',
@@ -931,7 +936,7 @@ module.exports = class extends Generator {
         type: 'checkbox',
         pageSize: 25,
         name: 'docsProductGeneralDataDatabase',
-        message: 'Database?',
+        message: 'Database?\n',
         choices: [
           {
             name: 'Any DB',
@@ -957,7 +962,7 @@ module.exports = class extends Generator {
         type: 'checkbox',
         pageSize: 25,
         name: 'docsProductGeneralDataFormFactor',
-        message: 'Form Factor?',
+        message: 'Form Factor?\n',
         choices: [
           {
             name: 'Desktop',
@@ -982,7 +987,7 @@ module.exports = class extends Generator {
         },
         type: 'input',
         name: 'docsProductGeneralDataAppId',
-        message: 'App ID?',
+        message: 'App ID?\n',
         default: '0001'
       }
     ];
@@ -994,7 +999,7 @@ module.exports = class extends Generator {
         type: 'checkbox',
         pageSize: 25,
         name: 'docsProductKeyFeaturesCRUDOperations',
-        message: 'Which transactional operations are supported?',
+        message: 'Which transactional operations are supported?\n',
         choices: [
           {
             name: 'Create',
@@ -1036,7 +1041,7 @@ module.exports = class extends Generator {
         },
         type: 'input',
         name: 'docsFrontendProductVersion',
-        message: 'Which frontend product version is required?',
+        message: 'Which frontend product version is required?\n',
         default: '(io.name.space.)apps.bundle'
       },
       {
@@ -1045,7 +1050,7 @@ module.exports = class extends Generator {
         },
         type: 'input',
         name: 'docsFrontendSPS',
-        message: 'Which frontend support package stack is required?',
+        message: 'Which frontend support package stack is required?\n',
         default: '00'
       },
       {
@@ -1054,7 +1059,7 @@ module.exports = class extends Generator {
         },
         type: 'input',
         name: 'docsFrontendSCV',
-        message: 'Which frontend software component version is required?',
+        message: 'Which frontend software component version is required?\n',
         default: '00'
       },
       {
@@ -1063,7 +1068,7 @@ module.exports = class extends Generator {
         },
         type: 'input',
         name: 'docsBackendProductVersion',
-        message: 'Which backend product version is required?',
+        message: 'Which backend product version is required?\n',
         default: '(io.name.space.)apps.bundle'
       },
       {
@@ -1072,7 +1077,7 @@ module.exports = class extends Generator {
         },
         type: 'input',
         name: 'docsBackendSPS',
-        message: 'Which backend support package stack is required?',
+        message: 'Which backend support package stack is required?\n',
         default: '00'
       },
       {
@@ -1081,7 +1086,7 @@ module.exports = class extends Generator {
         },
         type: 'input',
         name: 'docsBackendSCV',
-        message: 'Which backend software component version is required?',
+        message: 'Which backend software component version is required?\n',
         default: '00'
       }
     ];
@@ -1092,7 +1097,7 @@ module.exports = class extends Generator {
         },
         type: 'input',
         name: 'docsBusinessRole',
-        message: 'Which business role will be using this application? (Technical name)',
+        message: 'Which business role will be using this application? (Technical name)\n',
         default: '(/NAMESPACE/)BUS_ROLE'
       },
       {
@@ -1101,7 +1106,7 @@ module.exports = class extends Generator {
         },
         type: 'input',
         name: 'docsBusinessRoleText',
-        message: 'What is the description of this business role?',
+        message: 'What is the description of this business role?\n',
         default: 'Business Role Description'
       },
       {
@@ -1110,7 +1115,7 @@ module.exports = class extends Generator {
         },
         type: 'input',
         name: 'docsBusinessGroup',
-        message: 'Which business group will this application belong to? (Technical name)',
+        message: 'Which business group will this application belong to? (Technical name)\n',
         default: '(/NAMESPACE/)BUS_GRP'
       },
       {
@@ -1119,7 +1124,7 @@ module.exports = class extends Generator {
         },
         type: 'input',
         name: 'docsBusinessGroupText',
-        message: 'What is the description of this business group?',
+        message: 'What is the description of this business group?\n',
         default: 'Business Group Descripton'
       },
       {
@@ -1128,7 +1133,7 @@ module.exports = class extends Generator {
         },
         type: 'input',
         name: 'docsBusinessCatalog',
-        message: 'Which business catalog will this application belong to? (Technical name)',
+        message: 'Which business catalog will this application belong to? (Technical name)\n',
         default: '(/NAMESPACE/)BUS_CAT'
       },
       {
@@ -1137,7 +1142,7 @@ module.exports = class extends Generator {
         },
         type: 'input',
         name: 'docsBusinessCatalogText',
-        message: 'What is the description of this business catalog?',
+        message: 'What is the description of this business catalog?\n',
         default: 'Business Catalog Description'
       },
       {
@@ -1146,7 +1151,7 @@ module.exports = class extends Generator {
         },
         type: 'input',
         name: 'docsSemanticObject',
-        message: 'Which semantic object is used for intent navigation? (Technical name)',
+        message: 'Which semantic object is used for intent navigation? (Technical name)\n',
         default: '(/NAMESPACE/)SEM_OBJ'
       },
       {
@@ -1155,7 +1160,7 @@ module.exports = class extends Generator {
         },
         type: 'input',
         name: 'docsSemanticObjectAction',
-        message: 'Which action of the semantic object is used?',
+        message: 'Which action of the semantic object is used?\n',
         default: 'display'
       },
       {
@@ -1164,7 +1169,7 @@ module.exports = class extends Generator {
         },
         type: 'input',
         name: 'docsODataService',
-        message: 'Which OData service is used by this application? (Technical name)',
+        message: 'Which OData service is used by this application? (Technical name)\n',
         default: '(/NAMESPACE/)ODATA_SRV'
       },
       {
@@ -1173,7 +1178,7 @@ module.exports = class extends Generator {
         },
         type: 'input',
         name: 'docsPfcgRole',
-        message: 'Which PFCG role is needed to access the OData service? (Technical name)',
+        message: 'Which PFCG role is needed to access the OData service? (Technical name)\n',
         default: '(/NAMESPACE/)ODATA_ROLE'
       }
     ];
@@ -1184,7 +1189,7 @@ module.exports = class extends Generator {
         },
         type: 'input',
         name: 'docsApplicationComponent',
-        message: 'Which application component is used by this application? (Technical name)',
+        message: 'Which application component is used by this application? (Technical name)\n',
         default: 'BA-FIO-'
       },
       {
@@ -1193,7 +1198,7 @@ module.exports = class extends Generator {
         },
         type: 'input',
         name: 'docsApplicationComponentText',
-        message: 'What is the description of this application component?',
+        message: 'What is the description of this application component?\n',
         default: 'Basic Apps Fiori'
       }
     ];
