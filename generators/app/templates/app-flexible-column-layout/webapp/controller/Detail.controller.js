@@ -1,11 +1,12 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
-], function(Controller) {
+  "<%= projectNamespaceAMD %>/controller/BaseController",
+  "sap/m/MessageToast"
+], function(BaseController, MessageToast) {
 	"use strict";
 
-	return Controller.extend("<%= projectNamespace %>.controller.Detail", {
+	return BaseController.extend("<%= projectNamespace %>.controller.Detail", {
 		onInit: function() {
-			var route = this.getOwnerComponent().getRouter().getRoute("masterDetail");
+			var route = this.getOwnerComponent().getRouter().getRoute("RouteMasterDetail");
 			route.attachPatternMatched(this.onPatternMatched, this);
 		},
 
@@ -82,8 +83,19 @@ sap.ui.define([
 		},
 
 		onCreateSuccess: function(connid) {
-			sap.ui.require(["sap/m/MessageToast"], MT => MT.show(`Flight ${connid} Added`));
-		},
+			MessageToast.show(`Flight ${connid} Added`);
+    },
+
+    onItemPress: function(event) {
+			debugger;
+			var context = event.getSource().getBindingContext("odata");
+			var sItemId = context.getProperty("carrid");
+			var sNavigationId = context.getProperty("connid");
+			this.getOwnerComponent().getRouter().navTo("RouteMasterDetailSubDetail", {
+				itemId: sItemId,
+				navigationId: sNavigationId
+			});
+		}
 
 	});
 });

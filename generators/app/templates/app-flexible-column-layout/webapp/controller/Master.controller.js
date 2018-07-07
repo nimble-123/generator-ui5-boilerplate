@@ -1,9 +1,9 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
-], function(Controller) {
+	"<%= projectNamespaceAMD %>/controller/BaseController"
+], function(BaseController) {
 	"use strict";
 
-	return Controller.extend("<%= projectNamespace %>.controller.Master", {
+	return BaseController.extend("<%= projectNamespace %>.controller.Master", {
 		onInit: function() {
 
 		},

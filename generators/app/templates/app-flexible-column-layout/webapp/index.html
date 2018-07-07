@@ -1,38 +1,3 @@
-<!--<!DOCTYPE HTML>
-<html>
-
-	<head>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta charset="UTF-8">
-
-		<title>ui5-demo-fcl</title>
-
-		<script id="sap-ui-bootstrap"
-			src="../../resources/sap-ui-core.js"
-			data-sap-ui-libs="sap.m"
-			data-sap-ui-theme="sap_belize"
-			data-sap-ui-compatVersion="edge"
-			data-sap-ui-resourceroots='{"<%= projectNamespace %>": "./"}'>
-		</script>
-
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-
-		<script>
-			sap.ui.getCore().attachInit(function() {
-				new sap.m.Shell({
-					app: new sap.ui.core.ComponentContainer({
-						height : "100%",
-						name : "<%= projectNamespace %>"
-					})
-				}).placeAt("content");
-			});
-		</script>
-	</head>
-
-	<body class="sapUiBody" id="content">
-	</body>
-
-</html>-->
 <!DOCTYPE HTML>
 <html>
 
@@ -44,13 +9,33 @@
     <%= projectNamespace %>
   </title>
 
-  <script src="bootConfig.js"></script>
+  <script id="sap-ui-bootstrap" type="text/javascript" src="<%= projectUI5LibSource %>/resources/sap-ui-core.js" data-sap-ui-theme="sap_belize"
+    data-sap-ui-libs="sap.m" data-sap-ui-bindingSyntax="complex" data-sap-ui-compatVersion="edge" data-sap-ui-preload="async"
+    data-sap-ui-resourceroots='{"<%= projectNamespace %>": "./"}'>
+    </script>
 
   <link rel="stylesheet" type="text/css" href="css/style.css">
 
-  <script src="<%= projectUI5LibSource %>/resources/sap-ui-core.js" id="sap-ui-bootstrap"></script>
+  <script>
+    sap.ui.getCore().attachInit(function () {
+      sap.ui.require([
+        "sap/ui/core/Component",
+        "sap/ui/core/ComponentContainer"
+      ], function (Component, ComponentContainer) {
+        sap.ui.component({
+          id: "todo",
+          name: "<%= projectNamespace %>",
+          async: true
+        }).then(function (oComponent) {
+          new ComponentContainer({
+            component: oComponent
+          }).placeAt("root");
+        });
+      });
+    });
+  </script>
 </head>
 
-<body class="sapUiBody" id="content" role="application"></body>
+<body class="sapUiBody" id="root" role="application"></body>
 
 </html>

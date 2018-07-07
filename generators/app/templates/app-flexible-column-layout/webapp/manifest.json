@@ -44,6 +44,9 @@
     }
   },
   "sap.ui5": {
+    "config": {
+      "fullWidth": true
+    },
     "handleValidation": true,
     "models": {
       "i18n": {
@@ -71,28 +74,39 @@
     "routing": {
       "routes": [
         {
-          "name": "master",
+          "name": "RouteMaster",
           "pattern": "",
-          "target": "master",
+          "target": "TargetMaster",
           "layout": "OneColumn"
         },
         {
-          "name": "masterDetail",
+          "name": "RouteMasterDetail",
           "pattern": "items/{itemId}",
-          "target": ["master", "detail"],
+          "target": ["TargetMaster", "TargetDetail"],
           "layout": "TwoColumnsMidExpanded"
+        },
+        {
+          "name": "RouteMasterDetailSubDetail",
+          "pattern": "items/{itemId}/{navigationId}",
+          "target": ["TargetMaster", "TargetDetail", "TargetSubDetail"],
+          "layout": "ThreeColumnsMidExpanded"
         }
       ],
       "targets": {
-        "master": {
+        "TargetMaster": {
           "viewId": "masterView",
           "viewName": "Master",
           "controlAggregation": "beginColumnPages"
         },
-        "detail": {
+        "TargetDetail": {
           "viewId": "detailView",
           "viewName": "Detail",
           "controlAggregation": "midColumnPages"
+        },
+        "TargetSubDetail": {
+          "viewId": "subDetailView",
+          "viewName": "SubDetail",
+          "controlAggregation": "endColumnPages"
         }
       },
       "config": {
@@ -108,10 +122,7 @@
       "libs": {
         "sap.ui.core": {},
         "sap.m": {},
-        "sap.f": {},
-        "sap.uxap": {},
-        "sap.ui.unified": {},
-        "sap.ui.layout": {}
+        "sap.f": {}
       }
     },
     "resources": {
