@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Opa Tests for TooPage App</title>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
-    <meta charset="UTF-8">
+	<head>
+		<title>OPA tests for <%= projectName %></title>
+		<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+		<meta charset="utf-8">
 
-    <script id="sap-ui-bootstrap"
-            src="../../../../../../../../resources/sap-ui-core.js"
-            data-sap-ui-resourceroots='{
-				"<%= projectNamespace %>.test.integration": "./",
-				"<%= projectNamespace %>.app" : "../../index"
-			}'>
-    </script>
+		<script id="sap-ui-bootstrap"
+			src="../../resources/sap-ui-core.js"
+			data-sap-ui-theme="sap_belize"
+			data-sap-ui-bindingSyntax="complex"
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-preload="async"
+			data-sap-ui-resourceroots='{"<%= projectNamespace %>": "../../"}'>
+		</script>
 
-    <script>
-		jQuery.sap.require("<%= projectNamespace %>.test.integration.AllJourneys");
-    </script>
+		<script src="../../resources/sap/ui/thirdparty/qunit.js"></script>
+		<script src="../../resources/sap/ui/qunit/qunit-css.js"></script>
 
-</head>
-<body>
-<div id="qunit"></div>
-<div id="qunit-fixture"></div>
-</body>
+		<script>
+			QUnit.config.autostart = false;
+			sap.ui.getCore().attachInit(function() {
+				sap.ui.require([
+					"<%= projectNamespaceAMD %>/test/integration/AllJourneys"
+				], function() {
+					QUnit.start();
+				});
+			});
+		</script>
+
+	</head>
+	<body>
+		<div id="qunit"></div>
+		<div id="qunit-fixture"></div>
+	</body>
 </html>
