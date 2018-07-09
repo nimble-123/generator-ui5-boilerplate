@@ -1,10 +1,12 @@
 <a name="unreleased"></a>
 ## [Unreleased]
 
+### Version(s)
 
 <a name="0.4.3"></a>
 ## [0.4.3] - 2018-07-09
 ### Maintenance
+- add npm release with Travis CI
 - add SolarQube/Cloud to gitignore
 
 
