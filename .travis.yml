@@ -1,4 +1,13 @@
 language: node_js
 node_js:
-  - v10
-  - v8
+- v10
+- v8
+deploy:
+  provider: npm
+  email: info@nilslutz.de
+  api_key:
+    secure: qy0wQw+CadQljn14+7tWHgyJW0W8CTTjbNhogHgwn6dN4Oa1eYYIkf3rUGH/U3tGcyRRVt0rVLarF7gXYDTi15kcfDN8IO4gMS26jqU7eCw1gjEb9jLUUClTFDsbGv3N1yKYSdg6VuT/L+QrU2tP89LivOEqMqgpt6hExMslZaKbm4W5rBtREFq0U8V4vnVIIDQte1JsQbDWjsnwrs0PH83B5eE7YmpYQwKC2KbGnSPW9BN3PCi1KwOFeDImFY7NcFMuHRb5wIeFKv7gTZtWHHx0NmsKfr9vcVCOiLiql7nGq0fpW44tryv8nW8Z5es5MfFw1pbtp17JVDnMarvDxxrXoQMObEnI3dhz8OwAGjHgdMX/fbm84iYl1ODCOw7aB+1U2L7Ibv5p29NEMjK6/wdBcyfZX58tVopX4ww2uSaBabKr3UfvWXPxEZEoyywgPZBbLiaq5x1ZeQYWIdY6oav0kCkHgsJtUPfIY73n+xvHfOOxH9VILPuwDBpW2NxUktRLrftCd8BgrKafKAUJ31pbfibdW4SNuAwHDyeo4YgT742UpJKHDhdRjPXxQu3eGxQ8qBwQrkQRc2ydOiX3WeLsIIL3bE8r9o/xBZjor4Yrb95Nfx+8cSbJ93jk7ox00c3rFMv+pNcYCXuqc4F/ElzB1phb8vjAhfCWg8uhWQg=
+  on:
+    tags: true
+    repo: nlsltz/generator-ui5-boilerplate
+    branch: master
