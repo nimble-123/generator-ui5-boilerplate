@@ -10,4 +10,4 @@ deploy:
   on:
     tags: true
     repo: nlsltz/generator-ui5-boilerplate
-    branch: master
+  skip_cleanup: true

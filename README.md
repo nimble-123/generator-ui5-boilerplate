@@ -117,6 +117,17 @@ project-folder
 
 MIT © [Nils Lutz](http://bit.ly/2zl4DQn)
 
+## GIFs
+> Because we all love GIFs 🖖
+
+### Prerequisites  
+![npm install -g @ui5/cli yo generator-ui5-boilerplate](docs/00_prerequisites.gif "npm install -g @ui5/cli yo generator-ui5-boilerplate")
+
+### Generator in use
+![yo ui5-boilerplate](docs/10_generator-in-use.gif "yo ui5-boilerplate")
+
+### Test the result
+![npm test](docs/20_npm-test.gif "npm test")
 
 [npm-image]: https://badge.fury.io/js/generator-ui5-boilerplate.svg
 [npm-url]: https://npmjs.org/package/generator-ui5-boilerplate
