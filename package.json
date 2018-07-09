@@ -51,7 +51,8 @@
     "prepublishOnly": "nsp check",
     "pretest": "eslint .",
     "precommit": "lint-staged",
-    "test": "jest"
+    "test": "jest",
+    "changelog": "git-chglog -o CHANGELOG.md"
   },
   "lint-staged": {
     "*.js": [
