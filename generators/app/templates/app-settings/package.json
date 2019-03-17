@@ -1,54 +1,53 @@
 {
-  "name": "<%= projectNamespace %>",
-  "version": "0.0.1",
-  "private": true,
-  "description": "<%= projectDescription %>",
-  "author": "<%= projectAuthor %> <<%= projectAuthorEmail %>>",
-  "keywords": [
-    "ui5",
-    "openui5",
-    "sapui5",
-    "ZEIT"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "<%= gitRepository %>.git"
-  },
-  "bugs": {
-    "url": "<%= gitRepository %>/issues"
-  },
-  "homepage": "<%= gitRepository %>.git#readme",
-  "main": "webapp/index.html",
-  "scripts": {
-    "start": "ui5 serve",
-    "lint": "eslint webapp",
-    "lint:docs": "remark docs",
-    "karma": "karma start",
-    "karma-ci": "karma start karma-ci.conf.js",
-    "watch": "start-server-and-test start http://localhost:8080 karma",
-    "test": "npm run lint && rimraf coverage && start-server-and-test start http://localhost:8080 karma-ci",
-    "build": "rimraf dist && ui5 build -a",
-    "changelog": "git-chglog -o CHANGELOG.md",
-    "commit": "git cz"
-  },
-  "remarkConfig": {
-    "plugins": [
-      "remark-preset-lint-consistent"
-    ]
-  },
-  "devDependencies": {
-    "@ui5/cli": "0.0.1",
-    "eslint": "^4.19.1",
-    "karma": "^2.0.2",
-    "karma-chrome-launcher": "^2.2.0",
-    "karma-coverage": "^1.1.2",
-    "karma-openui5": "^0.2.3",
-    "karma-phantomjs-launcher": "^1.0.4",
-    "karma-qunit": "^1.2.1",
-    "qunitjs": "^2.4.1",
-    "rimraf": "^2.6.2",
-    "start-server-and-test": "^1.4.1",
-    "remark-cli": "^5.0.0",
-    "remark-preset-lint-consistent": "^2.0.2"
-  }
+    "name": "<%= projectNamespace %>",
+    "version": "0.0.1",
+    "private": true,
+    "description": "<%= projectDescription %>",
+    "author": "<%= projectAuthor %> <<%= projectAuthorEmail %>>",
+    "keywords": [
+        "ui5",
+        "openui5",
+        "sapui5"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "<%= gitRepository %>.git"
+    },
+    "bugs": {
+        "url": "<%= gitRepository %>/issues"
+    },
+    "homepage": "<%= gitRepository %>.git#readme",
+    "main": "webapp/index.html",
+    "scripts": {
+        "start": "ui5 serve",
+        "lint": "eslint webapp",
+        "lint:docs": "remark docs",
+        "karma": "karma start",
+        "karma-ci": "karma start karma-ci.conf.js",
+        "watch": "start-server-and-test start http://localhost:8080 karma",
+        "test": "npm run lint && rimraf coverage && start-server-and-test start http://localhost:8080 karma-ci",
+        "build": "rimraf dist && ui5 build -a",
+        "changelog": "git-chglog -o CHANGELOG.md",
+        "commit": "git cz"
+    },
+    "remarkConfig": {
+        "plugins": [
+            "remark-preset-lint-consistent"
+        ]
+    },
+    "devDependencies": {
+        "@ui5/cli": "0.0.1",
+        "eslint": "^4.19.1",
+        "karma": "^2.0.2",
+        "karma-chrome-launcher": "^2.2.0",
+        "karma-coverage": "^1.1.2",
+        "karma-openui5": "^0.2.3",
+        "karma-phantomjs-launcher": "^1.0.4",
+        "karma-qunit": "^1.2.1",
+        "qunitjs": "^2.4.1",
+        "rimraf": "^2.6.2",
+        "start-server-and-test": "^1.4.1",
+        "remark-cli": "^5.0.0",
+        "remark-preset-lint-consistent": "^2.0.2"
+    }
 }
