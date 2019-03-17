@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.5](https://github.com/nlsltz/generator-ui5-boilerplate/compare/v0.4.4...v0.4.5) (2019-03-17)
+
+
+### Bug Fixes
+
+* **ci:** resolve linter warnings ([2cd78c5](https://github.com/nlsltz/generator-ui5-boilerplate/commit/2cd78c5))
+
+
+
 ## 0.4.4 (2019-03-17)
 
 
