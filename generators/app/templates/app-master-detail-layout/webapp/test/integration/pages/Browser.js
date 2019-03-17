@@ -1,82 +1,80 @@
-sap.ui.define([
-	"sap/ui/test/Opa5",
-	"<%= projectNamespaceAMD %>/test/integration/pages/Common"
-], function(Opa5, Common) {
-	"use strict";
+sap.ui.define(['sap/ui/test/Opa5', '<%= projectNamespaceAMD %>/test/integration/pages/Common'], function(Opa5, Common) {
+    'use strict';
 
-	Opa5.createPageObjects({
-		onTheBrowserPage : {
-			baseClass : Common,
+    Opa5.createPageObjects({
+        onTheBrowserPage: {
+            baseClass: Common,
 
-			actions : {
+            actions: {
+                iChangeTheHashToObjectN: function(iObjIndex) {
+                    return this.waitFor(
+                        this.createAWaitForAnEntitySet({
+                            entitySet: 'Objects',
+                            success: function(aEntitySet) {
+                                Opa5.getHashChanger().setHash('/Products/' + aEntitySet[iObjIndex].ProductID);
+                            },
+                        })
+                    );
+                },
 
-				iChangeTheHashToObjectN : function (iObjIndex) {
-					return this.waitFor(this.createAWaitForAnEntitySet({
-						entitySet : "Objects",
-						success : function (aEntitySet) {
-							Opa5.getHashChanger().setHash("/Products/" + aEntitySet[iObjIndex].ProductID);
-						}
-					}));
-				},
+                iChangeTheHashToTheRememberedItem: function() {
+                    return this.waitFor({
+                        success: function() {
+                            var sObjectId = this.getContext().currentItem.id;
+                            Opa5.getHashChanger().setHash('/Products/' + sObjectId);
+                        },
+                    });
+                },
 
-				iChangeTheHashToTheRememberedItem : function () {
-					return this.waitFor({
-						success : function () {
-							var sObjectId = this.getContext().currentItem.id;
-							Opa5.getHashChanger().setHash("/Products/" + sObjectId);
-						}
-					});
-				},
+                iChangeTheHashToSomethingInvalid: function() {
+                    return this.waitFor({
+                        success: function() {
+                            Opa5.getHashChanger().setHash('/somethingInvalid');
+                        },
+                    });
+                },
+            },
 
-				iChangeTheHashToSomethingInvalid : function () {
-					return this.waitFor({
-						success : function () {
-							Opa5.getHashChanger().setHash("/somethingInvalid");
-						}
-					});
-				}
+            assertions: {
+                iShouldSeeTheHashForObjectN: function(iObjIndex) {
+                    return this.waitFor(
+                        this.createAWaitForAnEntitySet({
+                            entitySet: 'Objects',
+                            success: function(aEntitySet) {
+                                var oHashChanger = Opa5.getHashChanger(),
+                                    sHash = oHashChanger.getHash();
+                                Opa5.assert.strictEqual(
+                                    sHash,
+                                    'Products/' + aEntitySet[iObjIndex].ProductID,
+                                    'The Hash is not correct'
+                                );
+                            },
+                        })
+                    );
+                },
 
-			},
+                iShouldSeeTheHashForTheRememberedObject: function() {
+                    return this.waitFor({
+                        success: function() {
+                            var sObjectId = this.getContext().currentItem.id,
+                                oHashChanger = Opa5.getHashChanger(),
+                                sHash = oHashChanger.getHash();
+                            Opa5.assert.strictEqual(sHash, 'Products/' + sObjectId, 'The Hash is not correct');
+                        },
+                    });
+                },
 
-			assertions : {
-
-				iShouldSeeTheHashForObjectN : function (iObjIndex) {
-					return this.waitFor(this.createAWaitForAnEntitySet({
-						entitySet : "Objects",
-						success : function (aEntitySet) {
-							var oHashChanger = Opa5.getHashChanger(),
-								sHash = oHashChanger.getHash();
-							Opa5.assert.strictEqual(sHash, "Products/" + aEntitySet[iObjIndex].ProductID, "The Hash is not correct");
-						}
-					}));
-				},
-
-				iShouldSeeTheHashForTheRememberedObject : function () {
-					return this.waitFor({
-						success : function () {
-							var sObjectId = this.getContext().currentItem.id,
-								oHashChanger = Opa5.getHashChanger(),
-								sHash = oHashChanger.getHash();
-							Opa5.assert.strictEqual(sHash, "Products/" + sObjectId, "The Hash is not correct");
-						}
-					});
-				},
-
-				iShouldSeeAnEmptyHash : function () {
-					return this.waitFor({
-						success : function () {
-							var oHashChanger = Opa5.getHashChanger(),
-								sHash = oHashChanger.getHash();
-							Opa5.assert.strictEqual(sHash, "", "The Hash should be empty");
-						},
-						errorMessage : "The Hash is not Correct!"
-					});
-				}
-
-			}
-
-		}
-
-	});
-
+                iShouldSeeAnEmptyHash: function() {
+                    return this.waitFor({
+                        success: function() {
+                            var oHashChanger = Opa5.getHashChanger(),
+                                sHash = oHashChanger.getHash();
+                            Opa5.assert.strictEqual(sHash, '', 'The Hash should be empty');
+                        },
+                        errorMessage: 'The Hash is not Correct!',
+                    });
+                },
+            },
+        },
+    });
 });

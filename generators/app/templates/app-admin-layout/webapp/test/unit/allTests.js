@@ -1,3 +1,1 @@
-sap.ui.define([
-	"<%= projectNamespaceAMD %>/test/unit/controller/BaseController",
-]);
+sap.ui.define(['<%= projectNamespaceAMD %>/test/unit/controller/BaseController']);

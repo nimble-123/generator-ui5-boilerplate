@@ -1,24 +1,19 @@
-sap.ui.define([
-	"sap/ui/model/json/JSONModel",
-	"sap/ui/Device"
-], function(JSONModel, Device) {
-	"use strict";
+sap.ui.define(['sap/ui/model/json/JSONModel', 'sap/ui/Device'], function(JSONModel, Device) {
+    'use strict';
 
-	return {
+    return {
+        createDeviceModel: function() {
+            var oModel = new JSONModel(Device);
+            oModel.setDefaultBindingMode('OneWay');
+            return oModel;
+        },
 
-		createDeviceModel: function() {
-			var oModel = new JSONModel(Device);
-			oModel.setDefaultBindingMode("OneWay");
-			return oModel;
-    },
-
-    createFLPModel : function () {
-			var fnGetuser = jQuery.sap.getObject("sap.ushell.Container.getUser");
-			var	bIsShareInJamActive = fnGetuser ? fnGetuser().isJamActive() : false;
-			var	oModel = new JSONModel({isShareInJamActive: bIsShareInJamActive});
-			oModel.setDefaultBindingMode("OneWay");
-			return oModel;
-		}
-
-	};
+        createFLPModel: function() {
+            var fnGetuser = jQuery.sap.getObject('sap.ushell.Container.getUser');
+            var bIsShareInJamActive = fnGetuser ? fnGetuser().isJamActive() : false;
+            var oModel = new JSONModel({isShareInJamActive: bIsShareInJamActive});
+            oModel.setDefaultBindingMode('OneWay');
+            return oModel;
+        },
+    };
 });
