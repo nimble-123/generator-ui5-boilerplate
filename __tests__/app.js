@@ -105,10 +105,7 @@ describe('generator-ui5-boilerplate:app', () => {
     });
 
     it('creates Karma configuration files', () => {
-        assert.file([
-            'io-ui5lab-nl-myProject/karma.conf.js',
-            'io-ui5lab-nl-myProject/karma-ci.conf.js',
-        ]);
+        assert.file(['io-ui5lab-nl-myProject/karma.conf.js', 'io-ui5lab-nl-myProject/karma-ci.conf.js']);
     });
 
     it('creates Travis CI configuration file', () => {
@@ -275,27 +272,19 @@ describe('generator-ui5-boilerplate:app', () => {
     });
 
     it('creates project docs', () => {
-        assert.file([
-            'io-ui5lab-nl-myProject/docs/de-de/implementation_information/configuration.md',
-        ]);
+        assert.file(['io-ui5lab-nl-myProject/docs/de-de/implementation_information/configuration.md']);
     });
 
     it('creates project docs', () => {
-        assert.file([
-            'io-ui5lab-nl-myProject/docs/de-de/implementation_information/extensibility.md',
-        ]);
+        assert.file(['io-ui5lab-nl-myProject/docs/de-de/implementation_information/extensibility.md']);
     });
 
     it('creates project docs', () => {
-        assert.file([
-            'io-ui5lab-nl-myProject/docs/de-de/implementation_information/installation.md',
-        ]);
+        assert.file(['io-ui5lab-nl-myProject/docs/de-de/implementation_information/installation.md']);
     });
 
     it('creates project docs', () => {
-        assert.file([
-            'io-ui5lab-nl-myProject/docs/de-de/implementation_information/related_apps.md',
-        ]);
+        assert.file(['io-ui5lab-nl-myProject/docs/de-de/implementation_information/related_apps.md']);
     });
 
     it('creates project docs', () => {

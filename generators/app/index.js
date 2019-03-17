@@ -13,11 +13,7 @@ module.exports = class extends Generator {
         this.answers = {};
 
         // Have Yeoman greet the user.
-        this.log(
-            yosay(
-                `Welcome to the priceless ${chalk.red('UI5 Boilerplate Generator ' + pkg.version)}!`
-            )
-        );
+        this.log(yosay(`Welcome to the priceless ${chalk.red('UI5 Boilerplate Generator ' + pkg.version)}!`));
         this.log(
             yosay(
                 'I will ask you a bunch of questions (default values in brackets). After answering them i will try to generate a comprehensive project boilerplate for you Sir!'
@@ -1135,8 +1131,7 @@ module.exports = class extends Generator {
                 },
                 type: 'input',
                 name: 'docsBusinessCatalog',
-                message:
-                    'Which business catalog will this application belong to? (Technical name)\n',
+                message: 'Which business catalog will this application belong to? (Technical name)\n',
                 default: '(/NAMESPACE/)BUS_CAT',
             },
             {
@@ -1181,8 +1176,7 @@ module.exports = class extends Generator {
                 },
                 type: 'input',
                 name: 'docsPfcgRole',
-                message:
-                    'Which PFCG role is needed to access the OData service? (Technical name)\n',
+                message: 'Which PFCG role is needed to access the OData service? (Technical name)\n',
                 default: '(/NAMESPACE/)ODATA_ROLE',
             },
         ];
@@ -1193,8 +1187,7 @@ module.exports = class extends Generator {
                 },
                 type: 'input',
                 name: 'docsApplicationComponent',
-                message:
-                    'Which application component is used by this application? (Technical name)\n',
+                message: 'Which application component is used by this application? (Technical name)\n',
                 default: 'BA-FIO-',
             },
             {
@@ -1247,10 +1240,8 @@ module.exports = class extends Generator {
         const sNwSysPassword = this.answers.deploymentNwSysPassword;
         const aDocsProductGeneralDataRoles = this.answers.docsProductGeneralDataRoles;
         const aDocsProductGeneralDataProductSuite = this.answers.docsProductGeneralDataProductSuite;
-        const aDocsProductGeneralDataProductVersion = this.answers
-            .docsProductGeneralDataProductVersion;
-        const aDocsProductGeneralDataLineOfBusiness = this.answers
-            .docsProductGeneralDataLineOfBusiness;
+        const aDocsProductGeneralDataProductVersion = this.answers.docsProductGeneralDataProductVersion;
+        const aDocsProductGeneralDataLineOfBusiness = this.answers.docsProductGeneralDataLineOfBusiness;
         const aDocsProductGeneralDataIndustry = this.answers.docsProductGeneralDataIndustry;
         const aDocsProductGeneralDataSolutionCapabilityS4HanaCloud = this.answers
             .docsProductGeneralDataSolutionCapabilityS4HanaCloud;
@@ -1258,49 +1249,36 @@ module.exports = class extends Generator {
             .docsProductGeneralDataSolutionCapabilityS4HanaOnPrem;
         const aDocsProductGeneralDataSolutionCapabilityLumira = this.answers
             .docsProductGeneralDataSolutionCapabilityLumira;
-        const aDocsProductGeneralDataSolutionCapabilityMII = this.answers
-            .docsProductGeneralDataSolutionCapabilityMII;
+        const aDocsProductGeneralDataSolutionCapabilityMII = this.answers.docsProductGeneralDataSolutionCapabilityMII;
         const aDocsProductGeneralDataSolutionCapabilityAriba = this.answers
             .docsProductGeneralDataSolutionCapabilityAriba;
         const aDocsProductGeneralDataSolutionCapabilityHybris = this.answers
             .docsProductGeneralDataSolutionCapabilityHybris;
-        const aDocsProductGeneralDataSolutionCapabilityERP = this.answers
-            .docsProductGeneralDataSolutionCapabilityERP;
-        const aDocsProductGeneralDataSolutionCapabilityEWM = this.answers
-            .docsProductGeneralDataSolutionCapabilityEWM;
-        const aDocsProductGeneralDataSolutionCapabilityCRM = this.answers
-            .docsProductGeneralDataSolutionCapabilityCRM;
-        const aDocsProductGeneralDataSolutionCapabilitySRM = this.answers
-            .docsProductGeneralDataSolutionCapabilitySRM;
+        const aDocsProductGeneralDataSolutionCapabilityERP = this.answers.docsProductGeneralDataSolutionCapabilityERP;
+        const aDocsProductGeneralDataSolutionCapabilityEWM = this.answers.docsProductGeneralDataSolutionCapabilityEWM;
+        const aDocsProductGeneralDataSolutionCapabilityCRM = this.answers.docsProductGeneralDataSolutionCapabilityCRM;
+        const aDocsProductGeneralDataSolutionCapabilitySRM = this.answers.docsProductGeneralDataSolutionCapabilitySRM;
         const aDocsProductGeneralDataSolutionCapabilityCARAB = this.answers
             .docsProductGeneralDataSolutionCapabilityCARAB;
-        const aDocsProductGeneralDataSolutionCapabilityIBP = this.answers
-            .docsProductGeneralDataSolutionCapabilityIBP;
+        const aDocsProductGeneralDataSolutionCapabilityIBP = this.answers.docsProductGeneralDataSolutionCapabilityIBP;
         const aDocsProductGeneralDataSolutionCapabilityCrystalReports = this.answers
             .docsProductGeneralDataSolutionCapabilityCrystalReports;
-        const aDocsProductGeneralDataSolutionCapabilityC4C = this.answers
-            .docsProductGeneralDataSolutionCapabilityC4C;
-        const aDocsProductGeneralDataSolutionCapabilityGTS = this.answers
-            .docsProductGeneralDataSolutionCapabilityGTS;
-        const aDocsProductGeneralDataSolutionCapabilityPCM = this.answers
-            .docsProductGeneralDataSolutionCapabilityPCM;
-        const aDocsProductGeneralDataSolutionCapabilitySBOP = this.answers
-            .docsProductGeneralDataSolutionCapabilitySBOP;
+        const aDocsProductGeneralDataSolutionCapabilityC4C = this.answers.docsProductGeneralDataSolutionCapabilityC4C;
+        const aDocsProductGeneralDataSolutionCapabilityGTS = this.answers.docsProductGeneralDataSolutionCapabilityGTS;
+        const aDocsProductGeneralDataSolutionCapabilityPCM = this.answers.docsProductGeneralDataSolutionCapabilityPCM;
+        const aDocsProductGeneralDataSolutionCapabilitySBOP = this.answers.docsProductGeneralDataSolutionCapabilitySBOP;
         const aDocsProductGeneralDataSolutionCapabilityAnalyticsCloud = this.answers
             .docsProductGeneralDataSolutionCapabilityAnalyticsCloud;
         const aDocsProductGeneralDataSolutionCapabilityUnrelated = this.answers
             .docsProductGeneralDataSolutionCapabilityUnrelated;
-        const aDocsProductGeneralDataRequiredBackEndProduct = this.answers
-            .docsProductGeneralDataRequiredBackEndProduct;
-        const sDocsProductGeneralDataApplicationType = this.answers
-            .docsProductGeneralDataApplicationType;
+        const aDocsProductGeneralDataRequiredBackEndProduct = this.answers.docsProductGeneralDataRequiredBackEndProduct;
+        const sDocsProductGeneralDataApplicationType = this.answers.docsProductGeneralDataApplicationType;
         const sDocsProductGeneralDataUserInterfaceTechnology = this.answers
             .docsProductGeneralDataUserInterfaceTechnology;
         const aDocsProductGeneralDataDatabase = this.answers.docsProductGeneralDataDatabase;
         const aDocsProductGeneralDataFormFactor = this.answers.docsProductGeneralDataFormFactor;
         const sDocsProductGeneralDataAppId = this.answers.docsProductGeneralDataAppId;
-        const aDocsProductKeyFeaturesCRUDOperations = this.answers
-            .docsProductKeyFeaturesCRUDOperations;
+        const aDocsProductKeyFeaturesCRUDOperations = this.answers.docsProductKeyFeaturesCRUDOperations;
         const sDocsFrontendProductVersion = this.answers.docsFrontendProductVersion;
         const sDocsFrontendSPS = this.answers.docsFrontendSPS;
         const sDocsFrontendSCV = this.answers.docsFrontendSCV;

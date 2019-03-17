@@ -6,8 +6,8 @@ sap.ui.define(['<%= projectNamespaceAMD %>/controller/BaseController', 'sap/m/Me
 
     return BaseController.extend('<%= projectNamespace %>.controller.App', {
         /*
-     * Lifecycle Methods
-    */
+         * Lifecycle Methods
+         */
 
         /**
          * Lifecycle method onInit
@@ -34,12 +34,12 @@ sap.ui.define(['<%= projectNamespaceAMD %>/controller/BaseController', 'sap/m/Me
         onExit: function() {},
 
         /*
-     * Event Handler
-    */
+         * Event Handler
+         */
 
         /*
-     * TODO
-     */
+         * TODO
+         */
         handleButtonPress: function(oEvent) {
             var oInput = this.getView().byId('input');
             var sString = 'Hello World!';

@@ -5,8 +5,8 @@ sap.ui.define(['<%= projectNamespaceAMD %>/controller/BaseController', 'sap/ui/c
 
     return BaseController.extend('<%= projectNamespace %>.controller.App', {
         /*
-     * Lifecycle Methods
-    */
+         * Lifecycle Methods
+         */
 
         /**
          * Lifecycle method onInit
@@ -33,7 +33,7 @@ sap.ui.define(['<%= projectNamespaceAMD %>/controller/BaseController', 'sap/ui/c
         onExit: function() {},
 
         /*
-     * Event Handler
-    */
+         * Event Handler
+         */
     });
 });
