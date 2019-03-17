@@ -1,6 +1,6 @@
 {
     "name": "generator-ui5-boilerplate",
-    "version": "0.4.3",
+    "version": "0.4.4",
     "description": "Generator for UI5 project boilerplate incl. documentation",
     "homepage": "https://github.com/nlsltz/generator-ui5-boilerplate",
     "author": {
@@ -62,8 +62,8 @@
             "git add"
         ],
         "*.css": [
-          "prettier --write",
-          "git add"
+            "prettier --write",
+            "git add"
         ]
     },
     "eslintConfig": {
@@ -79,14 +79,14 @@
             "prettier/prettier": [
                 "error",
                 {
-                  "printWidth": 120,
-                  "tabWidth": 4,
-                  "useTabs": false,
-                  "singleQuote": true,
-                  "trailingComma": "es5",
-                  "bracketSpacing": false,
-                  "jsxBracketSameLine": false,
-                  "parser": "babel"
+                    "printWidth": 120,
+                    "tabWidth": 4,
+                    "useTabs": false,
+                    "singleQuote": true,
+                    "trailingComma": "es5",
+                    "bracketSpacing": false,
+                    "jsxBracketSameLine": false,
+                    "parser": "babel"
                 }
             ]
         },

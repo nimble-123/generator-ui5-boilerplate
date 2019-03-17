@@ -1,3 +1,64 @@
+# Change Log
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## 0.4.4 (2019-03-17)
+
+
+
+## 0.4.3 (2018-07-09)
+
+
+### Features
+
+* **changelog:** add changelog generation ([8dae79e](https://github.com/nlsltz/generator-ui5-boilerplate/commit/8dae79e))
+
+
+
+## 0.4.2 (2018-07-07)
+
+
+
+## 0.4.1 (2018-07-06)
+
+
+
+# 0.4.0 (2018-07-06)
+
+
+
+## 0.3.5 (2018-07-04)
+
+
+
+## 0.3.4 (2018-07-03)
+
+
+
+## 0.3.3 (2018-07-03)
+
+
+
+## 0.3.2 (2018-07-02)
+
+
+
+## 0.3.1 (2018-07-02)
+
+
+
+# 0.3.0 (2018-07-01)
+
+
+
+# 0.2.0 (2018-06-30)
+
+
+
+# 0.1.0 (2018-06-29)
+
+
+
 <a name="unreleased"></a>
 ## [Unreleased]
 
