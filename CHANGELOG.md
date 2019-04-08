@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.8](https://github.com/nlsltz/generator-ui5-boilerplate/compare/v0.4.7...v0.4.8) (2019-04-08)
+
+
+### Bug Fixes
+
+* **templates:** Fix missing placeholder and debugger statement ([9530117](https://github.com/nlsltz/generator-ui5-boilerplate/commit/9530117))
+
+
+
 ## [0.4.7](https://github.com/nlsltz/generator-ui5-boilerplate/compare/v0.4.6...v0.4.7) (2019-03-17)
 
 
